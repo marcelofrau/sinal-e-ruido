@@ -1,0 +1,37 @@
+title: Sinal e Ruído
+tagline: "Desde o tempo em que não existiam abas…"
+description: "Caderno de campo pessoal: descobertas rápidas, reflexões, memórias e fragmentos de quem funciona por ciclos de superfoco."
+url: "https://marcelofrau.github.io"
+baseurl: "/sinal-e-ruido"
+lang: pt-BR
+timezone: America/Sao_Paulo
+permalink: /:year/:month/:title/
+
+author:
+  name: Marcelo Frau
+
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - node_modules
+  - vendor
+  - scripts
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - AGENTS.md

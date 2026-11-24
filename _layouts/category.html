@@ -1,0 +1,24 @@
+---
+layout: default
+---
+{% assign posts = site.posts | where: 'categories', page.category_key %}
+<header class="section-head">
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}<p class="section-desc">{{ page.description }}</p>{% endif %}
+  <p class="meta">{{ posts | size }} publica&ccedil;&otilde;es</p>
+</header>
+{% if page.category_key == 'fragmentos' %}
+  <div class="fragment-list">
+    {% for post in posts %}{% include fragment-card.html post=post %}{% endfor %}
+  </div>
+{% else %}
+  <div class="post-list">
+    {% for post in posts %}
+      <article class="post-item">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="meta">{{ post.date | date: '%d/%m/%Y' }}</p>
+        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+      </article>
+    {% endfor %}
+  </div>
+{% endif %}

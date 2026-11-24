@@ -1,0 +1,8 @@
+<nav class="toolbar" aria-label="Navegação">
+  <a class="btn" href="{{ '/' | relative_url }}">Início</a>
+  {% for s in site.data.sections %}
+  <a class="btn" href="{{ s.key | prepend: '/' | relative_url }}">{{ s.name }}</a>
+  {% endfor %}
+  <a class="btn" href="{{ '/arquivo/' | relative_url }}">Arquivo</a>
+  <button class="btn" id="btn-random" type="button">Aleatório</button>
+</nav>

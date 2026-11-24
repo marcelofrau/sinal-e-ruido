@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="{{ site.lang }}" data-baseurl="{{ site.baseurl }}">
+<head>{% include head.html %}</head>
+<body>
+  <div class="window">
+    {% include titlebar.html %}
+    {% include toolbar.html %}
+    {% include locationbar.html %}
+    <main class="content">{{ content }}</main>
+    {% include statusbar.html %}
+  </div>
+  <script src="{{ '/assets/js/random.js' | relative_url }}"></script>
+</body>
+</html>

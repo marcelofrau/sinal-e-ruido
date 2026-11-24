@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-head">
+    <h1>{{ page.title | default: 'Fragmento' }}</h1>
+    <p class="meta">
+      {{ page.date | date: '%d/%m/%Y' }} &middot;
+      {% for s in site.data.sections %}{% if page.categories[0] == s.key %}<a href="{{ s.key | prepend: '/' | relative_url }}">{{ s.name }}</a>{% endif %}{% endfor %}
+    </p>
+  </header>
+  <div class="post-body">{{ content }}</div>
+</article>

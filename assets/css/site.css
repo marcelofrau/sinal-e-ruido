@@ -1,0 +1,358 @@
+/* Sinal e Ruído — tema Windows 95 + Netscape Communicator 4. CSS puro, zero framework. */
+
+:root {
+  --teal: #008080;
+  --face: #C0C0C0;
+  --light: #DFDFDF;
+  --shadow: #808080;
+  --dark: #0A0A0A;
+  --link: #0000EE;
+  --visited: #551A8B;
+  --active: #FF0000;
+  --paper: #FAF9F5;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 1.5em 0;
+  background: var(--teal);
+  font-family: Tahoma, "MS Sans Serif", "Segoe UI", Geneva, sans-serif;
+  font-size: 13px;
+  color: #000;
+}
+
+/* ---------- Janela ---------- */
+
+.window {
+  width: 90%;
+  margin: 0 auto;
+  background: var(--face);
+  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    inset -1px -1px var(--dark),
+    inset 1px 1px #FFFFFF,
+    inset -2px -2px var(--shadow),
+    inset 2px 2px var(--light);
+}
+
+/* ---------- Barra de título ---------- */
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 3px 4px;
+  margin-bottom: 2px;
+  background: linear-gradient(90deg, #000080, #1084D0);
+  color: #FFF;
+  font-weight: bold;
+  user-select: none;
+}
+
+.tb-title {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tb-btns { display: flex; gap: 2px; flex: 0 0 auto; }
+
+.tb-btn {
+  min-width: 16px;
+  height: 14px;
+  line-height: 12px;
+  text-align: center;
+  font-size: 9px;
+  font-weight: bold;
+  color: #000;
+  background: var(--face);
+  box-shadow:
+    inset -1px -1px var(--dark),
+    inset 1px 1px #FFFFFF,
+    inset -2px -2px var(--shadow),
+    inset 2px 2px var(--light);
+}
+
+/* ---------- Toolbar ---------- */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  background: var(--face);
+}
+
+.btn {
+  display: inline-block;
+  padding: 4px 10px;
+  font: inherit;
+  color: #000;
+  text-decoration: none;
+  background: var(--face);
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    inset -1px -1px var(--dark),
+    inset 1px 1px #FFFFFF,
+    inset -2px -2px var(--shadow),
+    inset 2px 2px var(--light);
+}
+
+.btn:active {
+  box-shadow:
+    inset 1px 1px var(--dark),
+    inset -1px -1px #FFFFFF,
+    inset 2px 2px var(--shadow),
+    inset -2px -2px var(--light);
+  padding: 5px 9px 3px 11px;
+}
+
+.toolbar .btn:hover { color: #000; }
+
+/* ---------- Location ---------- */
+
+.locationbar {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 3px;
+  background: var(--face);
+  box-shadow: inset 0 1px var(--shadow), 0 1px #FFFFFF;
+}
+
+.loc-label { flex: 0 0 auto; }
+
+.field {
+  flex: 1;
+  min-width: 0;
+  padding: 3px 6px;
+  background: #FFF;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow:
+    inset 1px 1px var(--shadow),
+    inset -1px -1px #FFFFFF,
+    inset 2px 2px var(--dark),
+    inset -2px -2px var(--light);
+}
+
+.throbber {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--face);
+  box-shadow:
+    inset 1px 1px var(--shadow),
+    inset -1px -1px #FFFFFF,
+    inset 2px 2px var(--dark),
+    inset -2px -2px var(--light);
+}
+
+.throbber span {
+  font: bold 13px Tahoma, sans-serif;
+  color: #000080;
+  animation: throb-spin 1.2s steps(8) infinite;
+}
+
+@keyframes throb-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ---------- Área de leitura ---------- */
+
+.content {
+  flex: 1;
+  margin: 0;
+  padding: 1.2em 1.5em;
+  background: var(--paper);
+  box-shadow:
+    inset 1px 1px var(--shadow),
+    inset -1px -1px #FFFFFF,
+    inset 2px 2px var(--dark),
+    inset -2px -2px var(--light);
+  overflow-wrap: break-word;
+}
+
+a { color: var(--link); text-decoration: underline; }
+a:visited { color: var(--visited); }
+a:hover, a:active { color: var(--active); }
+
+h1, h2, h3 {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1.15em;
+  line-height: 1.3;
+  margin: 0 0 0.4em;
+}
+
+h1 { font-size: 1.45em; }
+h2 { font-size: 1.2em; }
+
+.meta {
+  font-size: 0.85em;
+  color: #444;
+  margin: 0 0 0.6em;
+}
+
+.home-head, .section-head { margin-bottom: 1.2em; }
+.tagline { color: #333; margin: 0.2em 0 0; font-style: italic; }
+.section-desc { color: #333; margin: 0.2em 0 0; }
+
+/* Corpo de post: tipografia de leitura, não de UI. */
+.post-body, .page-body {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: #111;
+}
+
+.post-body p, .page-body p { margin: 0 0 1em; }
+.post-body li { margin-bottom: 0.4em; }
+.post-body blockquote {
+  margin: 1em 0;
+  padding: 0.2em 1em;
+  border-left: 4px solid var(--shadow);
+  color: #333;
+}
+.post-body img { max-width: 100%; height: auto; }
+.post-body code, .page-body code {
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 0.9em;
+  background: #EEE;
+  padding: 0 3px;
+}
+.post-body pre {
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 0.85em;
+  background: #FFF;
+  padding: 0.8em;
+  overflow-x: auto;
+  box-shadow:
+    inset 1px 1px var(--shadow),
+    inset -1px -1px #FFFFFF;
+}
+
+/* ---------- Listagem de posts ---------- */
+
+.post-item {
+  padding: 0.8em 0;
+  border-bottom: 1px solid #D8D8D8;
+}
+
+.post-item h2 { margin: 0 0 0.2em; }
+
+.post-item p { margin: 0; font-size: 0.95em; color: #333; }
+
+/* ---------- Fragmentos: Bloco de Notas inline ---------- */
+
+.fragment-list, .post-list { display: flex; flex-direction: column; gap: 0.8em; }
+.post-list { gap: 0; }
+
+.fragment-card {
+  background: #FFF;
+  box-shadow:
+    inset 1px 1px var(--shadow),
+    inset -1px -1px #FFFFFF,
+    inset 2px 2px var(--dark),
+    inset -2px -2px var(--light);
+}
+
+.fc-title {
+  padding: 3px 6px;
+  background: var(--face);
+  font-weight: bold;
+  font-size: 0.85em;
+  box-shadow: inset 0 -1px #FFFFFF, 0 1px var(--shadow);
+}
+
+.fc-body {
+  padding: 0.7em 1em;
+  font-family: "Lucida Console", Consolas, monospace;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.fc-body p { margin: 0; }
+
+.fc-meta {
+  padding: 2px 6px;
+  font-size: 0.8em;
+  box-shadow: inset 0 1px var(--shadow);
+}
+
+/* ---------- Arquivo ---------- */
+
+.search-field {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 0 1em;
+  padding: 5px 8px;
+  font: inherit;
+  background: #FFF;
+  border: none;
+  box-shadow:
+    inset 1px 1px var(--shadow),
+    inset -1px -1px #FFFFFF,
+    inset 2px 2px var(--dark),
+    inset -2px -2px var(--light);
+}
+
+.page-body ul { padding-left: 1.3em; }
+
+.archive-list { list-style: none; margin: 0 0 1em; padding-left: 0.2em; }
+
+.archive-list li {
+  padding: 2px 0;
+  font-size: 0.95em;
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.archive-list .meta { margin: 0; flex: 0 0 auto; }
+
+/* ---------- Status bar ---------- */
+
+.statusbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  padding: 3px 2px 2px;
+  font-size: 0.8em;
+}
+
+.status-panel {
+  padding: 2px 8px;
+  background: var(--face);
+  white-space: nowrap;
+  box-shadow:
+    inset 1px 1px var(--shadow),
+    inset -1px -1px #FFFFFF;
+}
+
+.status-panel:first-child { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 760px) {
+  body { padding: 0; }
+  .window { width: 100%; }
+  .content { padding: 1em 0.9em; }
+  .toolbar .btn { padding: 5px 8px; font-size: 0.9em; }
+  .throbber span { animation-duration: 2s; }
+  .post-body, .page-body { font-size: 16px; }
+  .archive-list li { flex-direction: column; gap: 0; }
+}

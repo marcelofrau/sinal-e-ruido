@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<header class="home-head">
+  <h1>{{ site.title }}</h1>
+  <p class="tagline">{{ site.tagline }}</p>
+</header>
+<div class="post-list">
+  {% for post in site.posts limit: 15 %}
+    {% if post.categories contains 'fragmentos' %}
+      {% include fragment-card.html post=post %}
+    {% else %}
+      <article class="post-item">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="meta">
+          {{ post.date | date: '%d/%m/%Y' }} &middot;
+          {% for s in site.data.sections %}{% if post.categories[0] == s.key %}<a href="{{ s.key | prepend: '/' | relative_url }}">{{ s.name }}</a>{% endif %}{% endfor %}
+        </p>
+        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+      </article>
+    {% endif %}
+  {% endfor %}
+</div>

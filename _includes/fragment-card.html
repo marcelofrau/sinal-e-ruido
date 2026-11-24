@@ -1,0 +1,5 @@
+<article class="fragment-card">
+  <div class="fc-title"><span>{{ include.post.title | default: 'fragmento' }}.txt - Bloco de Notas</span></div>
+  <div class="fc-body">{{ include.post.content }}</div>
+  <div class="fc-meta"><a href="{{ include.post.url | relative_url }}">{{ include.post.date | date: '%d/%m/%Y %H:%M' }} &middot; abrir</a></div>
+</article>
