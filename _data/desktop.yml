@@ -1,6 +1,7 @@
 # Ícones do desktop e do menu Iniciar, na ordem em que aparecem.
 # Use "url" (abre na janela do Netscape) ou "open": browser | dos | dlg:<id> (template #tpl-dlg-<id> no default.html).
-# As pastas das seções vêm de sections.yml (todas menos fragmentos).
+# "hide_menu: true" tira o item do menu Iniciar (fica só no desktop). As seções do site não
+# aparecem aqui: ficam só dentro do Netscape (Personal Toolbar e sidebar).
 # Ícones: assets/icons/<icon>.png (set Windows 98 de windowsicons.alexmeub.com).
 - label: Meu Computador
   icon: computer_explorer-3
@@ -14,6 +15,7 @@
 - label: Lixeira
   icon: recycle_bin_empty-3
   open: dlg:trash
+  hide_menu: true
 - label: Bloco de Notas
   icon: notepad-3
   open: notepad

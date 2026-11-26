@@ -1,7 +1,6 @@
-{% comment %}Itens do desktop e do menu Iniciar (mesmo markup, CSS diferente por container).{% endcomment %}
-{% for i in site.data.desktop %}
+{% comment %}Itens do desktop e do menu Iniciar (mesmo markup, CSS diferente por container).
+Desktop: include sem parâmetro. Menu Iniciar: include com menu=true (pula itens marcados
+hide_menu). Seções do site ficam só dentro do Netscape (toolbar + sidebar).{% endcomment %}
+{% for i in site.data.desktop %}{% unless include.menu and i.hide_menu %}
   <li>{% if i.url %}<a class="dicon" href="{{ i.url | relative_url }}">{% else %}<button class="dicon" type="button" data-open="{{ i.open }}">{% endif %}<img src="{{ '/assets/icons/' | append: i.icon | append: '.png' | relative_url }}" alt="" width="32" height="32"><span>{{ i.label }}</span>{% if i.url %}</a>{% else %}</button>{% endif %}</li>
-{% endfor %}
-{% for s in site.data.sections %}{% unless s.key == 'fragmentos' %}
-  <li><a class="dicon" href="{{ '/' | append: s.key | append: '/' | relative_url }}"><img src="{{ '/assets/icons/directory_closed-3.png' | relative_url }}" alt="" width="32" height="32"><span>{{ s.name }}</span></a></li>
 {% endunless %}{% endfor %}
