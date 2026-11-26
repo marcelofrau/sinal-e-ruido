@@ -487,72 +487,6 @@
     return win;
   }
 
-  // ---------- eye4u: o site de 2002 em Flash de verdade (SWF original via Ruffle) ----------
-  function openEye4u() {
-    const old = desk.querySelector(".win-flash");
-    if (old) return restore(old);
-    const body = doc.createElement("div");
-    body.className = "flash-frame";
-    const win = makeWin({ title: "eye4u - Flash Player", icon: "html-3", cls: "win-flash", body, w: 800, h: 386 });
-    setLoading(true, "Carregando o Macromedia Flash Player...");
-    const s = doc.createElement("script");
-    s.src = "https://unpkg.com/@ruffle-rs/ruffle@0.8.0";
-    s.onload = () => {
-      setLoading(false);
-      const R = window.RufflePlayer?.newest?.();
-      if (!R) return;
-      const p = R.createPlayer();
-      Object.assign(p.style, { width: "100%", height: "100%" });
-      body.append(p);
-      p.ruffle().load(BASE + "/assets/swf/eye4u_index.swf");
-    };
-    s.onerror = () => setLoading(false);
-    doc.head.append(s);
-    return win;
-  }
-
-  // ---------- Anfy Lake: applet Java 1.1 de 1998 de verdade (CheerpJ) ----------
-  let cheerpjLoaded = false;
-  function openAnfy() {
-    const old = desk.querySelector(".win-java");
-    if (old) return restore(old);
-    const body = doc.createElement("div");
-    body.className = "applet-frame";
-    const ap = doc.createElement("cheerpj-applet");
-    Object.assign(ap, { archive: BASE + "/assets/java/anlake.jar", code: "AnLake.class", width: 300, height: 256 });
-    const params = {
-      credits: "Applet by Fabio Ciucci (www.anfyteam.com)",
-      regcode: "fskdyjfr-htrdijmgmkp",
-      res: "1",
-      image: BASE + "/assets/java/palio.jpg",
-      wavspeed: "30",
-      perspective: "10",
-      farwaving: "200",
-      wind: "10",
-      halfreflect: "NO",
-    };
-    for (const k in params) {
-      const p = doc.createElement("param");
-      p.name = k;
-      p.value = params[k];
-      ap.append(p);
-    }
-    body.append(ap);
-    const win = makeWin({ title: "Anfy Lake - Java", icon: "java-3", cls: "win-java", body, w: 336, h: 340 });
-    if (cheerpjLoaded) return win;
-    setLoading(true, "Carregando o Java (CheerpJ)...");
-    const s = doc.createElement("script");
-    s.src = "https://cjrtnc.leaningtech.com/5.0/loader.js";
-    s.onload = () => {
-      cheerpjLoaded = true;
-      setLoading(false);
-      try { cheerpjInit(); } catch (e) { console.error(e); }
-    };
-    s.onerror = () => setLoading(false);
-    doc.head.append(s);
-    return win;
-  }
-
   // ---------- lançadores: ícones do desktop, menu Iniciar, data-open ----------
   // API mínima pros apps carregados sob demanda (mirc.js, mines.js).
   window.__snr = { makeWin, restore, ICONS, BASE, setLoading };
@@ -575,8 +509,6 @@
     else if (open === "winamp") openWinamp();
     else if (open === "paint") openWeb("https://jspaint.app", "Paint");
     else if (open === "pinball") openAppWin("https://pinball.alula.me", "3D Pinball", "pinball");
-    else if (open === "eye4u") openEye4u();
-    else if (open === "anfy") openAnfy();
     else if (open?.startsWith("dlg:")) dialog(open.slice(4));
   }
 

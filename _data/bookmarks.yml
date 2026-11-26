@@ -49,6 +49,14 @@
     - title: retrogame-modding
       url: https://github.com/marcelofrau/retrogame-modding
       desc: "Documentação e diagramas de modding retrô."
+- group: Ressurreições
+  links:
+    - title: eye4u (2002)
+      url: /eye4u/
+      desc: "O lendário site alemão de Flash rodando o SWF original de 2002 (via Wayback) no Ruffle."
+    - title: Anfy Lake (1998)
+      url: /anfy/
+      desc: "Homenagem ao applet Java do Fabio Ciucci: o efeito Lago do demo original, em canvas puro."
 - group: Arquivo da web
   links:
     - title: Space Jam (1996)

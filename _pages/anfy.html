@@ -1,0 +1,53 @@
+---
+permalink: /anfy/
+sitemap: false
+noindex: true
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Anfy Lake</title>
+<meta name="description" content="Homenagem ao applet Java AnLake do Fabio Ciucci (anfyteam.com, 1998): o efeito Lago em canvas puro.">
+<style>
+  html, body { height: 100%; margin: 0; background: #000; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas { max-width: 100%; max-height: 100%; }
+</style>
+</head>
+<body>
+<!-- O applet original (anlake.jar, bytecode Java 1.1) não renderiza no CheerpJ 5:
+     AWT pixel-a-pixel quebra. Esta é a homenagem honesta: o efeito que todo mundo
+     lembra, refletindo a imagem do demo original (palio.jpg, arquivado em 2000). -->
+<canvas id="lake"></canvas>
+<script>
+(() => {
+  const img = new Image();
+  img.onload = () => {
+    const canvas = document.getElementById("lake");
+    const w = img.width, h = img.height;
+    canvas.width = w;
+    canvas.height = h * 2;
+    const ctx = canvas.getContext("2d");
+    const shade = ctx.createLinearGradient(0, h, 0, h * 2);
+    shade.addColorStop(0, "rgba(0,0,32,0)");
+    shade.addColorStop(1, "rgba(0,0,32,.45)");
+    let t = 0;
+    (function frame() {
+      t += 0.06;
+      ctx.drawImage(img, 0, 0);
+      for (let y = 0; y < h; y++) {
+        const p = y / h;
+        const off = Math.sin(t + y * 0.09) * (1.5 + 9 * p);
+        ctx.drawImage(img, 0, y, w, 1, off, h + y, w, 1);
+      }
+      ctx.fillStyle = shade;
+      ctx.fillRect(0, h, w, h);
+      requestAnimationFrame(frame);
+    })();
+  };
+  img.src = "{{ '/assets/java/palio.jpg' | relative_url }}";
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+---
+permalink: /eye4u/
+sitemap: false
+noindex: true
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>eye4u</title>
+<meta name="description" content="O lendário site alemão de Flash (2002), SWF original rodando no Ruffle.">
+<style>html,body{height:100%;margin:0;background:#000;overflow:hidden}#eye4u{position:absolute;inset:0}</style>
+</head>
+<body>
+<div id="eye4u"></div>
+<!-- SWF original de 2002 (via Wayback) versionado em assets/swf/; Ruffle fixado em 0.8.0. -->
+<script src="https://unpkg.com/@ruffle-rs/ruffle@0.8.0"></script>
+<script>
+  if (typeof RufflePlayer !== "undefined") {
+    const p = RufflePlayer.newest().createPlayer();
+    Object.assign(p.style, { width: "100%", height: "100%" });
+    document.getElementById("eye4u").append(p);
+    p.ruffle().load("{{ '/assets/swf/eye4u_1n.swf' | relative_url }}");
+  }
+</script>
+</body>
+</html>

@@ -28,12 +28,6 @@
 - label: 3D Pinball
   icon: pinball
   open: pinball
-- label: eye4u
-  icon: html-3
-  open: eye4u
-- label: Anfy Lake
-  icon: java-3
-  open: anfy
 - label: Lixeira
   icon: recycle_bin_empty-3
   open: dlg:trash
