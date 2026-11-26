@@ -29,6 +29,8 @@ jobs:
         run: node scripts/prepare-giscus.mjs && bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+          GISCUS_REPO_ID: ${{ vars.GISCUS_REPO_ID }}
+          GISCUS_CATEGORY_ID: ${{ vars.GISCUS_CATEGORY_ID }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
