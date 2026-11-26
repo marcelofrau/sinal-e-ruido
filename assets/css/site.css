@@ -333,9 +333,13 @@ button { font: inherit; color: inherit; }
 
 /* sites externos "dentro do Netscape": barra de endereço + iframe + dica */
 .web { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; background: var(--face); }
+.ns-content { position: relative; }
+.ns-content .web { position: absolute; inset: 0; z-index: 1; }
 .web-url { flex: none; display: flex; align-items: center; gap: 6px; padding: 3px 4px; border-bottom: 1px solid var(--shadow); font: 11px var(--ui); }
 .web-url b { flex: none; }
 .web-url span { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 2px 4px; background: #fff; box-shadow: var(--sunken); }
+.web-back { flex: none; padding: 1px 6px; border: 1px solid var(--shadow); background: var(--face); box-shadow: var(--raised); text-decoration: none; color: #000; }
+.web-back:active { box-shadow: var(--sunken); }
 .web-frame { flex: 1; min-height: 0; width: 100%; border: 0; background: #fff; }
 .web-hint { flex: none; padding: 3px 8px; border-top: 1px solid var(--hi); font: 10.5px var(--ui); color: var(--muted); }
 

@@ -279,6 +279,8 @@
     popups.forEach((w, p) => { if (p !== location.pathname) closeWin(w, true); });
     const p = e.state?.popup;
     if (p && !popups.has(p)) openPost(p, false);
+    if (e.state?.frame) openInBrowser(e.state.frame, e.state.title, false);
+    else closeFrameView();
   });
 
   // Vídeo (_includes/video.html): o iframe do YouTube/Vimeo só entra no clique, nada de terceiros antes.
@@ -298,7 +300,75 @@
     openPost(a.href);
   });
 
-  // ---------- sites externos "dentro do Netscape" (Favoritos) ----------
+  // ---------- sites externos DENTRO da janela do Netscape (Favoritos) ----------
+  // Navega na janela principal: o Voltar da toolbar (history.back) volta pro blog.
+  const nsContent = browser.querySelector(".ns-content");
+  const baseCaption = browser.querySelector(".win-caption").textContent;
+  let frameView = null;
+
+  function buildFrameView() {
+    frameView = doc.createElement("div");
+    frameView.className = "web";
+    frameView.hidden = true;
+    const bar = doc.createElement("div");
+    bar.className = "web-url";
+    const label = doc.createElement("b");
+    label.textContent = "Endere\u00e7o:";
+    const loc = doc.createElement("span");
+    const back = doc.createElement("a");
+    back.className = "web-back";
+    back.href = "#";
+    back.textContent = "\u21a9 voltar ao site";
+    back.addEventListener("click", e => { e.preventDefault(); history.back(); });
+    bar.append(label, loc, back);
+    const frame = doc.createElement("iframe");
+    Object.assign(frame, { className: "web-frame", referrerPolicy: "no-referrer" });
+    const hint = doc.createElement("div");
+    hint.className = "web-hint";
+    hint.append(doc.createTextNode("N\u00e3o carregou? O site pode bloquear frames: "));
+    const out = doc.createElement("a");
+    Object.assign(out, { target: "_blank", rel: "noopener" });
+    out.textContent = "abrir numa aba real";
+    hint.append(out);
+    frameView.append(bar, frame, hint);
+    nsContent.append(frameView);
+  }
+
+  function openInBrowser(url, title, push = true) {
+    if (!frameView) buildFrameView();
+    const frame = frameView.querySelector("iframe");
+    if (frameView.hidden) {
+      nsContent.querySelector(".page").hidden = true;
+      frameView.hidden = false;
+    }
+    frame.src = url;
+    frame.title = title;
+    frameView.querySelector(".web-url span").textContent = url;
+    frameView.querySelector(".web-hint a").href = url;
+    setCaption(browser, title + " - Netscape");
+    doc.title = title;
+    if (push) history.pushState({ frame: url, title }, "", location.pathname);
+    setLoading(true, "Contatando o host: " + new URL(url).host + "...");
+    frame.addEventListener("load", () => setLoading(false), { once: true });
+  }
+
+  function closeFrameView() {
+    if (!frameView || frameView.hidden) return;
+    frameView.hidden = true;
+    frameView.querySelector("iframe").src = "about:blank";
+    nsContent.querySelector(".page").hidden = false;
+    setCaption(browser, baseCaption);
+    doc.title = baseTitle;
+  }
+
+  doc.addEventListener("click", e => {
+    const a = e.target.closest("a[data-frame]");
+    if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    openInBrowser(a.href, a.dataset.frame || a.textContent.trim());
+  });
+
+  // ---------- apps em janelas próprias (Winamp, Paint, Pinball) ----------
   const webs = new Map(); // url -> janela
 
   function openWeb(url, title) {
@@ -329,13 +399,6 @@
     win._onclose = () => webs.delete(url);
     return win;
   }
-
-  doc.addEventListener("click", e => {
-    const a = e.target.closest("a[data-frame]");
-    if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    e.preventDefault();
-    openWeb(a.href, a.dataset.frame || a.textContent.trim());
-  });
 
   // ---------- MS-DOS (js-dos v8, carregado só quando abre) ----------
   let dosLib;
