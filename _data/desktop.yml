@@ -25,7 +25,7 @@
   icon: game_mine_1-0
   open: mines
 - label: 3D Pinball
-  icon: joystick-3
+  icon: pinball
   open: pinball
 - label: Lixeira
   icon: recycle_bin_empty-3
