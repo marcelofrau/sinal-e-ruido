@@ -130,11 +130,7 @@ button { font: inherit; color: inherit; }
 .ns-menubar > button:hover { box-shadow: inset -1px -1px var(--shadow), inset 1px 1px var(--hi); }
 .ns-bar {
   flex: none; position: relative; display: flex; align-items: center; gap: 2px;
-  padding: 2px 4px 2px 16px; border-bottom: 1px solid var(--shadow); box-shadow: 0 1px var(--hi);
-}
-.ns-bar::before { /* "aba" da toolbar que recolhe no NS4 */
-  content: ""; position: absolute; left: 3px; top: 3px; bottom: 3px; width: 9px;
-  background: var(--face); box-shadow: inset -1px -1px var(--shadow), inset 1px 1px var(--hi);
+  padding: 2px 4px; border-bottom: 1px solid var(--shadow); box-shadow: 0 1px var(--hi);
 }
 .ns-btn {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
@@ -152,8 +148,6 @@ button { font: inherit; color: inherit; }
   background: #000 url(../img/netscape-throbber.gif) center / 40px 40px no-repeat;
   box-shadow: 0 0 0 1px var(--shadow), 1px 1px 0 1px var(--hi);
 }
-.ns-loc { gap: 6px; }
-.ns-label { flex: none; font-weight: bold; color: #400080; }
 .ns-mini {
   display: inline-flex; align-items: center; gap: 3px; padding: 2px 5px; flex: none;
   border: 1px solid transparent; color: #000; text-decoration: none; white-space: nowrap;
@@ -161,13 +155,6 @@ button { font: inherit; color: inherit; }
 .ns-mini:visited { color: #000; }
 .ns-mini svg { width: 16px; height: 16px; }
 .ns-mini:hover { border-color: var(--hi) var(--shadow) var(--shadow) var(--hi); }
-.ns-loc .ns-mini { font-weight: bold; }
-.field {
-  flex: 1; min-width: 0; display: flex; align-items: center; gap: 4px; height: 22px; padding: 2px 4px;
-  background: #fff; box-shadow: var(--sunken); font: 12px/1 var(--ui); white-space: nowrap; overflow: hidden;
-}
-.field svg { width: 16px; height: 16px; flex: none; }
-.field span { overflow: hidden; text-overflow: ellipsis; }
 .ns-personal { overflow-x: auto; scrollbar-width: none; }
 .ns-content { flex: 1; min-height: 0; overflow: auto; margin: 2px; background: var(--paper); box-shadow: var(--sunken); container-type: inline-size; }
 .ns-status { flex: none; display: flex; gap: 2px; padding-top: 2px; }
@@ -248,11 +235,16 @@ button { font: inherit; color: inherit; }
 
 /* --gutter alinha masthead/rodapé com a coluna centralizada de 1080px */
 .page { --gutter: max(clamp(16px, 4%, 40px), calc((100% - 1080px) / 2 + 40px)); }
-.masthead { position: relative; padding: 22px var(--gutter) 18px; }
-.masthead::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--dither); opacity: .55; }
-.page .mh-title, .page .mh-title:visited { color: var(--ink); text-decoration: none; font: 700 clamp(26px, 4cqi, 34px)/1.1 var(--serif); letter-spacing: -.01em; }
-.page .mh-title:hover { color: var(--navy); }
-.mh-tag { margin: 4px 0 0; color: var(--muted); font: italic 15px/1.4 var(--serif); }
+/* faixa azul com texto branco (a "Luna" da versão anterior) */
+.masthead {
+  padding: 20px var(--gutter) 16px; border-bottom: 2px solid #003c9e;
+  background: linear-gradient(180deg, #0058e6 0%, #3a93ff 6%, #288eff 30%, #127dff 80%, #036ffc 92%, #0057e5 100%);
+}
+.page .mh-title, .page .mh-title:visited, .page .mh-title:hover {
+  color: #fff; text-decoration: none; font: 700 clamp(26px, 4cqi, 34px)/1.1 var(--serif); letter-spacing: -.01em;
+  text-shadow: 1px 1px 0 #0a1e6a, 2px 2px 3px rgba(0, 0, 0, .35);
+}
+.mh-tag { margin: 4px 0 0; color: #dbe8ff; font: italic 15px/1.4 var(--serif); }
 
 .cols { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) 232px; gap: 24px 48px; align-items: start; width: 100%; max-width: 1080px; margin: 0 auto; padding: 26px clamp(16px, 4%, 40px) 36px; }
 .page-main { min-width: 0; }

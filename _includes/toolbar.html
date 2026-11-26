@@ -14,11 +14,6 @@
   <button class="ns-btn" type="button" data-cmd="stop"><svg><use href="#i-stop"/></svg><span>Parar</span></button>
   <span class="throbber" role="img" aria-label="Netscape"></span>
 </nav>
-<div class="ns-bar ns-loc">
-  <a class="ns-mini" href="{{ '/arquivo/' | relative_url }}"><svg><use href="#i-bm"/></svg>Bookmarks</a>
-  <span class="ns-label">Netsite:</span>
-  <span class="field"><svg><use href="#i-page"/></svg><span id="ns-location">{{ page.url | absolute_url }}</span></span>
-</div>
 <nav class="ns-bar ns-personal" aria-label="Seções">
   {% for s in site.data.sections %}<a class="ns-mini" href="{{ '/' | append: s.key | append: '/' | relative_url }}"><svg><use href="#i-bm"/></svg>{{ s.name }}</a>{% endfor %}
   <a class="ns-mini" href="{{ '/arquivo/' | relative_url }}"><svg><use href="#i-bm"/></svg>Arquivo</a>
