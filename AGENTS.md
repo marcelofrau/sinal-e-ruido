@@ -2,7 +2,7 @@
 
 ## Scope
 
-Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Pages nativo). Tema próprio em CSS puro, sem framework e sem fonte externa: desktop Windows 98 (janelas com os botões do Windows 3.11), navegador Netscape Communicator 4 e páginas de leitura moderna com detalhes retrô. Ícones: PNGs do Windows 98 versionados em `assets/icons/`. Dependências externas só sob demanda: js-dos v8 (CDN), carregado ao abrir o MS-DOS, e iframes de YouTube/Vimeo, carregados no clique do vídeo. Conteúdo rico (vídeo, cartão de link, avisos): ver `CLAUDE.md` e `/estilos/`.
+Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Pages nativo). Tema próprio em CSS puro, sem framework; fontes do Google Fonts versionadas em `assets/fonts/` (nunca o CDN): desktop Windows 98 (janelas com os botões do Windows 3.11), navegador Netscape Communicator 4 e páginas de leitura moderna com detalhes retrô. Ícones: PNGs do Windows 98 versionados em `assets/icons/`. Dependências externas só sob demanda: js-dos v8 (CDN), carregado ao abrir o MS-DOS, e iframes de YouTube/Vimeo, carregados no clique do vídeo. Conteúdo rico (vídeo, cartão de link, avisos): ver `CLAUDE.md` e `/estilos/`.
 
 ## Identity and Git
 
