@@ -28,6 +28,9 @@
 - label: 3D Pinball
   icon: pinball
   open: pinball
+- label: SkiFree
+  icon: joystick-3
+  open: skifree
 - label: Lixeira
   icon: recycle_bin_empty-3
   open: dlg:trash
