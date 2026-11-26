@@ -509,7 +509,7 @@
     else if (open === "winamp") openWinamp();
     else if (open === "paint") openWeb("https://jspaint.app", "Paint");
     else if (open === "pinball") openAppWin("https://pinball.alula.me", "3D Pinball", "pinball");
-    else if (open === "skifree") openAppWin("https://basicallydan.github.io/skifree.js/", "SkiFree", "joystick-3");
+    else if (open === "skifree") openAppWin("https://basicallydan.github.io/skifree.js/", "SkiFree", "skifree");
     else if (open?.startsWith("dlg:")) dialog(open.slice(4));
   }
 

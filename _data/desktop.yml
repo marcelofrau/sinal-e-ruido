@@ -29,7 +29,7 @@
   icon: pinball
   open: pinball
 - label: SkiFree
-  icon: joystick-3
+  icon: skifree
   open: skifree
 - label: Lixeira
   icon: recycle_bin_empty-3
