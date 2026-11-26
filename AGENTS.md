@@ -14,17 +14,17 @@ Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Page
 ## Content Rules
 
 - Posts em `_posts/YYYY-MM-DD-slug.md`; data no filename e no front matter devem bater.
-- Front matter obrigatório: `date`, `categories` (uma das 5 chaves de `_data/sections.yml`). `title`, `tags` e `description` opcionais **apenas** na categoria `fragmentos`; nas demais, sempre incluir.
+- Front matter obrigatório: `date`, `categories` (uma das chaves de `_data/sections.yml`). `title`, `tags` e `description` opcionais **apenas** nas categorias `fragmentos` e `ruido-branco`; nas demais, sempre incluir.
 - URLs são imutáveis após publicação: permalink `/:year/:month/:title/`.
 - Usar `relative_url` em todo link/asset local (site roda sob `/sinal-e-ruido/`).
-- Um post por categoria nas listagens; fragmentos são renderizados como Bloco de Notas inline (include `fragment-card.html`).
+- Um post por categoria nas listagens; fragmentos são renderizados como Bloco de Notas inline (include `fragment-card.html`); posts de `ruido-branco` (microblog) são renderizados inline pelo include `micro-card.html`.
 - Links para posts em listagens levam `data-popup` (abrem em janela popup via `assets/js/desktop.js`, que extrai o `.post` da página do post). Sem JS, viram link normal.
 - Índice estático `/index.json` (gerado de `_pages/index.json`) alimenta o botão Aleatório. Sempre via Liquid, nunca editar à mão o output.
 - Criar posts com `node scripts/new-post.mjs <secao> [titulo]` — não inventar front matter na mão.
 
 ## Sections
 
-Chaves fixas: `abas-abertas`, `entre-margens`, `o-que-fica`, `fora-de-escopo`, `fragmentos`. Não criar categoria nova sem aprovação. Páginas das seções em `_pages/<key>.md` (layout `category`, `category_key` = chave).
+Chaves fixas: `abas-abertas`, `entre-margens`, `o-que-fica`, `fora-de-escopo`, `fragmentos`, `ruido-branco`. Não criar categoria nova sem aprovação. Páginas das seções em `_pages/<key>.md` (layout `category`, `category_key` = chave).
 
 ## Validation
 

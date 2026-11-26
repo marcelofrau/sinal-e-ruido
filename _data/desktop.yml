@@ -23,6 +23,12 @@
 - label: Arquivo
   icon: directory_open_file_mydocs-3
   url: /arquivo/
+- label: Sobre
+  icon: msg_information-1
+  url: /sobre/
+- label: Favoritos
+  icon: html-3
+  url: /favoritos/
 - label: Canais
   icon: channels-3
   url: /feed.xml

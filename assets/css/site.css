@@ -50,6 +50,8 @@ body {
   font: 11px/1.3 var(--ui);
 }
 img { image-rendering: pixelated; }
+/* ícones de 32px reduzidos (taskbar, status) degradam com pixelated; suaviza */
+.taskbar img, .ns-status img { image-rendering: auto; }
 button { font: inherit; color: inherit; }
 [hidden] { display: none !important; }
 
@@ -104,7 +106,7 @@ button { font: inherit; color: inherit; }
 .win.is-max .win-max::after { border-top-color: #000; border-bottom: 0; margin-top: 1px; }
 /* 3.11: caixa do menu de controle (barra de espaço) */
 .win-ctl::before {
-  content: ""; position: absolute; left: 3px; right: 4px; top: 6px; height: 3px;
+  content: ""; position: absolute; left: 2px; right: 3px; top: 5px; height: 3px;
   background: #fff; border: 1px solid #000; box-shadow: 1px 1px 0 var(--shadow);
 }
 .win-menu {
@@ -222,6 +224,7 @@ button { font: inherit; color: inherit; }
 .start.is-down { background: var(--face); }
 .tasks { flex: 1; min-width: 0; display: flex; gap: 3px; overflow: hidden; }
 .task { flex: 0 1 160px; min-width: 40px; }
+.task img { width: 20px; height: 20px; }
 .task span { overflow: hidden; text-overflow: ellipsis; }
 .task.is-active span { font-weight: bold; }
 .tray { flex: none; display: flex; align-items: center; gap: 6px; height: 23px; padding: 0 8px; box-shadow: inset -1px -1px var(--hi), inset 1px 1px var(--shadow); }
@@ -237,7 +240,7 @@ button { font: inherit; color: inherit; }
 .sm-side b { color: #fff; margin-right: 6px; }
 .startmenu ul { list-style: none; margin: 0; padding: 0; min-width: 190px; }
 .startmenu .dicon { flex-direction: row; gap: 8px; width: 100%; padding: 3px 18px 3px 4px; color: #000; text-align: left; }
-.startmenu .dicon img { width: 24px; height: 24px; }
+.startmenu .dicon img { width: 32px; height: 32px; }
 .startmenu .dicon:hover, .startmenu .dicon:focus { background: var(--navy); color: #fff; outline: none; }
 .startmenu .dicon:focus span { background: none; outline: 0; }
 .sm-sep { height: 0; margin: 3px 2px; border-top: 1px solid var(--shadow); border-bottom: 1px solid var(--hi); }
@@ -288,7 +291,7 @@ button { font: inherit; color: inherit; }
 .page .chip:active, .post .chip:active { box-shadow: var(--sunken); }
 
 /* listagens */
-.post-list, .fragment-list { display: flex; flex-direction: column; }
+.post-list, .fragment-list, .micro-list { display: flex; flex-direction: column; }
 .entry { display: flex; gap: 18px; padding: 16px 0 18px; border-bottom: 1px solid var(--rule); }
 .post-list > :first-child { padding-top: 0; }
 .entry-text { flex: 1; min-width: 0; }
@@ -307,6 +310,22 @@ button { font: inherit; color: inherit; }
 .fc-body { padding: 10px 12px; background: #fff; box-shadow: var(--sunken); font: 14px/1.6 var(--mono); white-space: pre-wrap; color: var(--ink); }
 .fc-body p { margin: 0; }
 .fc-meta { padding: 3px 4px 1px; text-align: right; }
+
+/* microblog Ruído Branco: entrada curta, hora em pixel, corpo inline */
+.micro { padding: 12px 0 14px 14px; border-left: 2px solid var(--rule); }
+.micro-list > .micro:first-child { padding-top: 2px; }
+.micro-meta { display: flex; gap: 12px; align-items: baseline; margin-bottom: 5px; font: 400 10.5px/1.4 var(--pixel); letter-spacing: .04em; color: var(--muted); }
+.micro-meta a, .micro-meta a:visited { color: inherit; text-decoration: none; }
+.micro-meta a:hover { color: var(--accent); text-decoration: underline; }
+.micro-body { font: 15px/1.55 var(--sans); color: var(--ink); }
+.micro-body p { margin: 0 0 .75em; }
+.micro-body p:last-child { margin-bottom: 0; }
+
+/* Favoritos: lista de bookmarks */
+.bm-list { list-style: none; margin: 0 0 24px; padding: 0; }
+.bm-list li { padding: 6px 0 7px 14px; border-bottom: 1px dotted var(--rule); }
+.bm-list li:last-child { border-bottom: 0; }
+.bm-desc { display: block; margin-top: 1px; font-size: 13.5px; color: var(--muted); }
 
 /* sidebar: group boxes do 98 */
 .sidebar { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 22px; font-size: 13.5px; }

@@ -2,8 +2,8 @@
 // Cria um post novo com frontmatter preenchido e data atual.
 // Uso:
 //   node scripts/new-post.mjs <secao> ["titulo do post"]
-// Seções: abas-abertas, entre-margens, o-que-fica, fora-de-escopo, fragmentos
-// Em "fragmentos" o título é opcional (slug automático fragmento-HHMM).
+// Seções: abas-abertas, entre-margens, o-que-fica, fora-de-escopo, fragmentos, ruido-branco
+// Em "fragmentos" e "ruido-branco" o título é opcional (slug automático).
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 
@@ -13,7 +13,14 @@ const SECTIONS = [
   "o-que-fica",
   "fora-de-escopo",
   "fragmentos",
+  "ruido-branco",
 ];
+
+// Título opcional apenas nestas seções; o slug automático usa o prefixo.
+const AUTO_SLUG = {
+  fragmentos: "fragmento",
+  "ruido-branco": "ruido",
+};
 
 const [section, ...titleWords] = process.argv.slice(2);
 
@@ -53,7 +60,7 @@ const timeStr =
 
 const slug = title
   ? slugify(title)
-  : `fragmento-${pad(now.getDate())}${pad(now.getMonth() + 1)}-${pad(now.getHours())}${pad(now.getMinutes())}`;
+  : `${AUTO_SLUG[section]}-${pad(now.getDate())}${pad(now.getMonth() + 1)}-${pad(now.getHours())}${pad(now.getMinutes())}`;
 
 const file = path.join("_posts", `${dateStr}-${slug}.md`);
 
@@ -63,7 +70,7 @@ const fm = [
   `date: ${dateStr} ${timeStr}`,
   `categories: [${section}]`,
   "tags: []",
-  ...(section === "fragmentos" ? [] : ['description: ""']),
+  ...(AUTO_SLUG[section] ? [] : ['description: ""']),
   "---",
   "",
   "",

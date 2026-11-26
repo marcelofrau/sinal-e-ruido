@@ -1,0 +1,51 @@
+# Favoritos: compilado de links. Só adicionar entradas — a página /favoritos/ monta sozinha.
+# Novo grupo: copie um bloco "- group:". "desc" é opcional.
+- group: Meus projetos
+  links:
+    - title: Três por Dez
+      url: https://trespordez.pages.dev
+      desc: "Reviews, emulação, consoles, modding e retrogaming."
+    - title: XB Homebrew Vault
+      url: https://github.com/marcelofrau/xb-homebrew-vault
+      desc: "Gerenciador desktop de homebrew pra Xbox Dev Mode: emuladores e apps do Emulation Revival."
+    - title: Open Burning Suite
+      url: https://openburningsuite.pages.dev/
+      desc: "Gravação de disco open-source pra Windows, Linux e macOS."
+    - title: gopher64
+      url: https://gopher64.com
+      desc: "Emulador de Nintendo 64 focado em compatibilidade, em Rust."
+    - title: pinacoteca
+      url: https://github.com/marcelofrau/pinacoteca
+      desc: "Reimplementação limpa do Picasa: visualização e organização de fotos."
+    - title: rustyfiles
+      url: https://github.com/marcelofrau/rustyfiles
+      desc: "Gerenciador de arquivos pra Windows que nunca congela."
+    - title: Switchcraft Keys
+      url: https://github.com/marcelofrau/switchcraft-keys
+      desc: "Troca o layout do teclado por dispositivo físico."
+    - title: x-amp
+      url: https://github.com/marcelofrau/x-amp
+      desc: "Media player gamepad-first pra Xbox, inspirado em Winamp/AIMP."
+    - title: Plugins do Orca
+      url: https://github.com/marcelofrau?tab=repositories&q=orca
+      desc: "Atlassian, temas Markdown e ícones Papirus pro leitor de tela Orca."
+    - title: slate (Rainmeter)
+      url: https://github.com/marcelofrau/slate-rainmeter
+      desc: "Suíte Rainmeter retro-futurista com vidro fosco."
+    - title: rastro
+      url: https://github.com/marcelofrau/rastro
+      desc: "Gerenciador open-source de transferência de arquivos."
+- group: Emulação e retro
+  links:
+    - title: Emulation Revival
+      url: https://emulationrevival.github.io/
+      desc: "Hub comunitário de emulação no Xbox Dev Mode: emuladores, apps e ports."
+    - title: dosbox-pure-uwp
+      url: https://github.com/marcelofrau/dosbox-pure-uwp
+      desc: "DOSBox-Pure pra Xbox Series X|S (UWP, D3D11, XAudio2)."
+    - title: scummvm-uwp
+      url: https://github.com/marcelofrau/scummvm-uwp
+      desc: "ScummVM no Xbox via RetroArch UWP."
+    - title: retrogame-modding
+      url: https://github.com/marcelofrau/retrogame-modding
+      desc: "Documentação e diagramas de modding retrô."

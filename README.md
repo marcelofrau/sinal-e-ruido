@@ -13,6 +13,7 @@ Blog pessoal. Jekyll + GitHub Pages. Tema: desktop Windows 98 com janelas de bot
 | O Que Fica | `o-que-fica` | Memória, vivências, autocrítica |
 | Fora de Escopo | `fora-de-escopo` | Devaneios, humor |
 | Fragmentos | `fragmentos` | Notas curtíssimas, sem título obrigatório |
+| Ruído Branco | `ruido-branco` | Microblog: pensamentos soltos, sem título obrigatório |
 
 ## Fluxo de publicação
 

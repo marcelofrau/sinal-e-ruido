@@ -11,6 +11,10 @@ layout: default
   <div class="fragment-list">
     {% for post in posts %}{% include fragment-card.html post=post %}{% endfor %}
   </div>
+{% elsif page.category_key == 'ruido-branco' %}
+  <div class="micro-list">
+    {% for post in posts %}{% include micro-card.html post=post %}{% endfor %}
+  </div>
 {% else %}
   <div class="post-list">
     {% for post in posts %}{% include entry.html post=post %}{% endfor %}

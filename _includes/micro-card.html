@@ -1,0 +1,8 @@
+{% comment %}Entrada de microblog (Ruído Branco): hora como link pro post, título opcional, conteúdo inline.{% endcomment %}
+<article class="micro">
+  <header class="micro-meta">
+    <a href="{{ include.post.url | relative_url }}" data-popup title="Abrir post">{{ include.post.date | date: '%d/%m/%Y %H:%M' }}</a>
+    {% if include.post.title %}<span>{{ include.post.title }}</span>{% endif %}
+  </header>
+  <div class="micro-body">{{ include.post.content }}</div>
+</article>

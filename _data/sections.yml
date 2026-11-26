@@ -19,3 +19,7 @@
   name: Fragmentos
   icon: note-sticky
   color: "#2d6a3a"
+- key: ruido-branco
+  name: Ruído Branco
+  icon: tower-broadcast
+  color: "#4a4f57"

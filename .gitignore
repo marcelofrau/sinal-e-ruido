@@ -1,6 +1,7 @@
 _site/
 .jekyll-cache/
 .jekyll-metadata
+.opencode/
 .bundle/
 vendor/
 node_modules/

@@ -6,6 +6,8 @@ layout: default
   {% for post in site.posts limit: 15 %}
     {% if post.categories contains 'fragmentos' %}
       {% include fragment-card.html post=post %}
+    {% elsif post.categories contains 'ruido-branco' %}
+      {% include micro-card.html post=post %}
     {% else %}
       {% include entry.html post=post %}
     {% endif %}
