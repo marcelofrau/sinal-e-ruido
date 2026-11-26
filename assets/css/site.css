@@ -326,6 +326,18 @@ button { font: inherit; color: inherit; }
 .bm-list li { padding: 6px 0 7px 14px; border-bottom: 1px dotted var(--rule); }
 .bm-list li:last-child { border-bottom: 0; }
 .bm-desc { display: block; margin-top: 1px; font-size: 13.5px; color: var(--muted); }
+.bm-out { display: inline-flex; align-items: center; margin-left: 8px; padding: 1px 2px; border: 0; background: none; color: var(--muted); text-decoration: none; }
+.bm-out .fa { width: 11px; height: 11px; }
+.bm-out:hover { color: var(--accent); }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* sites externos "dentro do Netscape": barra de endereço + iframe + dica */
+.web { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; background: var(--face); }
+.web-url { flex: none; display: flex; align-items: center; gap: 6px; padding: 3px 4px; border-bottom: 1px solid var(--shadow); font: 11px var(--ui); }
+.web-url b { flex: none; }
+.web-url span { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding: 2px 4px; background: #fff; box-shadow: var(--sunken); }
+.web-frame { flex: 1; min-height: 0; width: 100%; border: 0; background: #fff; }
+.web-hint { flex: none; padding: 3px 8px; border-top: 1px solid var(--hi); font: 10.5px var(--ui); color: var(--muted); }
 
 /* comentários (giscus) no fim do post, dentro do popup e da página cheia */
 .comments { margin-top: 34px; border-top: 1px solid var(--rule); padding-top: 20px; }

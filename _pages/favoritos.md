@@ -10,7 +10,7 @@ description: "Compilado de bookmarks: projetos, emulação e o resto da web que 
 <h2>{{ g.group }}</h2>
 <ul class="bm-list">
   {% for l in g.links %}
-  <li><a href="{{ l.url }}">{{ l.title }}</a>{% if l.desc %}<span class="bm-desc">{{ l.desc }}</span>{% endif %}</li>
+  <li><a href="{{ l.url }}" data-frame="{{ l.title }}" title="Abrir dentro do Netscape">{{ l.title }}</a><a class="bm-out" href="{{ l.url }}" target="_blank" rel="noopener" title="Abrir numa aba real, fora do Netscape"><svg class="fa" aria-hidden="true"><use href="#fa-arrow-up-right-from-square"/></svg><span class="sr-only">Abrir {{ l.title }} fora do Netscape</span></a>{% if l.desc %}<span class="bm-desc">{{ l.desc }}</span>{% endif %}</li>
   {% endfor %}
 </ul>
 {% endfor %}

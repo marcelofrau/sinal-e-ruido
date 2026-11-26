@@ -298,6 +298,45 @@
     openPost(a.href);
   });
 
+  // ---------- sites externos "dentro do Netscape" (Favoritos) ----------
+  const webs = new Map(); // url -> janela
+
+  function openWeb(url, title) {
+    if (webs.has(url)) return restore(webs.get(url));
+    const body = doc.createElement("div");
+    body.className = "web";
+    const bar = doc.createElement("div");
+    bar.className = "web-url";
+    const label = doc.createElement("b");
+    label.textContent = "Endere\u00e7o:";
+    const loc = doc.createElement("span");
+    loc.textContent = url;
+    bar.append(label, loc);
+    const frame = doc.createElement("iframe");
+    Object.assign(frame, { src: url, className: "web-frame", referrerPolicy: "no-referrer", title: title });
+    const hint = doc.createElement("div");
+    hint.className = "web-hint";
+    hint.append(doc.createTextNode("N\u00e3o carregou? O site pode bloquear frames: "));
+    const out = doc.createElement("a");
+    Object.assign(out, { href: url, target: "_blank", rel: "noopener" });
+    out.textContent = "abrir numa aba real";
+    hint.append(out);
+    body.append(bar, frame, hint);
+    const win = makeWin({ title: title + " - Netscape", icon: "world-3", cls: "win-web", body, w: Math.max(640, Math.min(1040, desk.clientWidth * 0.78)), h: desk.clientHeight - 24 });
+    setLoading(true, "Contatando o host: " + new URL(url).host + "...");
+    frame.addEventListener("load", () => setLoading(false));
+    webs.set(url, win);
+    win._onclose = () => webs.delete(url);
+    return win;
+  }
+
+  doc.addEventListener("click", e => {
+    const a = e.target.closest("a[data-frame]");
+    if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    openWeb(a.href, a.dataset.frame || a.textContent.trim());
+  });
+
   // ---------- MS-DOS (js-dos v8, carregado só quando abre) ----------
   let dosLib;
   function loadDos() {
