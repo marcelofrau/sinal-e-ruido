@@ -146,13 +146,12 @@ button { font: inherit; color: inherit; }
 .ns-btn:hover { border-color: var(--hi) var(--shadow) var(--shadow) var(--hi); }
 .ns-btn:active { border-color: var(--shadow) var(--hi) var(--hi) var(--shadow); }
 .ns-btn:active > * { transform: translate(1px, 1px); }
-/* throbber original do Netscape (GIF 30x30 via GifCities): quadro parado no repouso, animação ao carregar */
+/* throbber original do Netscape (GIF 30x30 via GifCities), sempre animado */
 .throbber {
   margin-left: auto; flex: none; width: 42px; height: 42px;
-  background: #000 url(../img/netscape-throbber.png) center / 40px 40px no-repeat;
+  background: #000 url(../img/netscape-throbber.gif) center / 40px 40px no-repeat;
   box-shadow: 0 0 0 1px var(--shadow), 1px 1px 0 1px var(--hi);
 }
-.is-loading .throbber { background-image: url(../img/netscape-throbber.gif); }
 .ns-loc { gap: 6px; }
 .ns-label { flex: none; font-weight: bold; color: #400080; }
 .ns-mini {
@@ -457,7 +456,7 @@ button { font: inherit; color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   .is-loading .prog { animation: none; }
-  .is-loading .throbber { background-image: url(../img/netscape-throbber.png); }
+  .throbber { background-image: url(../img/netscape-throbber.png); }
 }
 
 @media print {
