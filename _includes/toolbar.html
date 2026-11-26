@@ -1,8 +1,25 @@
-<nav class="toolbar" aria-label="Navegação">
-  <a class="btn" href="{{ '/' | relative_url }}">Início</a>
-  {% for s in site.data.sections %}
-  <a class="btn" href="{{ s.key | prepend: '/' | relative_url }}">{{ s.name }}</a>
-  {% endfor %}
-  <a class="btn" href="{{ '/arquivo/' | relative_url }}">Arquivo</a>
-  <button class="btn" id="btn-random" type="button">Aleatório</button>
+{% comment %}Netscape 4: barra de menus + Navigation Toolbar + Location Toolbar + Personal Toolbar.{% endcomment %}
+<div class="ns-menubar">
+  <span aria-hidden="true"><u>A</u>rquivo</span><span aria-hidden="true"><u>E</u>ditar</span><span aria-hidden="true"><u>E</u>xibir</span><span aria-hidden="true"><u>I</u>r</span><span aria-hidden="true"><u>C</u>ommunicator</span><button type="button" data-open="dlg:about"><u>A</u>juda</button>
+</div>
+<nav class="ns-bar ns-nav" aria-label="Navegação">
+  <button class="ns-btn" type="button" data-cmd="back"><svg><use href="#i-back"/></svg><span>Voltar</span></button>
+  <button class="ns-btn" type="button" data-cmd="forward"><svg><use href="#i-fwd"/></svg><span>Avançar</span></button>
+  <button class="ns-btn" type="button" data-cmd="reload"><svg><use href="#i-reload"/></svg><span>Recarregar</span></button>
+  <a class="ns-btn" href="{{ '/' | relative_url }}"><svg><use href="#i-home"/></svg><span>Início</span></a>
+  <a class="ns-btn" href="{{ '/arquivo/' | relative_url }}"><img src="{{ '/assets/icons/search_web-0.png' | relative_url }}" alt=""><span>Pesquisar</span></a>
+  <button class="ns-btn" type="button" data-random><svg><use href="#i-dice"/></svg><span>Aleatório</span></button>
+  <button class="ns-btn" type="button" data-cmd="print"><img src="{{ '/assets/icons/printer-3.png' | relative_url }}" alt=""><span>Imprimir</span></button>
+  <button class="ns-btn" type="button" data-open="dlg:security"><img src="{{ '/assets/icons/key_padlock-0.png' | relative_url }}" alt=""><span>Segurança</span></button>
+  <button class="ns-btn" type="button" data-cmd="stop"><svg><use href="#i-stop"/></svg><span>Parar</span></button>
+  {% include throbber.html %}
+</nav>
+<div class="ns-bar ns-loc">
+  <a class="ns-mini" href="{{ '/arquivo/' | relative_url }}"><svg><use href="#i-bm"/></svg>Bookmarks</a>
+  <span class="ns-label">Netsite:</span>
+  <span class="field"><svg><use href="#i-page"/></svg><span id="ns-location">{{ page.url | absolute_url }}</span></span>
+</div>
+<nav class="ns-bar ns-personal" aria-label="Seções">
+  {% for s in site.data.sections %}<a class="ns-mini" href="{{ '/' | append: s.key | append: '/' | relative_url }}"><svg><use href="#i-bm"/></svg>{{ s.name }}</a>{% endfor %}
+  <a class="ns-mini" href="{{ '/arquivo/' | relative_url }}"><svg><use href="#i-bm"/></svg>Arquivo</a>
 </nav>

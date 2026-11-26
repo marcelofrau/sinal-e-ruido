@@ -2,7 +2,7 @@
 layout: default
 ---
 <div class="page-body">
-<h1>{{ page.title }}</h1>
+<h1 class="page-h">{{ page.title }}</h1>
 <input class="search-field" id="site-search" type="search" placeholder="Filtrar arquivo..." autocomplete="off">
 <p>Tudo que j&aacute; passou por aqui, por ano.</p>
 {% assign current_year = nil %}
@@ -15,7 +15,7 @@ layout: default
     {% assign current_year = y %}
   {% endif %}
   <li data-text="{{ post.title | default: 'Fragmento' | downcase }} {{ y }}">
-    <a href="{{ post.url | relative_url }}">{{ post.title | default: 'Fragmento' }}</a>
+    <a href="{{ post.url | relative_url }}" data-popup>{{ post.title | default: 'Fragmento' }}</a>
     <span class="meta">{{ post.date | date: '%d/%m/%Y' }}</span>
   </li>
 {% endfor %}

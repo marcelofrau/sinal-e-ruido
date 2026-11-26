@@ -1,0 +1,21 @@
+<aside class="taskpane">
+  <section class="tp-group">
+    <h2 class="tp-head">Seções</h2>
+    <ul>
+      {% for s in site.data.sections %}{% if s.key == 'fragmentos' %}{% assign ico = 'notepad-3' %}{% else %}{% assign ico = 'directory_closed-3' %}{% endif %}<li><a href="{{ '/' | append: s.key | append: '/' | relative_url }}"><img src="{{ '/assets/icons/' | append: ico | append: '.png' | relative_url }}" alt="" width="16" height="16">{{ s.name }}</a></li>{% endfor %}
+    </ul>
+  </section>
+  <section class="tp-group">
+    <h2 class="tp-head">Outros locais</h2>
+    <ul>
+      <li><a href="{{ '/arquivo/' | relative_url }}"><img src="{{ '/assets/icons/directory_open_file_mydocs-3.png' | relative_url }}" alt="" width="16" height="16">Arquivo</a></li>
+      <li><a href="{{ '/feed.xml' | relative_url }}"><img src="{{ '/assets/icons/channels-3.png' | relative_url }}" alt="" width="16" height="16">Feed RSS</a></li>
+      <li><button type="button" data-random><img src="{{ '/assets/icons/joystick-3.png' | relative_url }}" alt="" width="16" height="16">Post aleatório</button></li>
+      <li><button type="button" data-open="dos"><img src="{{ '/assets/icons/ms_dos-1.png' | relative_url }}" alt="" width="16" height="16">MS-DOS Prompt</button></li>
+    </ul>
+  </section>
+  <section class="tp-group">
+    <h2 class="tp-head">Detalhes</h2>
+    <p><b>{{ site.title }}</b><br>{{ site.posts | size }} publicações<br>Última: {{ site.posts.first.date | date: '%d/%m/%Y' }}</p>
+  </section>
+</aside>

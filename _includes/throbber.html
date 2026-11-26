@@ -1,0 +1,17 @@
+{% comment %}Throbber estilo Netscape 4: "N" sobre um horizonte noturno; meteoros caem enquanto html.is-loading.{% endcomment %}
+<svg class="throbber" viewBox="0 0 40 40" role="img" aria-label="Netscape">
+  <defs>
+    <linearGradient id="thr-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000033"/><stop offset="1" stop-color="#28307a"/></linearGradient>
+    <linearGradient id="thr-tail" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="40" height="40" fill="url(#thr-sky)"/>
+  <g fill="#fff"><rect x="5" y="6" width="1" height="1"/><rect x="31" y="4" width="1" height="1"/><rect x="24" y="11" width="1" height="1"/><rect x="9" y="16" width="1" height="1"/><rect x="35" y="17" width="1" height="1"/></g>
+  <g class="comets">
+    <path class="comet c1" d="M30 2 22 10" stroke="url(#thr-tail)" stroke-width="1.5"/>
+    <path class="comet c2" d="M38 6 30 14" stroke="url(#thr-tail)" stroke-width="1.5"/>
+    <path class="comet c3" d="M22 0 14 8" stroke="url(#thr-tail)" stroke-width="1.5"/>
+  </g>
+  <path d="M0 33c8-5 18-6 26-3s10 0 14-1v11H0z" fill="#1c6f66"/>
+  <path d="M0 33c8-5 18-6 26-3s10 0 14-1" fill="none" stroke="#5fc4b4"/>
+  <text x="20" y="29" text-anchor="middle" font-family="'Times New Roman', Times, serif" font-weight="bold" font-size="27" fill="#fff" stroke="#000033" stroke-width=".6">N</text>
+</svg>

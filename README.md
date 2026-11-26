@@ -1,6 +1,6 @@
 # Sinal e Ruído
 
-Blog pessoal. Jekyll + GitHub Pages, tema Windows 95 / Netscape Communicator 4.
+Blog pessoal. Jekyll + GitHub Pages. Tema: desktop Windows 98 com janelas de botões Windows 3.11, navegador Netscape Communicator 4, posts em popup e um MS-DOS (js-dos) de verdade.
 
 > "Desde o tempo em que não existiam abas…"
 
@@ -29,11 +29,13 @@ Commit em `main` → GitHub Actions builda e publica no Pages. Feed em `/feed.xm
 
 ## Build local
 
-O Ruby do Windows (4.0.9) não compila as gems nativas do Jekyll (eventmachine, bigdecimal). Use o WSL (Ruby 3.2.3, gems já em `~/.gems/sinal-e-ruido`):
+O Ruby do Windows (4.0.9) não compila as gems nativas do Jekyll (eventmachine, bigdecimal). Use o WSL (Ruby 3.2.3 + `ruby-dev`, gems em `~/.gems/sinal-e-ruido`):
 
 ```powershell
-# primeira vez: wsl -e sh -c 'cd /mnt/f/workspace/sinal-e-ruido && /usr/bin/bundle3.2 install'
-wsl -e sh -c 'cd /mnt/f/workspace/sinal-e-ruido && /usr/bin/bundle3.2 exec jekyll serve'
+# primeira vez:
+#   wsl -u root -e apt-get install -y ruby-dev
+#   wsl -e sh -c 'cd /mnt/d/workspace/_non_work_/sinal-e-ruido && /usr/bin/bundle3.2 config set --local path ~/.gems/sinal-e-ruido && /usr/bin/bundle3.2 install'
+wsl -e sh -c 'cd /mnt/d/workspace/_non_work_/sinal-e-ruido && /usr/bin/bundle3.2 exec jekyll serve'
 # → http://localhost:4000/sinal-e-ruido/
 ```
 

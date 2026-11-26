@@ -1,14 +1,72 @@
 <!doctype html>
-<html lang="{{ site.lang }}" data-baseurl="{{ site.baseurl }}">
+<html lang="{{ site.lang }}" data-baseurl="{{ site.baseurl }}" data-dos="{{ site.dos_bundle | relative_url }}" class="is-loading">
 <head>{% include head.html %}</head>
 <body>
-  <div class="window">
+{% include ns-sprite.html %}
+<div class="desktop" id="desktop">
+  <ul class="dicons" aria-label="Área de trabalho">{% include launchers.html %}</ul>
+
+  <section class="win win-browser is-active" id="win-browser" data-save="browser" data-icon="world-3" aria-label="Navegador">
+    {% capture cap %}{{ page.title | default: site.title }} - Netscape{% endcapture %}
+    {% include titlebar.html title=cap %}
+    <div class="win-body">
+      {% include toolbar.html %}
+      <div class="ns-content">
+        <div class="page">
+          {% include banner.html %}
+          <div class="cols">
+            <main class="page-main" id="conteudo">{{ content }}</main>
+            {% include taskpane.html %}
+          </div>
+          <footer class="badges">
+            <a class="badge badge-ns" href="{{ '/' | relative_url }}"><i>N</i><span>Netscape<br><b>NOW!</b></span></a>
+            <a class="badge badge-rss" href="{{ '/feed.xml' | relative_url }}"><i>RSS</i><span>XML<br>feed</span></a>
+            <span class="badge badge-np"><i>&#9998;</i><span>feito no<br>Bloco de Notas</span></span>
+            <span class="badge badge-res"><i>800</i><span>melhor em<br>800&times;600</span></span>
+          </footer>
+        </div>
+      </div>
+      {% include statusbar.html %}
+    </div>
+  </section>
+</div>
+
+<div class="taskbar">
+  <button class="start" type="button" id="start-btn" aria-haspopup="menu" aria-expanded="false"><img src="{{ '/assets/icons/windows-0.png' | relative_url }}" alt="" width="16" height="16">Iniciar</button>
+  <div class="tasks" id="tasks"></div>
+  <div class="tray"><img src="{{ '/assets/icons/channels-3.png' | relative_url }}" alt="" width="16" height="16"><time id="clock"></time></div>
+</div>
+<div class="startmenu" id="startmenu" role="menu" hidden>
+  <div class="sm-side"><b>Sinal e Ruído</b>98</div>
+  <ul>
+    {% include launchers.html %}
+    <li class="sm-sep"></li>
+    <li><button class="dicon" type="button" data-open="shutdown"><img src="{{ '/assets/icons/shut_down_normal-3.png' | relative_url }}" alt="" width="32" height="32"><span>Desligar...</span></button></li>
+  </ul>
+</div>
+
+<template id="tpl-win">
+  <section class="win" aria-label="Janela">
     {% include titlebar.html %}
-    {% include toolbar.html %}
-    {% include locationbar.html %}
-    <main class="content">{{ content }}</main>
-    {% include statusbar.html %}
-  </div>
-  <script src="{{ '/assets/js/random.js' | relative_url }}"></script>
+    <div class="win-body"></div>
+  </section>
+</template>
+<template id="tpl-dlg-about" data-title="Propriedades do Sistema" data-icon="computer_explorer-3">
+  <p><b>Sistema:</b><br>Sinal e Ruído 98 Segunda Edição<br>4.10.2222 A</p>
+  <p><b>Registrado para:</b><br>{{ site.author.name }}</p>
+  <p><b>Computador:</b><br>Superfoco MMX 233 MHz<br>64,0 MB de RAM<br>{{ site.posts | size }} documentos publicados</p>
+</template>
+<template id="tpl-dlg-trash" data-title="Lixeira" data-icon="recycle_bin_empty-3">
+  <p>A Lixeira está vazia.</p>
+  <p>Rascunho que não presta nem chega até aqui.</p>
+</template>
+<template id="tpl-dlg-security" data-title="Informações de Segurança" data-icon="key_padlock-0">
+  <p>Este documento foi transferido por uma conexão segura (HTTPS).</p>
+  <p>Nenhum cookie, nenhum rastreador, nenhum contador de visitas. Só texto.</p>
+</template>
+<div class="shutdown" id="shutdown" hidden><p>Agora você pode desligar<br>o computador com segurança.</p><small>(clique para religar)</small></div>
+
+<script src="{{ '/assets/js/desktop.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/random.js' | relative_url }}"></script>
 </body>
 </html>

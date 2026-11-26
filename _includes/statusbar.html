@@ -1,5 +1,10 @@
-<footer class="statusbar">
-  <span class="status-panel">Documento: Concluído</span>
-  <span class="status-panel">{{ site.posts | size }} posts</span>
-  <span class="status-panel">Última publicação: {{ site.posts.first.date | date: '%d/%m/%Y' }}</span>
+<footer class="ns-status">
+  <span class="panel"><img src="{{ '/assets/icons/key_padlock-0.png' | relative_url }}" alt="Conexão segura" width="16" height="16"></span>
+  <span class="panel panel-text" id="ns-status" role="status">Documento: Concluído</span>
+  <span class="panel panel-prog" aria-hidden="true"><span class="prog"></span></span>
+  <span class="panel panel-comp">
+    <a href="{{ '/' | relative_url }}" title="Navigator"><img src="{{ '/assets/icons/world-3.png' | relative_url }}" alt="Navigator" width="16" height="16"></a>
+    <a href="{{ '/fragmentos/' | relative_url }}" title="Fragmentos"><img src="{{ '/assets/icons/notepad-3.png' | relative_url }}" alt="Fragmentos" width="16" height="16"></a>
+    <button type="button" data-open="dos" title="MS-DOS Prompt"><img src="{{ '/assets/icons/ms_dos-1.png' | relative_url }}" alt="MS-DOS" width="16" height="16"></button>
+  </span>
 </footer>

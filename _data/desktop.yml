@@ -1,0 +1,25 @@
+# Ícones do desktop e do menu Iniciar, na ordem em que aparecem.
+# Use "url" (abre na janela do Netscape) ou "open": browser | dos | dlg:<id> (template #tpl-dlg-<id> no default.html).
+# As pastas das seções vêm de sections.yml (todas menos fragmentos).
+# Ícones: assets/icons/<icon>.png (set Windows 98 de windowsicons.alexmeub.com).
+- label: Meu Computador
+  icon: computer_explorer-3
+  open: dlg:about
+- label: Netscape Navigator
+  icon: world-3
+  open: browser
+- label: MS-DOS Prompt
+  icon: ms_dos-1
+  open: dos
+- label: Lixeira
+  icon: recycle_bin_empty-3
+  open: dlg:trash
+- label: Fragmentos.txt
+  icon: notepad-3
+  url: /fragmentos/
+- label: Arquivo
+  icon: directory_open_file_mydocs-3
+  url: /arquivo/
+- label: Canais
+  icon: channels-3
+  url: /feed.xml

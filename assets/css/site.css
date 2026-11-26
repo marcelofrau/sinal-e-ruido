@@ -1,358 +1,347 @@
-/* Sinal e Ruído — tema Windows 95 + Netscape Communicator 4. CSS puro, zero framework. */
+/* Sinal e Ruído — desktop híbrido: janelas Windows 98 com botões do Windows 3.11,
+   navegador Netscape Communicator 4 e páginas no estilo web anos 2000 / Windows XP.
+   CSS puro, sem framework, sem fonte externa. */
 
 :root {
   --teal: #008080;
   --face: #C0C0C0;
+  --hi: #FFFFFF;
   --light: #DFDFDF;
   --shadow: #808080;
   --dark: #0A0A0A;
+  --navy: #000080;
+  --navy2: #1084D0;
   --link: #0000EE;
   --visited: #551A8B;
   --active: #FF0000;
-  --paper: #FAF9F5;
+  --xp: #215DC6;
+  --xp-line: #7F9DB9;
+  --ui: Tahoma, "MS Sans Serif", Geneva, Verdana, sans-serif;
+  --raised: inset -1px -1px var(--dark), inset 1px 1px var(--hi), inset -2px -2px var(--shadow), inset 2px 2px var(--light);
+  --sunken: inset -1px -1px var(--hi), inset 1px 1px var(--shadow), inset -2px -2px var(--light), inset 2px 2px var(--dark);
+  --taskbar: 30px;
 }
 
 * { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; overflow: hidden; }
 html { -webkit-text-size-adjust: 100%; }
-
 body {
-  margin: 0;
-  padding: 1.5em 0;
   background: var(--teal);
-  font-family: Tahoma, "MS Sans Serif", "Segoe UI", Geneva, sans-serif;
-  font-size: 13px;
   color: #000;
+  font: 11px/1.3 var(--ui);
 }
+img { image-rendering: pixelated; }
+button { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
 
-/* ---------- Janela ---------- */
-
-.window {
-  width: 90%;
-  margin: 0 auto;
-  background: var(--face);
-  padding: 3px;
-  display: flex;
-  flex-direction: column;
-  box-shadow:
-    inset -1px -1px var(--dark),
-    inset 1px 1px #FFFFFF,
-    inset -2px -2px var(--shadow),
-    inset 2px 2px var(--light);
+/* ---------- desktop ---------- */
+.desktop { position: fixed; inset: 0 0 var(--taskbar) 0; overflow: hidden; }
+.dicons {
+  list-style: none; margin: 0; padding: 8px 4px;
+  display: grid; grid-auto-flow: column; grid-template-rows: repeat(auto-fill, 74px);
+  grid-auto-columns: 76px; gap: 6px 2px; height: 100%; width: max-content;
 }
-
-/* ---------- Barra de título ---------- */
-
-.titlebar {
-  display: flex;
-  align-items: center;
-  gap: 0.4em;
-  padding: 3px 4px;
-  margin-bottom: 2px;
-  background: linear-gradient(90deg, #000080, #1084D0);
-  color: #FFF;
-  font-weight: bold;
-  user-select: none;
+.dicon {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  width: 76px; padding: 2px; background: none; border: 0; cursor: default;
+  color: #fff; text-decoration: none; text-align: center;
 }
+.dicon img { width: 32px; height: 32px; }
+.dicon span { padding: 1px 2px; line-height: 1.2; }
+.dicon:focus { outline: none; }
+.dicon:focus span, .dicon.is-sel span { background: var(--navy); outline: 1px dotted #ff0; }
+.dicon.is-sel img { filter: brightness(.6) sepia(1) hue-rotate(190deg) saturate(4); }
 
-.tb-title {
-  flex: 1;
-  min-width: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* ---------- janelas (98 + botões 3.11) ---------- */
+.win {
+  position: absolute; display: flex; flex-direction: column;
+  min-width: 260px; min-height: 140px; padding: 3px;
+  background: var(--face); box-shadow: var(--raised);
+  resize: both; overflow: hidden;
 }
-
-.tb-btns { display: flex; gap: 2px; flex: 0 0 auto; }
-
-.tb-btn {
-  min-width: 16px;
-  height: 14px;
-  line-height: 12px;
-  text-align: center;
-  font-size: 9px;
-  font-weight: bold;
-  color: #000;
-  background: var(--face);
-  box-shadow:
-    inset -1px -1px var(--dark),
-    inset 1px 1px #FFFFFF,
-    inset -2px -2px var(--shadow),
-    inset 2px 2px var(--light);
+.win-browser { left: 96px; top: 10px; right: 18px; bottom: 10px; }
+.win.is-min { display: none; }
+.win.is-max { inset: 0 !important; width: auto !important; height: auto !important; resize: none; }
+.win-title {
+  flex: none; display: flex; align-items: center; gap: 2px; height: 20px; padding: 1px 2px;
+  background: linear-gradient(90deg, #808080, #b5b5b5); color: #d4d0c8;
+  font-weight: bold; user-select: none; touch-action: none;
 }
-
-/* ---------- Toolbar ---------- */
-
-.toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-  padding: 3px;
-  background: var(--face);
+.win.is-active > .win-title { background: linear-gradient(90deg, var(--navy), var(--navy2)); color: #fff; }
+.win-caption { flex: 1; min-width: 0; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 4px; }
+.win-title button {
+  position: relative; flex: none; width: 18px; height: 16px; padding: 0; border: 0;
+  background: var(--face); box-shadow: inset -1px -1px #000, inset 1px 1px #fff, inset -2px -2px var(--shadow);
 }
+.win-title button:active { box-shadow: inset 1px 1px #000, inset 2px 2px var(--shadow); }
+/* 3.11: ▼ minimizar, ▲ maximizar, ⬍ restaurar */
+.win-min::before, .win-max::before, .win-max::after {
+  content: ""; position: absolute; left: 50%; top: 50%; margin-left: -4px;
+  border: 4px solid transparent;
+}
+.win-min::before { border-top-color: #000; border-bottom: 0; margin-top: -1px; }
+.win-max::before { border-bottom-color: #000; border-top: 0; margin-top: -3px; }
+.win.is-max .win-max::before { margin-top: -5px; }
+.win.is-max .win-max::after { border-top-color: #000; border-bottom: 0; margin-top: 1px; }
+/* 3.11: caixa do menu de controle (barra de espaço) */
+.win-ctl::before {
+  content: ""; position: absolute; left: 3px; right: 4px; top: 6px; height: 3px;
+  background: #fff; border: 1px solid #000; box-shadow: 1px 1px 0 var(--shadow);
+}
+.win-menu {
+  position: absolute; top: 23px; left: 3px; z-index: 5; min-width: 170px; padding: 2px 0;
+  background: #fff; border: 1px solid #000; box-shadow: 2px 2px 0 rgba(0, 0, 0, .5);
+}
+.win-menu button {
+  display: flex; justify-content: space-between; gap: 20px; width: 100%;
+  padding: 3px 14px 3px 20px; border: 0; background: none; text-align: left; font-weight: normal;
+}
+.win-menu button:hover, .win-menu button:focus { background: var(--navy); color: #fff; outline: none; }
+.win-menu hr { border: 0; border-top: 1px solid #000; margin: 2px 0; }
+.win-body { flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
 
 .btn {
-  display: inline-block;
-  padding: 4px 10px;
-  font: inherit;
-  color: #000;
-  text-decoration: none;
-  background: var(--face);
-  border: none;
-  cursor: pointer;
-  box-shadow:
-    inset -1px -1px var(--dark),
-    inset 1px 1px #FFFFFF,
-    inset -2px -2px var(--shadow),
-    inset 2px 2px var(--light);
+  min-width: 75px; padding: 4px 10px; border: 0; background: var(--face); box-shadow: var(--raised);
 }
+.btn:active { box-shadow: var(--sunken); }
+.btn:focus-visible { outline: 1px dotted #000; outline-offset: -5px; }
 
-.btn:active {
-  box-shadow:
-    inset 1px 1px var(--dark),
-    inset -1px -1px #FFFFFF,
-    inset 2px 2px var(--shadow),
-    inset -2px -2px var(--light);
-  padding: 5px 9px 3px 11px;
+/* diálogos */
+.win-dialog { resize: none; min-height: 0; }
+.win-dialog .win-min, .win-dialog .win-max { display: none; }
+.dlg { padding: 12px 12px 10px; }
+.dlg-msg { display: flex; gap: 14px; align-items: flex-start; }
+.dlg-msg img { flex: none; }
+.dlg-msg p { margin: 0 0 .7em; }
+.dlg-btns { display: flex; justify-content: center; margin-top: 6px; }
+
+/* ---------- Netscape Communicator 4 ---------- */
+.ns-menubar { flex: none; display: flex; padding: 1px 0 2px; border-bottom: 1px solid var(--shadow); box-shadow: 0 1px var(--hi); }
+.ns-menubar > * { padding: 2px 7px; background: none; border: 0; }
+.ns-menubar > button:hover { box-shadow: inset -1px -1px var(--shadow), inset 1px 1px var(--hi); }
+.ns-bar {
+  flex: none; position: relative; display: flex; align-items: center; gap: 2px;
+  padding: 2px 4px 2px 16px; border-bottom: 1px solid var(--shadow); box-shadow: 0 1px var(--hi);
 }
-
-.toolbar .btn:hover { color: #000; }
-
-/* ---------- Location ---------- */
-
-.locationbar {
-  display: flex;
-  align-items: center;
-  gap: 0.4em;
-  padding: 3px;
-  background: var(--face);
-  box-shadow: inset 0 1px var(--shadow), 0 1px #FFFFFF;
+.ns-bar::before { /* "aba" da toolbar que recolhe no NS4 */
+  content: ""; position: absolute; left: 3px; top: 3px; bottom: 3px; width: 9px;
+  background: var(--face); box-shadow: inset -1px -1px var(--shadow), inset 1px 1px var(--hi);
 }
-
-.loc-label { flex: 0 0 auto; }
-
+.ns-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px;
+  min-width: 54px; height: 44px; padding: 2px 3px; border: 1px solid transparent; background: none;
+  color: #000; text-decoration: none; cursor: default; white-space: nowrap;
+}
+.ns-btn:visited { color: #000; }
+.ns-btn svg, .ns-btn img { width: 24px; height: 24px; flex: none; }
+.ns-btn:hover { border-color: var(--hi) var(--shadow) var(--shadow) var(--hi); }
+.ns-btn:active { border-color: var(--shadow) var(--hi) var(--hi) var(--shadow); }
+.ns-btn:active > * { transform: translate(1px, 1px); }
+.throbber { margin-left: auto; flex: none; width: 42px; height: 42px; box-shadow: 0 0 0 1px var(--shadow), 1px 1px 0 1px var(--hi); }
+.comet { opacity: 0; }
+.is-loading .comet { animation: comet 1.1s linear infinite; }
+.is-loading .c2 { animation-delay: .35s; }
+.is-loading .c3 { animation-delay: .7s; }
+@keyframes comet {
+  0% { opacity: 0; transform: translate(4px, -4px); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-22px, 22px); }
+}
+.ns-loc { gap: 6px; }
+.ns-label { flex: none; font-weight: bold; color: #400080; }
+.ns-mini {
+  display: inline-flex; align-items: center; gap: 3px; padding: 2px 5px; flex: none;
+  border: 1px solid transparent; color: #000; text-decoration: none; white-space: nowrap;
+}
+.ns-mini:visited { color: #000; }
+.ns-mini svg { width: 16px; height: 16px; }
+.ns-mini:hover { border-color: var(--hi) var(--shadow) var(--shadow) var(--hi); }
+.ns-loc .ns-mini { font-weight: bold; }
 .field {
-  flex: 1;
-  min-width: 0;
-  padding: 3px 6px;
-  background: #FFF;
-  color: #000;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  box-shadow:
-    inset 1px 1px var(--shadow),
-    inset -1px -1px #FFFFFF,
-    inset 2px 2px var(--dark),
-    inset -2px -2px var(--light);
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 4px; height: 22px; padding: 2px 4px;
+  background: #fff; box-shadow: var(--sunken); font: 12px/1 var(--ui); white-space: nowrap; overflow: hidden;
 }
-
-.throbber {
-  flex: 0 0 auto;
-  width: 22px;
-  height: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--face);
-  box-shadow:
-    inset 1px 1px var(--shadow),
-    inset -1px -1px #FFFFFF,
-    inset 2px 2px var(--dark),
-    inset -2px -2px var(--light);
+.field svg { width: 16px; height: 16px; flex: none; }
+.field span { overflow: hidden; text-overflow: ellipsis; }
+.ns-personal { overflow-x: auto; scrollbar-width: none; }
+.ns-content { flex: 1; min-height: 0; overflow: auto; margin: 2px; background: #fff; box-shadow: var(--sunken); padding: 2px; }
+.ns-status { flex: none; display: flex; gap: 2px; padding-top: 2px; }
+.panel { display: flex; align-items: center; gap: 2px; padding: 2px 4px; min-height: 20px; box-shadow: inset -1px -1px var(--hi), inset 1px 1px var(--shadow); }
+.panel-text { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.panel-prog { width: 110px; flex: none; }
+.prog { display: block; width: 100%; height: 10px; }
+.is-loading .prog {
+  background: repeating-linear-gradient(90deg, var(--navy) 0 7px, transparent 7px 9px) 0 0 / 0 100% no-repeat;
+  animation: prog 1.4s steps(12) infinite;
 }
+@keyframes prog { to { background-size: 100% 100%; } }
+.panel-comp a, .panel-comp button { display: flex; padding: 0 1px; border: 0; background: none; }
+.panel a { color: var(--link); }
 
-.throbber span {
-  font: bold 13px Tahoma, sans-serif;
-  color: #000080;
-  animation: throb-spin 1.2s steps(8) infinite;
+/* popup de post */
+.pop { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.pop-page { flex: 1; min-height: 0; overflow: auto; margin: 1px; padding: 16px 22px; background: #fff; box-shadow: var(--sunken); }
+.pop-wait { font: 13px var(--ui); }
+
+/* ---------- MS-DOS ---------- */
+.win-dos { min-width: 320px; }
+.dos-screen { flex: 1; min-height: 0; position: relative; background: #000; }
+.dos-boot { margin: 0; padding: 10px; color: #c0c0c0; font: 15px/1.25 "Courier New", Courier, monospace; white-space: pre-wrap; }
+
+/* ---------- barra de tarefas e menu Iniciar ---------- */
+.taskbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 100000; height: var(--taskbar);
+  display: flex; align-items: center; gap: 4px; padding: 3px 2px 2px;
+  background: var(--face); box-shadow: inset 0 1px var(--light), inset 0 2px var(--hi);
 }
-
-@keyframes throb-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.start, .task {
+  display: flex; align-items: center; gap: 4px; height: 23px; padding: 0 6px; border: 0;
+  background: var(--face); box-shadow: var(--raised); white-space: nowrap;
 }
-
-/* ---------- Área de leitura ---------- */
-
-.content {
-  flex: 1;
-  margin: 0;
-  padding: 1.2em 1.5em;
-  background: var(--paper);
-  box-shadow:
-    inset 1px 1px var(--shadow),
-    inset -1px -1px #FFFFFF,
-    inset 2px 2px var(--dark),
-    inset -2px -2px var(--light);
-  overflow-wrap: break-word;
+.start { flex: none; font-weight: bold; }
+.start.is-down, .task.is-active {
+  box-shadow: var(--sunken);
+  background: repeating-conic-gradient(#fff 0 25%, var(--face) 0 50%) 0 0 / 2px 2px;
 }
-
-a { color: var(--link); text-decoration: underline; }
-a:visited { color: var(--visited); }
-a:hover, a:active { color: var(--active); }
-
-h1, h2, h3 {
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 1.15em;
-  line-height: 1.3;
-  margin: 0 0 0.4em;
+.start.is-down { background: var(--face); }
+.tasks { flex: 1; min-width: 0; display: flex; gap: 3px; overflow: hidden; }
+.task { flex: 0 1 160px; min-width: 40px; }
+.task span { overflow: hidden; text-overflow: ellipsis; }
+.task.is-active span { font-weight: bold; }
+.tray { flex: none; display: flex; align-items: center; gap: 6px; height: 23px; padding: 0 8px; box-shadow: inset -1px -1px var(--hi), inset 1px 1px var(--shadow); }
+.startmenu {
+  position: fixed; left: 2px; bottom: calc(var(--taskbar) - 2px); z-index: 100001;
+  display: flex; padding: 2px; background: var(--face); box-shadow: var(--raised);
 }
-
-h1 { font-size: 1.45em; }
-h2 { font-size: 1.2em; }
-
-.meta {
-  font-size: 0.85em;
-  color: #444;
-  margin: 0 0 0.6em;
+.sm-side {
+  writing-mode: vertical-rl; transform: rotate(180deg); padding: 6px 3px; width: 24px;
+  background: linear-gradient(0deg, var(--navy), var(--navy2)); color: var(--face);
+  font: 18px/1 "Arial Black", Arial, sans-serif; letter-spacing: 1px;
 }
-
-.home-head, .section-head { margin-bottom: 1.2em; }
-.tagline { color: #333; margin: 0.2em 0 0; font-style: italic; }
-.section-desc { color: #333; margin: 0.2em 0 0; }
-
-/* Corpo de post: tipografia de leitura, não de UI. */
-.post-body, .page-body {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 16.5px;
-  line-height: 1.65;
-  color: #111;
+.sm-side b { color: #fff; margin-right: 6px; }
+.startmenu ul { list-style: none; margin: 0; padding: 0; min-width: 190px; }
+.startmenu .dicon { flex-direction: row; gap: 8px; width: 100%; padding: 3px 18px 3px 4px; color: #000; text-align: left; }
+.startmenu .dicon img { width: 24px; height: 24px; }
+.startmenu .dicon:hover, .startmenu .dicon:focus { background: var(--navy); color: #fff; outline: none; }
+.startmenu .dicon:focus span { background: none; outline: 0; }
+.sm-sep { height: 0; margin: 3px 2px; border-top: 1px solid var(--shadow); border-bottom: 1px solid var(--hi); }
+.shutdown {
+  position: fixed; inset: 0; z-index: 200000; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: #000; color: #ff8a00; text-align: center; cursor: pointer;
+  font: bold clamp(20px, 4vw, 40px)/1.3 "Arial", sans-serif;
 }
+.shutdown small { color: #555; font-size: 12px; margin-top: 2em; }
 
-.post-body p, .page-body p { margin: 0 0 1em; }
-.post-body li { margin-bottom: 0.4em; }
-.post-body blockquote {
-  margin: 1em 0;
-  padding: 0.2em 1em;
-  border-left: 4px solid var(--shadow);
-  color: #333;
+/* ---------- a página: web anos 2000 / Windows XP ---------- */
+.page { min-height: 100%; display: flex; flex-direction: column; font: 13px/1.55 Verdana, Tahoma, sans-serif; color: #111; }
+.page a { color: var(--link); }
+.page a:visited { color: var(--visited); }
+.page a:hover, .page a:active { color: var(--active); }
+.banner {
+  padding: 14px 20px 12px; color: #fff;
+  background: linear-gradient(180deg, #0058e6 0%, #3a93ff 6%, #288eff 30%, #127dff 80%, #036ffc 92%, #0057e5 100%);
+  border-bottom: 2px solid #003c9e;
 }
-.post-body img { max-width: 100%; height: auto; }
-.post-body code, .page-body code {
-  font-family: "Lucida Console", Consolas, monospace;
-  font-size: 0.9em;
-  background: #EEE;
-  padding: 0 3px;
+.page .banner-title, .page .banner-title:visited {
+  color: #fff; text-decoration: none; font: bold 28px/1.1 "Trebuchet MS", Verdana, sans-serif;
+  text-shadow: 1px 1px 0 #0a1e6a, 2px 2px 3px rgba(0, 0, 0, .35);
 }
-.post-body pre {
-  font-family: "Lucida Console", Consolas, monospace;
-  font-size: 0.85em;
-  background: #FFF;
-  padding: 0.8em;
-  overflow-x: auto;
-  box-shadow:
-    inset 1px 1px var(--shadow),
-    inset -1px -1px #FFFFFF;
+.banner-tagline { margin: 4px 0 0; color: #dbe8ff; font-style: italic; }
+.ticker { overflow: hidden; white-space: nowrap; padding: 3px 0; background: #ffffe1; border-bottom: 1px solid var(--xp-line); font-size: 11px; }
+.ticker span { display: inline-block; padding-left: 100%; animation: ticker 32s linear infinite; }
+.ticker:hover span { animation-play-state: paused; }
+@keyframes ticker { to { transform: translateX(-100%); } }
+.cols { flex: 1; display: flex; align-items: stretch; }
+.page-main { flex: 1; min-width: 0; padding: 18px 24px 24px; }
+.taskpane { order: -1; flex: 0 0 196px; padding: 12px 10px; background: linear-gradient(180deg, #7ba2e7, #6375d6); }
+.tp-group { margin-bottom: 14px; background: #d6dff7; border-radius: 4px 4px 0 0; overflow: hidden; font: 11px/1.4 var(--ui); }
+.tp-head { margin: 0; padding: 5px 10px; color: var(--xp); font: bold 11px var(--ui); background: linear-gradient(90deg, #fff 30%, #c6d3f7); }
+.tp-group ul { list-style: none; margin: 0; padding: 7px 8px 8px; }
+.tp-group li { margin: 2px 0; }
+.tp-group a, .tp-group button {
+  display: flex; align-items: center; gap: 6px; padding: 1px 0; border: 0; background: none; cursor: pointer;
+  color: var(--xp); text-decoration: none; text-align: left;
 }
+.page .tp-group a:visited { color: var(--xp); }
+.page .tp-group a:hover, .tp-group button:hover { color: #428eff; text-decoration: underline; }
+.tp-group p { margin: 0; padding: 7px 10px 9px; color: #000; }
+.badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; padding: 12px; background: #f1f1f1; border-top: 1px solid #ccc; }
+.badge {
+  display: inline-flex; width: 88px; height: 31px; overflow: hidden; border: 1px solid #000;
+  font: bold 9px/1.05 Verdana, sans-serif; text-decoration: none; color: #000; background: #fff;
+}
+.page .badge:visited { color: #000; }
+.badge i { display: flex; align-items: center; justify-content: center; width: 30px; flex: none; font-style: normal; font-size: 14px; color: #fff; }
+.badge span { display: flex; flex-direction: column; justify-content: center; padding: 0 3px; }
+.badge-ns i { background: #000033; font: bold 22px "Times New Roman", serif; }
+.badge-ns b { color: #c00; }
+.badge-rss i { background: #f60; font-size: 10px; }
+.badge-np i { background: #000080; }
+.badge-res i { background: #008080; font-size: 10px; }
 
-/* ---------- Listagem de posts ---------- */
-
+.page-h { margin: 0 0 14px; padding-bottom: 4px; border-bottom: 2px solid #3a93ff; color: #0b3d91; font: bold 22px/1.2 "Trebuchet MS", Verdana, sans-serif; }
+.meta { color: #666; font-size: 11px; margin: 0 0 .5em; }
+.section-head { margin-bottom: 1em; }
+.section-desc { color: #333; margin: 0 0 .3em; }
+.post-list, .fragment-list { display: flex; flex-direction: column; gap: 12px; }
 .post-item {
-  padding: 0.8em 0;
-  border-bottom: 1px solid #D8D8D8;
+  padding: 10px 14px 12px; border: 1px solid #c5d3e8; border-left: 4px solid #3a93ff;
+  background: linear-gradient(180deg, #fff 0%, #f3f7ff 100%);
 }
+.post-item h2 { margin: 0 0 2px; font: bold 17px/1.3 "Trebuchet MS", Verdana, sans-serif; }
+.post-item h2 a { text-decoration: none; }
+.post-item h2 a:hover { text-decoration: underline; }
+.post-item p { margin: 0; color: #333; }
 
-.post-item h2 { margin: 0 0 0.2em; }
-
-.post-item p { margin: 0; font-size: 0.95em; color: #333; }
-
-/* ---------- Fragmentos: Bloco de Notas inline ---------- */
-
-.fragment-list, .post-list { display: flex; flex-direction: column; gap: 0.8em; }
-.post-list { gap: 0; }
-
-.fragment-card {
-  background: #FFF;
-  box-shadow:
-    inset 1px 1px var(--shadow),
-    inset -1px -1px #FFFFFF,
-    inset 2px 2px var(--dark),
-    inset -2px -2px var(--light);
-}
-
-.fc-title {
-  padding: 3px 6px;
-  background: var(--face);
-  font-weight: bold;
-  font-size: 0.85em;
-  box-shadow: inset 0 -1px #FFFFFF, 0 1px var(--shadow);
-}
-
-.fc-body {
-  padding: 0.7em 1em;
-  font-family: "Lucida Console", Consolas, monospace;
-  font-size: 12.5px;
-  line-height: 1.5;
-}
-
+.fragment-card { max-width: 560px; background: var(--face); padding: 3px; box-shadow: var(--raised); font: 11px var(--ui); }
+.fc-title { display: flex; align-items: center; gap: 4px; height: 18px; padding: 0 3px; background: linear-gradient(90deg, var(--navy), var(--navy2)); color: #fff; font-weight: bold; }
+.fc-title span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.fc-menu { padding: 2px 4px; word-spacing: 8px; }
+.fc-body { padding: 8px 10px; background: #fff; box-shadow: var(--sunken); font: 14px/1.5 "Lucida Console", "Courier New", monospace; white-space: pre-wrap; }
 .fc-body p { margin: 0; }
+.fc-meta { padding: 3px 4px 1px; text-align: right; }
 
-.fc-meta {
-  padding: 2px 6px;
-  font-size: 0.8em;
-  box-shadow: inset 0 1px var(--shadow);
-}
-
-/* ---------- Arquivo ---------- */
-
-.search-field {
-  width: 100%;
-  max-width: 420px;
-  margin: 0 0 1em;
-  padding: 5px 8px;
-  font: inherit;
-  background: #FFF;
-  border: none;
-  box-shadow:
-    inset 1px 1px var(--shadow),
-    inset -1px -1px #FFFFFF,
-    inset 2px 2px var(--dark),
-    inset -2px -2px var(--light);
-}
-
+.post-head h1 { margin: 0 0 4px; color: #0b3d91; font: bold 26px/1.2 "Trebuchet MS", Verdana, sans-serif; }
+.post-head { margin-bottom: 1.2em; padding-bottom: 8px; border-bottom: 1px dotted var(--xp-line); }
+.post-body, .page-body { max-width: 68ch; font: 16px/1.7 Georgia, "Times New Roman", serif; color: #111; }
+.post-body p, .page-body p { margin: 0 0 1em; }
+.post-body li { margin-bottom: .4em; }
+.post-body blockquote { margin: 1.2em 0; padding: 8px 14px; background: #ffffe1; border: 1px solid #c9c38f; border-left-width: 4px; }
+.post-body img { max-width: 100%; height: auto; image-rendering: auto; border: 1px solid var(--xp-line); }
+.post-body code, .page-body code { padding: 0 3px; background: #eef1f6; border: 1px solid #d5dbe5; font: .88em "Lucida Console", "Courier New", monospace; }
+.post-body pre { overflow-x: auto; padding: 10px 12px; background: #000; color: #c0c0c0; box-shadow: var(--sunken); font: 13px/1.45 "Lucida Console", "Courier New", monospace; }
+.post-body pre code { padding: 0; background: none; border: 0; color: inherit; }
+.page-body { font-size: 14px; }
 .page-body ul { padding-left: 1.3em; }
-
-.archive-list { list-style: none; margin: 0 0 1em; padding-left: 0.2em; }
-
-.archive-list li {
-  padding: 2px 0;
-  font-size: 0.95em;
-  display: flex;
-  justify-content: space-between;
-  gap: 1em;
+.search-field {
+  display: block; width: 100%; max-width: 360px; margin: 0 0 12px; padding: 4px 6px; border: 0;
+  background: #fff; box-shadow: var(--sunken); font: 13px var(--ui);
 }
-
+.archive-list { list-style: none; margin: 0 0 1em; padding-left: .2em; }
+.archive-list li { display: flex; justify-content: space-between; gap: 1em; padding: 4px 0; border-bottom: 1px dotted #c5d3e8; }
 .archive-list .meta { margin: 0; flex: 0 0 auto; }
 
-/* ---------- Status bar ---------- */
-
-.statusbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3px;
-  padding: 3px 2px 2px;
-  font-size: 0.8em;
-}
-
-.status-panel {
-  padding: 2px 8px;
-  background: var(--face);
-  white-space: nowrap;
-  box-shadow:
-    inset 1px 1px var(--shadow),
-    inset -1px -1px #FFFFFF;
-}
-
-.status-panel:first-child { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-
-/* ---------- Mobile ---------- */
-
+/* ---------- telas pequenas: tudo maximizado, sem arrastar ---------- */
 @media (max-width: 760px) {
-  body { padding: 0; }
-  .window { width: 100%; }
-  .content { padding: 1em 0.9em; }
-  .toolbar .btn { padding: 5px 8px; font-size: 0.9em; }
-  .throbber span { animation-duration: 2s; }
+  .win { inset: 0 !important; width: auto !important; height: auto !important; resize: none; }
+  .win-dialog { inset: auto 8px 30% 8px !important; }
+  .ns-menubar, .ns-btn span, .panel-prog, .badges { display: none; }
+  .ns-btn { min-width: 32px; height: 32px; }
+  .throbber { width: 30px; height: 30px; }
+  .ns-nav { overflow-x: auto; scrollbar-width: none; }
+  .cols { flex-direction: column; }
+  .taskpane { order: 0; flex: none; }
+  .page-main, .pop-page { padding: 14px; }
   .post-body, .page-body { font-size: 16px; }
-  .archive-list li { flex-direction: column; gap: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .is-loading .comet, .is-loading .prog, .ticker span { animation: none; }
+  .ticker span { padding-left: 8px; }
+}
+
+@media print {
+  html, body { overflow: visible; height: auto; background: #fff; }
+  .dicons, .taskbar, .startmenu, .win-title, .win-menu, .ns-menubar, .ns-bar, .ns-status, .banner, .ticker, .taskpane, .badges { display: none !important; }
+  .desktop, .win, .win-body, .ns-content, .pop, .pop-page { position: static !important; overflow: visible !important; box-shadow: none !important; width: auto !important; height: auto !important; padding: 0; background: #fff; }
 }

@@ -2,7 +2,7 @@
 
 ## Scope
 
-Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Pages nativo). Tema próprio Windows 95 / Netscape 4 em CSS puro, sem framework e sem fonte externa.
+Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Pages nativo). Tema próprio em CSS puro, sem framework e sem fonte externa: desktop Windows 98 (janelas com os botões do Windows 3.11), navegador Netscape Communicator 4 e páginas no estilo web anos 2000 / XP. Ícones: PNGs do Windows 98 versionados em `assets/icons/`. Única dependência externa: js-dos v8 (CDN), carregado só quando o MS-DOS é aberto.
 
 ## Identity and Git
 
@@ -18,6 +18,7 @@ Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Page
 - URLs são imutáveis após publicação: permalink `/:year/:month/:title/`.
 - Usar `relative_url` em todo link/asset local (site roda sob `/sinal-e-ruido/`).
 - Um post por categoria nas listagens; fragmentos são renderizados como Bloco de Notas inline (include `fragment-card.html`).
+- Links para posts em listagens levam `data-popup` (abrem em janela popup via `assets/js/desktop.js`, que extrai o `.post` da página do post). Sem JS, viram link normal.
 - Índice estático `/index.json` (gerado de `_pages/index.json`) alimenta o botão Aleatório. Sempre via Liquid, nunca editar à mão o output.
 - Criar posts com `node scripts/new-post.mjs <secao> [titulo]` — não inventar front matter na mão.
 
@@ -32,6 +33,6 @@ Antes de considerar pronto: build via WSL sem warning e `_site/index.json` parse
 ## Local toolchain
 
 - Ruby do Windows (4.0.9, `C:\Ruby40-x64`) NÃO compila as gems nativas do Jekyll. Nunca rodar `bundle install` do Windows aqui.
-- Local: WSL com Ruby 3.2.3. Gems em `~/.gems/sinal-e-ruido` (`.bundle/config` aponta pra lá; nunca apontar `path` pro projeto — /mnt/f é world-writable e o Bundler recusa).
-- Comandos: `wsl -e sh -c 'cd /mnt/f/workspace/sinal-e-ruido && /usr/bin/bundle3.2 exec jekyll build'` (ou `serve`). O shim `bundle` do Windows sombreia o do WSL — usar `/usr/bin/bundle3.2` explícito.
+- Local: WSL com Ruby 3.2.3 + `ruby-dev` (headers pras gems nativas). Gems em `~/.gems/sinal-e-ruido` (`.bundle/config` aponta pra lá via `bundle3.2 config set --local path ~/.gems/sinal-e-ruido`; nunca apontar `path` pro projeto — /mnt é world-writable e o Bundler recusa).
+- Comandos: `wsl -e sh -c 'cd /mnt/d/workspace/_non_work_/sinal-e-ruido && /usr/bin/bundle3.2 exec jekyll build'` (ou `serve`). O shim `bundle` do Windows sombreia o do WSL — usar `/usr/bin/bundle3.2` explícito.
 - CI usa Ruby 3.3 (setup-ruby), onde tudo compila normal.

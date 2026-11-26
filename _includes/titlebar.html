@@ -1,8 +1,14 @@
-<div class="titlebar">
-  <span class="tb-title">{{ site.title }} - Netscape</span>
-  <span class="tb-btns" aria-hidden="true">
-    <span class="tb-btn">&#8211;</span>
-    <span class="tb-btn">&#9633;</span>
-    <span class="tb-btn">&#215;</span>
-  </span>
+{% comment %}Barra de título híbrida: gradiente do 98, botões do 3.11 (caixa de controle, ▼, ▲). Param: title.{% endcomment %}
+<div class="win-title">
+  <button class="win-ctl" type="button" aria-label="Menu de controle (duplo clique fecha)" aria-haspopup="menu"></button>
+  <span class="win-caption">{{ include.title }}</span>
+  <button class="win-min" type="button" aria-label="Minimizar"></button>
+  <button class="win-max" type="button" aria-label="Maximizar"></button>
+</div>
+<div class="win-menu" role="menu" hidden>
+  <button type="button" role="menuitem" data-act="restore">Restaurar</button>
+  <button type="button" role="menuitem" data-act="min">Minimizar</button>
+  <button type="button" role="menuitem" data-act="max">Maximizar</button>
+  <hr>
+  <button type="button" role="menuitem" data-act="close"><b>Fechar</b><span>Alt+F4</span></button>
 </div>
