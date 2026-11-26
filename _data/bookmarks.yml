@@ -49,3 +49,65 @@
     - title: retrogame-modding
       url: https://github.com/marcelofrau/retrogame-modding
       desc: "Documentação e diagramas de modding retrô."
+- group: Arquivo da web
+  links:
+    - title: Space Jam (1996)
+      url: https://www.spacejam.com/1996/
+      desc: "O site oficial do filme de 1996, preservado pela Warner com os frames, GIFs e piadas originais."
+    - title: Emulatronia
+      url: https://web.archive.org/web/20050124063741/http://emulatronia.com.br/
+      desc: "Portal brasileiro de emulação dos anos 90/2000: notícias, emuladores e ROMs. (Wayback)"
+    - title: StarMedia
+      url: https://web.archive.org/web/20001018112305/http://www1.starmedia.com/
+      desc: "Portal latino-americano de buscas, chat e e-mail, no auge da bolha. (Wayback)"
+    - title: Zaz
+      url: https://web.archive.org/web/19991115160032/http://zaz.com.br/
+      desc: "Portal brasileiro com canais, ZAZ Mail e disco virtual, vendido depois ao UOL. (Wayback)"
+    - title: Mandic
+      url: https://web.archive.org/web/19990427181413/http://www.mandic.com.br/index2.shtml
+      desc: "Provedor de acesso e portal brasileiro: CEP, Detran, câmbio, horóscopo e e-mail. (Wayback)"
+    - title: HPG
+      url: https://web.archive.org/web/20000407212320/http://www.hpg.com.br/
+      desc: "Serviço de home page grátis que hospedou milhões de páginas pessoais brasileiras. (Wayback)"
+    - title: Cadê?
+      url: https://web.archive.org/web/19991118051719/http://cade.com.br/
+      desc: "Primeiro buscador brasileiro de grande porte, com diretório de sites por categoria. (Wayback)"
+- group: Web antiga viva
+  links:
+    - title: The Old Net
+      url: https://theoldnet.com
+      desc: "Navegador-proxy que abre páginas arquivadas como se você estivesse num computador antigo."
+    - title: OldWeb.Today
+      url: https://oldweb.today
+      desc: "Abre páginas do Wayback dentro de navegadores antigos de verdade, como Mosaic e Netscape."
+    - title: Windows93
+      url: https://windows93.net
+      desc: "Sistema operacional fictício de 1993, com desktop, janelas e programas-brincadeira."
+    - title: Cameron's World
+      url: https://www.cameronsworld.net
+      desc: "Colagem de textos e GIFs garimpados de páginas pessoais da GeoCities."
+    - title: One Terabyte of Kilobyte Age
+      url: https://blog.geocities.institute
+      desc: "Blog que publica, uma por vez, capturas automáticas de sites da GeoCities."
+    - title: GifCities
+      url: https://gifcities.org
+      desc: "Buscador do Internet Archive pra GIFs animados salvos da GeoCities."
+    - title: Geocities Gallery
+      url: https://geocities.restorativland.org
+      desc: "Galeria de sites da GeoCities restaurados e organizados por bairro."
+    - title: Wiby
+      url: https://wiby.me
+      desc: "Buscador que só indexa páginas leves no estilo da web clássica, com botão Surprise me."
+    - title: textfiles.com
+      url: http://textfiles.com
+      desc: "Arquivo de textos da era BBS dos anos 80/90, ainda em HTML 3.2 puro."
+    - title: 88x31 GIF Collection
+      url: https://cyber.dabamos.de/88x31/
+      desc: "Acervo de botões 88x31, os selos de site parceiro que todo site caseiro tinha."
+    - title: Neocities
+      url: https://neocities.org
+      desc: "Hospedagem gratuita que mantém viva a estética de páginas pessoais da GeoCities."
+    - title: Web Design Museum
+      url: https://www.webdesignmuseum.org
+      desc: "Museu com capturas de sites famosos de cada época, de 1990 até hoje."
+
