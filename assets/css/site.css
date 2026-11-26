@@ -327,6 +327,11 @@ button { font: inherit; color: inherit; }
 .bm-list li:last-child { border-bottom: 0; }
 .bm-desc { display: block; margin-top: 1px; font-size: 13.5px; color: var(--muted); }
 
+/* comentários (giscus) no fim do post, dentro do popup e da página cheia */
+.comments { margin-top: 34px; border-top: 1px solid var(--rule); padding-top: 20px; }
+.comments h2 { margin: 0 0 12px; font: 400 16px var(--pixel); letter-spacing: 0; text-transform: uppercase; color: var(--muted); }
+.giscus iframe { max-width: 100%; }
+
 /* sidebar: group boxes do 98 */
 .sidebar { position: sticky; top: 16px; display: flex; flex-direction: column; gap: 22px; font-size: 13.5px; }
 .box { position: relative; padding: 16px 12px 10px; border: 1px solid #c4bfb2; box-shadow: inset 1px 1px #fff, 1px 1px #fff; }

@@ -21,6 +21,7 @@ Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Page
 - Links para posts em listagens levam `data-popup` (abrem em janela popup via `assets/js/desktop.js`, que extrai o `.post` da página do post). Sem JS, viram link normal.
 - Índice estático `/index.json` (gerado de `_pages/index.json`) alimenta o botão Aleatório. Sempre via Liquid, nunca editar à mão o output.
 - Criar posts com `node scripts/new-post.mjs <secao> [titulo]` — não inventar front matter na mão.
+- Comentários nos posts via giscus: IDs vêm das Actions Variables `GISCUS_REPO_ID`/`GISCUS_CATEGORY_ID` no CI (`scripts/prepare-giscus.mjs` gera o gitignored `_data/giscus.yml`). Sem as variáveis, build sai sem comentários. O loader fica em `assets/js/desktop.js` (`activateGiscus`), pois o popup extrai o `.post` sem executar scripts.
 
 ## Sections
 

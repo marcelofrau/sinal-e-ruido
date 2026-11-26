@@ -10,6 +10,14 @@ permalink: /:year/:month/:title/
 author:
   name: Marcelo Frau
 
+# Giscus (GitHub Discussions): os IDs vem das Actions Variables no build (prepare-giscus.mjs).
+giscus:
+  enabled: true
+  repo: marcelofrau/sinal-e-ruido
+  category: General
+  mapping: specific
+  theme: light
+
 # Bundle js-dos aberto pelo ícone MS-DOS (zip com .jsdos/dosbox.conf). Gerado por scripts/build-dos-bundle.py.
 dos_bundle: "/assets/dos/shareware.jsdos"
 

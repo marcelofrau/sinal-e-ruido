@@ -18,4 +18,5 @@ layout: default
       {% if page.next %}<a class="pn-next" href="{{ page.next.url | relative_url }}" data-popup><small>próximo &rarr;</small>{{ page.next.title | default: 'Fragmento' }}</a>{% endif %}
     </nav>{% endif %}
   </footer>
+  {% include giscus.html %}
 </article>

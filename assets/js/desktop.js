@@ -226,6 +226,21 @@
   // ---------- posts em popup ----------
   const popups = new Map(); // pathname -> janela
 
+  // giscus: o .post é extraído sem executar scripts (replaceChildren), então o
+  // placeholder .giscus carrega o client.js na mão, tanto no popup quanto na página cheia.
+  function activateGiscus(scope) {
+    scope.querySelectorAll(".giscus[data-repo-id]:not([data-on])").forEach(el => {
+      el.dataset.on = "1";
+      const s = doc.createElement("script");
+      for (const a of el.attributes) if (a.name.startsWith("data-")) s.setAttribute(a.name, a.value);
+      s.src = "https://giscus.app/client.js";
+      s.crossOrigin = "anonymous";
+      s.async = true;
+      el.append(s);
+    });
+  }
+  activateGiscus(doc);
+
   function openPost(url, push = true) {
     const path = new URL(url, location.href).pathname;
     if (popups.has(path)) return restore(popups.get(path));
@@ -249,6 +264,7 @@
         const art = d.querySelector(".post");
         if (!art) throw new Error("sem .post");
         body.querySelector(".pop-page").replaceChildren(art);
+        activateGiscus(art);
         const h1 = art.querySelector("h1");
         setCaption(win, (h1 ? h1.textContent.trim() : "Fragmento") + " - Netscape");
         if (popups.get(path) === win) doc.title = d.title;
