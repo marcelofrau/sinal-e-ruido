@@ -13,17 +13,12 @@
       {% include toolbar.html %}
       <div class="ns-content">
         <div class="page">
-          {% include banner.html %}
+          {% include masthead.html %}
           <div class="cols">
             <main class="page-main" id="conteudo">{{ content }}</main>
-            {% include taskpane.html %}
+            {% include sidebar.html %}
           </div>
-          <footer class="badges">
-            <a class="badge badge-ns" href="{{ '/' | relative_url }}"><i>N</i><span>Netscape<br><b>NOW!</b></span></a>
-            <a class="badge badge-rss" href="{{ '/feed.xml' | relative_url }}"><i>RSS</i><span>XML<br>feed</span></a>
-            <span class="badge badge-np"><i>&#9998;</i><span>feito no<br>Bloco de Notas</span></span>
-            <span class="badge badge-res"><i>800</i><span>melhor em<br>800&times;600</span></span>
-          </footer>
+          <footer class="page-foot">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }} &middot; escrito no Bloco de Notas, servido por Jekyll &middot; <a href="{{ '/feed.xml' | relative_url }}">RSS</a></footer>
         </div>
       </div>
       {% include statusbar.html %}

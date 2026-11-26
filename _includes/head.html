@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#008080">
+{% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
 <link rel="icon" href="{{ '/assets/icons/world-3.png' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 {% seo %}

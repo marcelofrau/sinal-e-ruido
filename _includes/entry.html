@@ -1,0 +1,10 @@
+{% comment %}Item de listagem (home/categoria). Param: post. Mostra "image" do front matter como miniatura, se houver.{% endcomment %}
+{% assign p = include.post %}
+<article class="entry{% if p.image %} has-thumb{% endif %}">
+  <div class="entry-text">
+    {% include post-meta.html post=p %}
+    <h2 class="entry-title"><a href="{{ p.url | relative_url }}" data-popup>{{ p.title }}</a></h2>
+    {% if p.description %}<p class="entry-desc">{{ p.description }}</p>{% endif %}
+  </div>
+  {% if p.image %}<a class="entry-thumb" href="{{ p.url | relative_url }}" data-popup tabindex="-1" aria-hidden="true"><img src="{{ p.image | relative_url }}" alt="" loading="lazy"></a>{% endif %}
+</article>

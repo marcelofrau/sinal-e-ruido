@@ -1,13 +1,20 @@
 ---
 layout: default
 ---
+{% comment %}O desktop.js extrai este article.post (com o h1) pra mostrar o post em popup.{% endcomment %}
 <article class="post">
   <header class="post-head">
+    {% include post-meta.html post=page %}
     <h1>{{ page.title | default: 'Fragmento' }}</h1>
-    <p class="meta">
-      {{ page.date | date: '%d/%m/%Y' }} &middot;
-      {% for s in site.data.sections %}{% if page.categories[0] == s.key %}<a href="{{ s.key | prepend: '/' | relative_url }}">{{ s.name }}</a>{% endif %}{% endfor %}
-    </p>
+    {% if page.description %}<p class="post-lede">{{ page.description }}</p>{% endif %}
   </header>
+  {% if page.image %}<figure class="post-hero"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt }}"></figure>{% endif %}
   <div class="post-body">{{ content }}</div>
+  <footer class="post-foot">
+    {% if page.tags.size > 0 %}<p class="tags">{% for t in page.tags %}<span class="tag">#{{ t }}</span>{% endfor %}</p>{% endif %}
+    {% if page.collection == 'posts' %}<nav class="post-nav" aria-label="Outros posts">
+      {% if page.previous %}<a class="pn-prev" href="{{ page.previous.url | relative_url }}" data-popup><small>&larr; anterior</small>{{ page.previous.title | default: 'Fragmento' }}</a>{% endif %}
+      {% if page.next %}<a class="pn-next" href="{{ page.next.url | relative_url }}" data-popup><small>próximo &rarr;</small>{{ page.next.title | default: 'Fragmento' }}</a>{% endif %}
+    </nav>{% endif %}
+  </footer>
 </article>

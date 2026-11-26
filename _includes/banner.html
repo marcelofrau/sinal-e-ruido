@@ -1,6 +1,0 @@
-{% comment %}Página "anos 2000" dentro do Netscape: banner Luna, ticker, painel de tarefas XP, selos 88x31.{% endcomment %}
-<header class="banner">
-  <a class="banner-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-  <p class="banner-tagline">{{ site.tagline }}</p>
-</header>
-<div class="ticker" aria-label="Últimas publicações"><span><b>Últimas:</b>{% for p in site.posts limit: 5 %} &#9658; <a href="{{ p.url | relative_url }}" data-popup>{{ p.title | default: 'Fragmento' }}</a>{% endfor %}</span></div>

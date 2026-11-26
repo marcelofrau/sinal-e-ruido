@@ -232,7 +232,7 @@
     const body = doc.createElement("div");
     body.className = "pop";
     body.innerHTML = `<div class="pop-page"><p class="pop-wait">Carregando...</p></div><div class="ns-status"><span class="panel panel-text">Documento: Concluído</span><span class="panel"><a href="${path}">Abrir na janela principal</a></span></div>`;
-    const win = makeWin({ title: "Carregando... - Netscape", icon: "html-3", cls: "win-pop", body, w: 680, h: Math.round(desk.clientHeight * 0.78) });
+    const win = makeWin({ title: "Carregando... - Netscape", icon: "html-3", cls: "win-pop", body, w: 780, h: Math.round(desk.clientHeight * 0.82) });
     popups.set(path, win);
     win._onclose = silent => {
       popups.delete(path);
@@ -263,6 +263,16 @@
     popups.forEach((w, p) => { if (p !== location.pathname) closeWin(w, true); });
     const p = e.state?.popup;
     if (p && !popups.has(p)) openPost(p, false);
+  });
+
+  // Vídeo (_includes/video.html): o iframe do YouTube/Vimeo só entra no clique, nada de terceiros antes.
+  doc.addEventListener("click", e => {
+    const b = e.target.closest(".player-screen[data-embed]");
+    if (!b) return;
+    const f = doc.createElement("iframe");
+    Object.assign(f, { src: b.dataset.embed, title: b.dataset.title, allowFullscreen: true, className: "player-frame" });
+    f.allow = "autoplay; fullscreen; picture-in-picture; encrypted-media";
+    b.replaceWith(f);
   });
 
   doc.addEventListener("click", e => {

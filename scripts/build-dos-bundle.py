@@ -8,6 +8,7 @@ GAMES = [  # (zip, pasta em C:\, launcher, comando dentro da pasta, linha do men
     ("DOSBOX_DUKE3D.ZIP",  "DUKE3D",  "DUKE",    "DUKE3D.EXE",      "DUKE     - Duke Nukem 3D (3D Realms, 1996)"),
     ("DOSBOX_DESCENT.ZIP", "DESCENT", "DESCENT", "call DESCENT.BAT", "DESCENT  - Descent (Parallax, 1994)"),
     ("jill1.zip",          "JILL",    "JILL",    "JILL.EXE",        "JILL     - Jill of the Jungle (Epic, 1992)"),
+    ("DOSBOX_XARGONREG.ZIP", "XARGON", "XARGON", "call XARGON.BAT", "XARGON   - Xargon (Epic, 1994)"),
 ]
 def dos(text):  # CRLF + ASCII
     return "\r\n".join(text.strip("\n").split("\n")).encode("ascii") + b"\r\n"
@@ -61,7 +62,7 @@ with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
 with zipfile.ZipFile(out) as z:
     assert z.testzip() is None
     names = z.namelist()
-    for need in ["DOOM/DOOM1.WAD", "DUKE3D/DUKE3D.GRP", "DESCENT/DESCENT.HOG", "JILL/JILL.EXE", ".jsdos/dosbox.conf"]:
+    for need in ["DOOM/DOOM1.WAD", "DUKE3D/DUKE3D.GRP", "DESCENT/DESCENT.HOG", "JILL/JILL.EXE", "XARGON/XARGON.BAT", ".jsdos/dosbox.conf"]:
         assert need in names, need
 print(f"ok: {len(names)} arquivos, {os.path.getsize(out)/1e6:.1f} MB -> {out}")
 print(z.read("MENU.BAT").decode() if False else "")

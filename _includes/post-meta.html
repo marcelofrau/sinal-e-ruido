@@ -1,0 +1,7 @@
+{% comment %}Linha de metadados: seção · data · tempo de leitura. Param: post.{% endcomment %}
+{% assign p = include.post %}{% assign words = p.content | strip_html | number_of_words %}
+<p class="meta">
+  {% for s in site.data.sections %}{% if p.categories[0] == s.key %}<a class="chip" href="{{ '/' | append: s.key | append: '/' | relative_url }}">{{ s.name }}</a>{% endif %}{% endfor %}
+  <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: '%d/%m/%Y' }}</time>
+  <span>{{ words | divided_by: 200 | at_least: 1 }} min de leitura</span>
+</p>

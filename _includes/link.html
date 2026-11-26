@@ -1,0 +1,7 @@
+{%- comment -%}
+Cartão de link (bookmark). Uso:
+  {% include link.html url="https://..." title="Título" desc="Por que vale o clique (opcional)" %}
+Saída numa linha só: linha em branco ou indentação viram Markdown e quebram o HTML.
+{%- endcomment -%}
+{%- assign host = include.url | split: '/' | slice: 2 | first | remove_first: 'www.' -%}
+<a class="linkcard" href="{{ include.url }}" target="_blank" rel="noopener"><svg class="lc-icon" aria-hidden="true"><use href="#i-bm"/></svg><span class="lc-text"><b>{{ include.title | default: host }}</b>{% if include.desc %}<span>{{ include.desc }}</span>{% endif %}<small>{{ host }}</small></span><span class="lc-go" aria-hidden="true">&#8599;</span></a>

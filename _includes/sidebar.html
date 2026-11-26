@@ -1,0 +1,31 @@
+<aside class="sidebar">
+  <section class="box">
+    <h2>Seções</h2>
+    <ul class="box-list">
+      {% for s in site.data.sections %}{% if s.key == 'fragmentos' %}{% assign ico = 'notepad-3' %}{% else %}{% assign ico = 'directory_closed-3' %}{% endif %}
+      <li><a href="{{ '/' | append: s.key | append: '/' | relative_url }}"><img src="{{ '/assets/icons/' | append: ico | append: '.png' | relative_url }}" alt="" width="16" height="16">{{ s.name }}</a><span class="count">{{ site.categories[s.key] | size }}</span></li>
+      {% endfor %}
+    </ul>
+  </section>
+  <section class="box">
+    <h2>Recentes</h2>
+    <ul class="box-list box-recent">
+      {% for p in site.posts limit: 5 %}<li><a href="{{ p.url | relative_url }}" data-popup>{{ p.title | default: 'Fragmento' }}</a><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: '%d/%m' }}</time></li>{% endfor %}
+    </ul>
+  </section>
+  <section class="box">
+    <h2>Explorar</h2>
+    <ul class="box-list">
+      <li><a href="{{ '/arquivo/' | relative_url }}"><img src="{{ '/assets/icons/directory_open_file_mydocs-3.png' | relative_url }}" alt="" width="16" height="16">Arquivo</a></li>
+      <li><a href="{{ '/feed.xml' | relative_url }}"><img src="{{ '/assets/icons/channels-3.png' | relative_url }}" alt="" width="16" height="16">Feed RSS</a></li>
+      <li><button type="button" data-random><img src="{{ '/assets/icons/joystick-3.png' | relative_url }}" alt="" width="16" height="16">Post aleatório</button></li>
+      <li><button type="button" data-open="dos"><img src="{{ '/assets/icons/ms_dos-1.png' | relative_url }}" alt="" width="16" height="16">MS-DOS Prompt</button></li>
+    </ul>
+  </section>
+  <div class="badges">
+    <a class="badge badge-ns" href="{{ '/' | relative_url }}"><i>N</i><span>Netscape<br><b>NOW!</b></span></a>
+    <a class="badge badge-rss" href="{{ '/feed.xml' | relative_url }}"><i>RSS</i><span>XML<br>feed</span></a>
+    <span class="badge badge-np"><i>&#9998;</i><span>feito no<br>Bloco de Notas</span></span>
+    <span class="badge badge-res"><i>800</i><span>melhor em<br>800&times;600</span></span>
+  </div>
+</aside>

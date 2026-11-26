@@ -1,0 +1,26 @@
+{%- comment -%}
+Vídeo num post. Uso:
+  {% include video.html youtube="ID" title="Título" caption="legenda opcional" %}
+  {% include video.html vimeo="ID" title="..." %}
+  {% include video.html src="/assets/media/x.mp4" poster="/assets/media/x.jpg" caption="..." %}
+YouTube/Vimeo só carregam depois do clique (nada de terceiros até lá); o desktop.js troca o botão pelo iframe.
+Sem linhas em branco nem indentação na saída: o kramdown leria como Markdown e quebraria o HTML.
+{%- endcomment -%}
+{%- assign t = include.title | default: 'Vídeo' -%}
+{%- if include.youtube -%}
+{%- capture embed %}https://www.youtube-nocookie.com/embed/{{ include.youtube }}?autoplay=1&rel=0{% endcapture -%}
+{%- capture watch %}https://www.youtube.com/watch?v={{ include.youtube }}{% endcapture -%}
+{%- assign host = 'YouTube' -%}
+{%- elsif include.vimeo -%}
+{%- capture embed %}https://player.vimeo.com/video/{{ include.vimeo }}?autoplay=1&dnt=1{% endcapture -%}
+{%- capture watch %}https://vimeo.com/{{ include.vimeo }}{% endcapture -%}
+{%- assign host = 'Vimeo' -%}
+{%- endif -%}
+<figure class="media">
+{%- if include.src -%}
+<video controls preload="metadata" src="{{ include.src | relative_url }}"{% if include.poster %} poster="{{ include.poster | relative_url }}"{% endif %}></video>
+{%- else -%}
+<div class="player"><div class="player-title"><img src="{{ '/assets/icons/media_player-0.png' | relative_url }}" alt="" width="16" height="16"><span>{{ t }} - Media Player</span></div><button class="player-screen" type="button" data-embed="{{ embed }}" data-title="{{ t }}" aria-label="Reproduzir vídeo: {{ t }}"><span class="player-play" aria-hidden="true">&#9658;</span><span class="player-hint">Clique para reproduzir &middot; carrega do {{ host }}</span></button><div class="player-bar" aria-hidden="true"><span>&#9658;</span><span>&#10074;&#10074;</span><span>&#9632;</span><i></i></div></div><a class="media-alt" href="{{ watch }}">Assistir no {{ host }}</a>
+{%- endif -%}
+{%- if include.caption -%}<figcaption>{{ include.caption }}</figcaption>{%- endif -%}
+</figure>
