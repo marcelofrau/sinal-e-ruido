@@ -13,10 +13,10 @@
   icon: ms_dos-1
   open: dos
 - label: Winamp
-  icon: media_player-0
+  icon: winamp
   open: winamp
 - label: mIRC
-  icon: cchat_128-0
+  icon: mirc
   open: mirc
 - label: Paint
   icon: mspaint_2-3

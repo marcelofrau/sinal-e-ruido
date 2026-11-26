@@ -34,7 +34,7 @@
     grid.style.gridTemplateColumns = "repeat(" + W + ", 16px)";
     body.append(top, grid);
 
-    const win = makeWin({ title: "Campo Minado", icon: "game_mine_1-0", cls: "win-mines", body, w: W * 16 + 24, h: H * 16 + 104 });
+    const win = makeWin({ title: "Campo Minado", icon: "game_mine_1-0", cls: "win-mines", body, w: W * 16 + 24, h: H * 16 + 84 });
     win._onclose = () => {};
 
     let cells = [], opened = 0, flags = 0, over = false, t0 = null, tick = null;

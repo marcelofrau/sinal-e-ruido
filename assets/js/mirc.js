@@ -58,7 +58,7 @@
     row.append(inp, conn);
     body.append(menubar, main, sw, row);
 
-    const win = makeWin({ title: "mIRC", icon: "cchat_128-0", cls: "win-mirc", body, w: 560, h: 420 });
+    const win = makeWin({ title: "mIRC", icon: "mirc", cls: "win-mirc", body, w: 560, h: 420 });
     win._onclose = () => { timers.forEach(clearTimeout); timers = []; try { ws?.close(); } catch {} };
 
     // -- cores mIRC (aproximação da paleta 16) --

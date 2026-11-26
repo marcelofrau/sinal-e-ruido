@@ -456,6 +456,37 @@
     ta.focus();
   }
 
+  // ---------- Winamp: Webamp direto no desktop (janelas skinned dele, sem moldura nossa) ----------
+  let webamp = null;
+  function openWinamp() {
+    if (webamp) { webamp.reopen(); return; }
+    setLoading(true, "Carregando o Winamp...");
+    const s = doc.createElement("script");
+    s.src = "https://unpkg.com/webamp@2.3.1/built/webamp.bundle.min.js";
+    s.onload = () => {
+      setLoading(false);
+      if (typeof Webamp === "undefined" || !Webamp.browserIsSupported()) return;
+      webamp = new Webamp({ initialWindowPosition: { top: 24, left: 84 }, zIndex: 9000 });
+      webamp.renderWhenReady(desk);
+    };
+    doc.head.append(s);
+  }
+
+  // app em janela pelada: só a titlebar 98 e o iframe (Pinball)
+  function openAppWin(url, title, icon) {
+    const old = desk.querySelector(".win-app");
+    if (old) return restore(old);
+    const body = doc.createElement("div");
+    body.className = "app-frame";
+    const frame = doc.createElement("iframe");
+    Object.assign(frame, { src: url, className: "web-frame", referrerPolicy: "no-referrer", title: title });
+    body.append(frame);
+    const win = makeWin({ title: title + " - Netscape", icon: icon, cls: "win-app", body, w: Math.max(640, Math.min(980, desk.clientWidth * 0.8)), h: desk.clientHeight - 24 });
+    setLoading(true, "Contatando o host: " + new URL(url).host + "...");
+    frame.addEventListener("load", () => setLoading(false));
+    return win;
+  }
+
   // ---------- lançadores: ícones do desktop, menu Iniciar, data-open ----------
   // API mínima pros apps carregados sob demanda (mirc.js, mines.js).
   window.__snr = { makeWin, restore, ICONS, BASE, setLoading };
@@ -475,9 +506,9 @@
     else if (open === "shutdown") doc.getElementById("shutdown").hidden = false;
     else if (open === "mirc") openApp(BASE + "/assets/js/mirc.js", () => window.snrMirc?.());
     else if (open === "mines") openApp(BASE + "/assets/js/mines.js", () => window.snrMines?.());
-    else if (open === "winamp") openWeb(new URL(BASE + "/winamp/", location.href).href, "Winamp");
+    else if (open === "winamp") openWinamp();
     else if (open === "paint") openWeb("https://jspaint.app", "Paint");
-    else if (open === "pinball") openWeb("https://pinball.alula.me", "3D Pinball");
+    else if (open === "pinball") openAppWin("https://pinball.alula.me", "3D Pinball", "joystick-3");
     else if (open?.startsWith("dlg:")) dialog(open.slice(4));
   }
 
