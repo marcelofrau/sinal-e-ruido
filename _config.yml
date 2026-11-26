@@ -10,9 +10,8 @@ permalink: /:year/:month/:title/
 author:
   name: Marcelo Frau
 
-# Bundle js-dos aberto pelo ícone MS-DOS (zip com .jsdos/dosbox.conf).
-# shortcut: aponta pro Digger de exemplo do js-dos até existir assets/dos/shareware.jsdos; troque para "/assets/dos/shareware.jsdos".
-dos_bundle: "https://v8.js-dos.com/bundles/digger.jsdos"
+# Bundle js-dos aberto pelo ícone MS-DOS (zip com .jsdos/dosbox.conf). Gerado por scripts/build-dos-bundle.py.
+dos_bundle: "/assets/dos/shareware.jsdos"
 
 collections:
   pages:
