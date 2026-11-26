@@ -1,7 +1,8 @@
 # Ícones do desktop e do menu Iniciar, na ordem em que aparecem.
 # Use "url" (abre na janela do Netscape) ou "open": browser | dos | dlg:<id> (template #tpl-dlg-<id> no default.html).
-# "hide_menu: true" tira o item do menu Iniciar (fica só no desktop). As seções do site não
-# aparecem aqui: ficam só dentro do Netscape (Personal Toolbar e sidebar).
+# "hide_menu: true" tira o item do menu Iniciar (fica só no desktop); "menu_only: true"
+# tira do desktop (fica só no menu). As seções do site não aparecem aqui: ficam só
+# dentro do Netscape (Personal Toolbar e sidebar).
 # Ícones: assets/icons/<icon>.png (set Windows 98 de windowsicons.alexmeub.com).
 - label: Meu Computador
   icon: computer_explorer-3
@@ -27,6 +28,12 @@
 - label: 3D Pinball
   icon: pinball
   open: pinball
+- label: eye4u
+  icon: html-3
+  open: eye4u
+- label: Anfy Lake
+  icon: java-3
+  open: anfy
 - label: Lixeira
   icon: recycle_bin_empty-3
   open: dlg:trash
@@ -37,15 +44,19 @@
 - label: Fragmentos.txt
   icon: notepad_file-1
   url: /fragmentos/
+  hide_menu: true
 - label: Arquivo
   icon: directory_open_file_mydocs-3
   url: /arquivo/
 - label: Sobre
   icon: msg_information-1
   url: /sobre/
+  menu_only: true
 - label: Favoritos
   icon: html-3
   url: /favoritos/
+  hide_menu: true
 - label: Canais
   icon: channels-3
   url: /feed.xml
+  hide_menu: true

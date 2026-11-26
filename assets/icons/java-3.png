@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="ie=edge" http-equiv="x-ua-compatible">
+	<title>Windows 98 Icons · Windows Icons</title>
+	<style>
+body,html{height:100%;overflow:hidden}*,:after,:before,body,html{padding:0;margin:0;image-rendering:crisp-edges;image-rendering:pixelated;}.start-button-wrapper,button{border:0;cursor:pointer}a,input:focus{outline:0}button,label{cursor:pointer}.windows,body,input{font-size:12px}.windows-button,input{-webkit-appearance:none}.icon-wrap,.windows,.windows-header,body,html{overflow:hidden}@font-face{font-family:px_sans_nouveaux;src:url(fonts/px_sans_nouveaux/px_sans_nouveaux.woff2) format('woff2')}-webkit-scrollbar-thumb{background-color:silver;border-left:ridge 2px #fff;border-top:ridge 2px #fff;border-right:ridge 2px gray;border-bottom:ridge 2px gray}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit;box-sizing:border-box}body{line-height:1.5;letter-spacing:-.025em;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;cursor:default;color:rgba(255,255,255,.8);-webkit-font-smoothing:antialiased;-moz-font-smoothing:antialiased;transition:background-color 1s ease .5s,color 1s ease .5s;font-family:px_sans_nouveaux;background-color:teal}.form-content,.share,.share a,.windows-content{color:#000}.windows,.windows-button{font-family:Arial,sans-serif}a{text-decoration:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}input[type=color]{opacity:0;width:26px}input{border-radius:0}label{display:block}.label-container{display:none}.input-border{border-left:2px solid #6b6b6b;border-top:2px solid #6b6b6b;border-right:2px solid #dfdfdf;border-bottom:2px solid #dfdfdf}.input{width:100%;border-left:2px solid #404040;border-top:2px solid #404040;border-right:2px solid #f4f4f4;border-bottom:2px solid #f4f4f4;padding-left:.5em}.formfields{position:relative;border-left:1px solid #848484;border-top:1px solid #848484;border-right:1px solid #fff;border-bottom:1px solid #fff}.formfields .formfields-inner{padding:1em 1em 0;border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #848484;border-bottom:1px solid #848484}.formfields .formfields-label{position:absolute;background-color:#c6c6c6;padding:0 .35em;top:-.75em;left:.5em}.flavor-name-container{margin-top:1em}.share{margin:2em auto 0;width:80%}.bullets{list-style:none;padding:0}.bullets li{margin:1em 0}.windows-container,.windows-form{margin:0 auto;height:100%}.bullets a{position:relative;padding:0 .2em;padding-left:calc(.5em + 13px);border:1px dotted transparent}.bullets a:after,.bullets a:before{content:'';display:block;width:13px;height:13px;position:absolute;left:0;top:0}.bullets a:before{background:url(images/bullet.gif)}.bullets a:after{opacity:0;background:url(images/bullet-checked.gif)}.bullets a.clicked:after,.bullets a:hover:after{opacity:1}.bullets a:active{border:1px dotted #000}.windows-container{width:100%;z-index:2;padding:50px 80px 79px;overflow:hidden}.windows-content{padding:1.5em}.windows{font-weight:400;letter-spacing:.025em;font-smoothing:never;-webkit-font-smoothing:none;background-color:#c6c6c6;border-top:2px solid #efefef;border-left:2px solid #efefef;border-right:2px solid #000;border-bottom:2px solid #000;height:100%;position:relative}.windows .windows-button{color:#000;background-color:silver;position:relative;z-index:10;float:right}.windows .windows-button:active{border-top:2px solid #000;border-left:2px solid #000;border-right:2px solid #efefef;border-bottom:2px solid #efefef}.windows-header{height:25px;position:relative;text-align:left;color:#fff;padding:.25em .75em;line-height:1.4;border-top:1px solid silver;border-left:1px solid silver;border-right:2px solid silver;border-bottom:1px solid silver;background:navy}.windows-button{display:block;-moz-appearance:none;appearance:none;font-weight:700;letter-spacing:.05em;padding:.45em .75em;border-left:2px solid #ededed;border-top:2px solid #ededed;border-right:2px solid #404040;border-bottom:2px solid #404040}.icon-inner-container .icon-box span,.ui-icon span{text-align:center;font-family:px_sans_nouveaux;font-size:8px}.windows-button:active{-webkit-transform:translate3d(0,1px,0);transform:translate3d(0,1px,0)}.windows-button:focus{outline:#000 dotted 1px}.windows-footer{padding:2em 0}.clearfix:after,.clearfix:before{content:"";display:table}.clearfix:after{clear:both}.hidden{display:none}.form-content{padding:10px 10px 35px}.icon-wrap{border-left:1px solid #fff;border-top:1px solid #fff;border-right:1px solid #000;border-bottom:1px solid #000;margin:0;padding:0;height:100%}.icon-outer-container{border-left:1px solid #dfdfdf;border-top:1px solid #dfdfdf;border-right:1px solid #7f7f7f;border-bottom:1px solid #7f7f7f;height:100%;padding:10px;margin:0}.icon-inner-container{border-left:2px solid #404040;border-top:2px solid #404040;border-right:2px solid #f4f4f4;border-bottom:2px solid #f4f4f4;background:#fff;height:100%;padding:0;margin:0;overflow-y:scroll}.icon-inner-container .icon-box{display:inline-block;position:relative;text-align:center}.icon-inner-container .img16{margin-top:-40px;margin-left:25px}.icon-inner-container .img32{margin-top:-50px;margin-left:17px}.icon-inner-container .img48{margin-top:-56px;margin-left:10px}.icon-inner-container .img64{height:128px;width:128px}.icon-inner-container .icon-box span{display:block;padding:4px 0 0}.icon-item,.icon-item .helper,.ui-icon{display:inline-block}.icon-item{width:68px;height:68px;border:1px solid #ccc;text-align:center;vertical-align:middle;white-space:nowrap;margin:5px;border-left:1px solid #dfdfdf;border-top:1px solid #dfdfdf;border-right:1px solid #7f7f7f;border-bottom:1px solid #7f7f7f}.icon-item .helper{height:100%;vertical-align:middle}.icon-item a div{vertical-align:middle;max-height:64px;max-width:64px;margin-top:-60px;margin-left:10px}.ui-desktop{position:absolute;left:0;top:0;width:72px;z-index:9999}.ui-icon{text-align:center;vertical-align:top;width:72px;z-index:0;line-height:12px;margin:0;padding:8px 1px}.ui-icon-container{position:relative}.ui_icon div{display:block;text-align:center}.ui-icon span{display:block;padding:4px 0 0}.start-bar{padding:2px;box-shadow:inset 1px 0 #fff;display:block;background-color:silver;bottom:0;left:0;right:0;border-top:1px solid #f4f4f4;border-bottom:1px solid #4e4e4e;position:fixed;z-index:99999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.start-button{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAOCAYAAAC7IpUCAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NUM1ODI5QzgzOTZGMTFFOEFFNkU4RDM2QzcxREQwM0MiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NUM1ODI5QzkzOTZGMTFFOEFFNkU4RDM2QzcxREQwM0MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1QzU4MjlDNjM5NkYxMUU4QUU2RThEMzZDNzFERDAzQyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1QzU4MjlDNzM5NkYxMUU4QUU2RThEMzZDNzFERDAzQyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjeV5nEAAAEdSURBVHjazFZLDoIwEGWIJC4N8R66MN5A5UQewhNhvIILPYjoTiPRJ1AstFD6iQQnacIMtPPm9XUKeWYGySdvQCNLsN4/gPc7gPF4spnz4PY21RUFafQCWgYgJLusZyK11ADeVgTVdgEtBbkYn+tLW9xYkHKU7yoMvGw0QX1IyM+YlNkRE2WAw8OZu7vJ9RcwYCAnlcSQ67UIJisGPvfLQkyHjaZ18oBKpoI8wv2JagcOXBJ1i9Jq5mNpKgky7EAOhzZ6onOxKGWj9HFfIANumgiag9jlq5nmhDBgrIjvs31n7q3NiS0vDojnK1inJrA4qDCPjyaXDaT21/Ze9b12bSo/JofbcLBbcSSBJAVYciyo938POLCIIZj+CDAAkHCTiNbrGBwAAAAASUVORK5CYII=);background-repeat:no-repeat;width:45px;height:14px}.start-button-wrapper{float:left;margin-left:2px;margin-bottom:2px;vertical-align:middle;display:inline-block;padding:2px 6px 3px;background-color:silver;border-top:1px solid #fff;border-left:1px solid #fff;border-right:1px solid gray;border-bottom:1px solid gray;box-shadow:inset 1px 1px #dfdfdf,1px 0 #000,0 1px #000,1px 1px #000;min-width:59px;margin-right:6px;color:#000}.clock,.start-bar-window{vertical-align:middle;height:22px;line-height:22px;border-right:1px solid #fff;border-bottom:1px solid #fff;font-family:Arial;font-weight:400;color:#000}.start-bar-window{float:left;padding:0 10px 0 6px;border-top:1px solid #000;border-left:1px solid #000;box-shadow:inset 1px 1px grey;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2M8cODAf3t7ewbG/////z948CADAFuqCj64BtLKAAAAAElFTkSuQmCC)}.clock{float:right;text-align:right;padding:0 10px;border-top:1px solid gray;border-left:1px solid gray}@media (max-width:768px){.windows-container{padding:10px 20px 40px;max-width:500px}}@media (max-width:630px){.ui-desktop{display:none}}
+/* Windows Icons: a silver Windows 98 frame with the site title and version buttons along
+   its top edge, around a sunken screen that turns into the chosen version. */
+body{background:silver}
+.app{display:flex;flex-direction:column;height:100%;padding:0 8px 8px;background:silver;box-shadow:inset 1px 1px #dfdfdf,inset -1px -1px #000,inset 2px 2px #fff,inset -2px -2px #808080}
+/* Borders, not inset shadows, so the taskbar and desktop can't paint over the sunken edge. */
+.screen{position:relative;flex:1;min-width:0;min-height:0;overflow:hidden;background:teal;border:1px solid;border-color:#404040 #dfdfdf #dfdfdf #404040;box-shadow:-1px -1px #808080,1px 1px #fff}
+.screen .start-bar{position:absolute}
+/* 95, 98 and 2000's taskbar, measured against screenshots of each: 28px under a light and a
+   white line, with 22px buttons 4px down. The Start button is 54px wide (its black edge is a
+   shadow outside the box), and task buttons are 160px, 4px after it. The window's button is the
+   active one: pressed in, with a white line under its top edge and the white and silver
+   checkerboard below, its 16px icon and bold name shifted a pixel down and right. */
+.screen .start-bar{height:28px;padding:3px 2px 0;border-top:1px solid #dfdfdf;border-bottom:0;box-shadow:inset 0 1px #fff}
+.screen .start-button-wrapper{width:53px;min-width:0;height:21px;margin:0 5px 0 0;padding:3px 3px 2px}
+.screen .start-bar-window{position:relative;width:160px;padding:0 4px 0 22px;border:1px solid;border-color:#000 #fff #fff #000;box-shadow:inset 1px 1px #808080,inset -1px -1px #dfdfdf,inset 0 2px #fff;background:repeating-conic-gradient(silver 0 25%,#fff 0 50%) 0 1px/2px 2px;font-size:11px;font-weight:700;line-height:20px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.task-icon{position:absolute;left:4px;top:3px;width:16px;height:16px}
+.screen .clock{font-size:11px}
+.screen::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:100000;background:#000;opacity:0;pointer-events:none}
+.screen.switching::after{animation:switch-blink .3s linear}
+@keyframes switch-blink{40%,55%{opacity:1}}
+
+/* Easter eggs. The Start button opens a small Start menu in the version's style; its Shut Down
+   plays the shutdown sound and covers the screen until a click or key "restarts" it. */
+.start-menu{position:absolute;left:2px;bottom:100%;z-index:1;display:flex;padding:3px;background:silver;box-shadow:inset -1px -1px #000,inset 1px 1px #dfdfdf,inset -2px -2px #808080,inset 2px 2px #fff;color:#000;font:11px Arial,sans-serif;letter-spacing:0}
+.start-menu[hidden],.shutdown[hidden]{display:none}
+.start-banner{width:22px;padding:6px 0;background:linear-gradient(#1084d0,#000080);color:#fff;font:400 15px/22px Arial,sans-serif;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap}
+.start-banner span{color:#c0c0c0;padding-top:3px}
+.start-item{display:block;width:100%;padding:9px 28px 9px 12px;background:none;color:#000;font:inherit;text-align:left;white-space:nowrap}
+.start-item:hover,.start-item:focus-visible{background:#000080;color:#fff}
+.start-sep{margin:3px 1px;border-top:1px solid #808080;border-bottom:1px solid #fff}
+[data-os=win2000] .start-menu{background:#d4d0c8;font-family:Tahoma,sans-serif}
+[data-os=winxp] .start-menu{left:0;flex-direction:column;padding:0 0 4px;border:1px solid #0a3aa0;border-bottom:0;border-radius:6px 6px 0 0;background:#fff;box-shadow:2px -2px 4px rgba(0,0,0,.35);font:11px Tahoma,sans-serif}
+[data-os=winxp] .start-banner{width:auto;margin-bottom:4px;padding:7px 10px;border-radius:5px 5px 0 0;background:linear-gradient(#1868ce,#2e7ee8 12%,#245edb);border-bottom:2px solid #e59700;font:700 14px Tahoma,sans-serif;text-shadow:1px 1px 1px #0a2a80;writing-mode:horizontal-tb;transform:none}
+[data-os=winxp] .start-banner span,[data-os=winvista] .start-banner span,[data-os=win7] .start-banner span{color:#fff;padding:0 0 0 4px}
+[data-os=winxp] .start-item:hover,[data-os=winxp] .start-item:focus-visible{background:#316ac5}
+[data-os=winxp] .start-sep{border-top-color:#d6d2c2}
+[data-os=winvista] .start-menu,[data-os=win7] .start-menu{left:0;flex-direction:column;padding:6px;border:1px solid rgba(0,0,0,.7);border-bottom:0;border-radius:7px 7px 0 0;background:rgba(40,60,85,.72);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);font:12px "Segoe UI",Tahoma,sans-serif}
+[data-os=winvista] .start-banner,[data-os=win7] .start-banner{display:none}
+[data-os=winvista] .start-items,[data-os=win7] .start-items{padding:4px;border-radius:3px;background:#fff}
+[data-os=winvista] .start-item,[data-os=win7] .start-item{padding:6px 30px 6px 10px;border:1px solid transparent;border-radius:3px}
+[data-os=winvista] .start-item:hover,[data-os=win7] .start-item:hover,[data-os=winvista] .start-item:focus-visible,[data-os=win7] .start-item:focus-visible{border-color:#aaddfa;background:linear-gradient(#eaf6fd,#d2ecfb);color:#000}
+[data-os=winvista] .start-sep,[data-os=win7] .start-sep{border-top-color:#d7d7d7}
+.shutdown{position:absolute;top:0;right:0;bottom:0;left:0;z-index:100001;display:flex;align-items:center;justify-content:center;padding:20px;background:#000;color:#f08000;font:700 22px/1.4 Arial,sans-serif;letter-spacing:0;text-align:center;white-space:pre-line;cursor:pointer}
+[data-os=winxp] .shutdown{background:linear-gradient(#00309c,#5a7edc 12%,#5a7edc 86%,#00309c);color:#fff;font:400 22px Tahoma,sans-serif}
+[data-os=winvista] .shutdown,[data-os=win7] .shutdown{background:radial-gradient(#1c6b6a,#04262b);color:#fff;font:400 18px "Segoe UI",Tahoma,sans-serif}
+.site-logo{cursor:pointer}
+/* Clippy turns up when a search finds nothing. Artwork and frames are vendor/clippy/. */
+.clippy{position:absolute;right:20px;bottom:46px;z-index:99990;width:124px}
+[data-os=win31] .clippy{bottom:10px}
+.clippy-sprite{width:124px;height:93px;background:url(vendor/clippy/map.png) 124px 0 no-repeat}
+.clippy-balloon{position:absolute;right:34px;bottom:100px;width:214px;padding:8px 10px 9px;border:1px solid #000;border-radius:7px;background:#ffffe1;color:#000;font:12px/1.35 Tahoma,Arial,sans-serif;letter-spacing:0;text-align:left}
+.clippy-balloon::after{content:"";position:absolute;right:26px;bottom:-7px;width:12px;height:12px;border:solid #000;border-width:0 1px 1px 0;background:#ffffe1;transform:rotate(45deg)}
+.clippy-balloon[hidden]{display:none}
+.clippy-balloon button{display:block;margin-top:7px;padding-left:16px;background:radial-gradient(circle at 5px 50%,#6b7f9e 0 4px,transparent 4.5px);color:#000;font:inherit;text-align:left}
+.clippy-balloon button:hover{text-decoration:underline}
+
+/* The frame's top edge is a 98 Explorer toolbar: the logo and title, then one flat
+   toolbar button per version after an etched separator. A button rises under the pointer, and
+   the current version's stays pressed in, with the checked-button dither. */
+.topbar{flex:none;display:flex;align-items:center;gap:8px;height:38px;padding:1px 4px 0;color:#000;-webkit-user-select:none;user-select:none}
+.site-logo{flex:none}
+.site-title{flex:none;margin:0;font:700 14px/1 Tahoma,Arial,Helvetica,sans-serif;white-space:nowrap}
+/* A round help icon after the title, opening the blog post the site began with. */
+.about-link{flex:none;width:16px;height:16px;border-radius:50%;background:#000080;color:#fff;font:700 11px/16px Arial,Helvetica,sans-serif;text-align:center}
+.about-link:hover{background:#1084d0}
+.about-link:focus-visible{outline:1px dotted #000;outline-offset:2px}
+.versions{display:flex;margin-left:auto;padding-left:8px;box-shadow:inset 1px 0 #808080,inset 2px 0 #fff}
+.os-button{position:relative;min-width:30px;height:28px;padding:0 12px;font:400 12px/28px Tahoma,Arial,Helvetica,sans-serif;text-align:center;white-space:nowrap}
+.os-button:hover{box-shadow:inset 1px 1px #fff,inset -1px -1px #808080}
+.os-button.active{font-weight:700;background:repeating-conic-gradient(silver 0 25%,#fff 0 50%) 0 0/2px 2px;box-shadow:inset 1px 1px #808080,inset -1px -1px #fff}
+.os-button input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.os-button input:focus-visible+span{outline:1px dotted #000;outline-offset:1px}
+@media (max-width:630px){
+.topbar{gap:6px;height:34px}
+.site-title{font-size:13px}
+/* Seven buttons, the title and its ? just fit a 360px phone; anything narrower scrolls the buttons. */
+.versions{min-width:0;padding-left:5px;overflow-x:auto;scrollbar-width:none}
+.os-button{flex:none;min-width:0;height:24px;padding:0 6px;font-size:11px;line-height:24px}
+.screen[data-os] .ui-desktop{display:none}
+}
+@media (max-width:420px){
+.topbar{gap:4px}
+.site-title{font-size:12px}
+.os-button{padding:0 4px}
+}
+
+/* One centered tile per icon, whatever its size. */
+.icon-item{display:inline-flex;align-items:center;justify-content:center;vertical-align:top}
+.icon-item a{display:block}
+.icon-inner-container .icon-item a div{margin:0}
+.ui-icon .desk-img{margin:0 auto}
+.ui-icon span{color:#fff}
+/* The list stops above the status bar: title bar height plus the status bar's 29px. */
+.screen .form-content{padding-bottom:54px}
+.status-bar{position:absolute;left:12px;right:12px;bottom:6px;height:20px;padding:0 6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;border:1px solid;border-color:#808080 #fff #fff #808080;color:#000;font:11px/18px Arial,sans-serif}
+.status-total{display:none}
+.show-earlier{float:right;cursor:pointer}
+.show-earlier[hidden]{display:none}
+.show-earlier input{-webkit-appearance:none;appearance:none;width:13px;height:13px;margin:0 5px 0 0;vertical-align:-2px;background:#fff;box-shadow:inset 1px 1px #808080,inset -1px -1px #fff,inset 2px 2px #000,inset -2px -2px #dfdfdf;cursor:pointer}
+.show-earlier input:checked{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13'%3E%3Cpath d='M3 6.5l2.5 2.5L10 4' stroke='%23000' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat}
+[data-os=winxp] .show-earlier input{box-shadow:none;border:1px solid #1c5180}
+/* Icons that shipped in an earlier version, shown only with "Show ... older icons". */
+.icon-item.carried a div{opacity:.45}
+/* An icon's name under its tile while hovered or focused, as a Windows tooltip (each version's
+   style is with its theme below). */
+.icon-tip{position:fixed;z-index:99998;padding:1px 4px;border:1px solid #000;background:#ffffe1;color:#000;font:11px/14px Arial,sans-serif;letter-spacing:0;white-space:nowrap;pointer-events:none}
+.icon-tip[hidden]{display:none}
+/* The taskbar clock, in the tray's place. */
+.clock-date{display:none}
+[data-os=win2000] .icon-tip,[data-os=winxp] .icon-tip{font-family:Tahoma,sans-serif;box-shadow:2px 2px 2px rgba(0,0,0,.25)}
+[data-os=winvista] .icon-tip,[data-os=win7] .icon-tip{padding:2px 6px;border-color:#767676;border-radius:2px;background:linear-gradient(#fff,#e4e5f0);color:#575757;font:12px/15px "Segoe UI",Tahoma,sans-serif;box-shadow:1px 1px 3px rgba(0,0,0,.3)}
+.sysmenu{display:none}
+
+/* Tabs: a 98 tab control over the list. Every tab ends at the same line; the open one is 2px
+   taller and wider and covers the panel's top edge, so it joins the panel. */
+.form-content{display:flex;flex-direction:column}
+.form-content .icon-wrap{flex:1;min-height:0;height:auto}
+.tabs{display:flex;flex:none;align-items:flex-end;position:relative;z-index:1;margin-bottom:-1px;padding-left:2px}
+.tabs[hidden],.tab[hidden]{display:none}
+/* A search field at the right end of the tab row, drawn as each version's text box. */
+.search{flex:none;align-self:center;width:150px;height:21px;margin:0 0 3px auto;padding:0 5px;border:0;outline:0;background:#fff;box-shadow:inset 1px 1px #808080,inset -1px -1px #fff,inset 2px 2px #000,inset -2px -2px #dfdfdf;color:#000;font:11px Arial,sans-serif}
+.search::placeholder{color:#808080}
+[data-os=win31] .search{height:16px;margin:0 1px 0 auto;padding:0 3px;border:1px solid #000;box-shadow:none;font:13px/13px win31-sans,Arial,sans-serif}
+[data-os=win2000] .search{font-family:Tahoma,Verdana,sans-serif}
+[data-os=winxp] .search{border:1px solid #7f9db9;box-shadow:none;font-family:Tahoma,sans-serif}
+[data-os=winvista] .search,[data-os=win7] .search{height:22px;border:1px solid;border-color:#abadb3 #dbdfe6 #e3e9ef #e2e3ea;box-shadow:none;font:12px "Segoe UI",Tahoma,sans-serif}
+[data-os=winvista] .search::placeholder,[data-os=win7] .search::placeholder{font-style:italic}
+@media (max-width:630px){.search{width:90px}}
+.tab{margin:2px 0 1px;padding:2px 9px 3px;border:1px solid;border-color:#fff #000 transparent #fff;border-bottom:0;border-radius:3px 3px 0 0;background:silver;box-shadow:inset -1px 0 #808080,inset 1px 1px #dfdfdf;color:#000;font:11px Arial,sans-serif;cursor:pointer}
+.tab[aria-selected=true]{position:relative;z-index:1;margin:0 -2px;padding:3px 11px 5px}
+.tab:focus-visible{outline:1px dotted #000;outline-offset:-4px}
+/* 95, 98 and 2000: the page under the tabs has a two-line top edge, so the selected tab reaches
+   2px down to break both lines, and the tabs take the window's own gray. */
+[data-os=win95] .tabs,[data-os=win98] .tabs,[data-os=win2000] .tabs{margin-bottom:-2px}
+[data-os=win95] .tab,[data-os=win98] .tab,[data-os=win2000] .tab{margin-bottom:2px}
+[data-os=win95] .tab[aria-selected=true],[data-os=win98] .tab[aria-selected=true],[data-os=win2000] .tab[aria-selected=true]{margin-bottom:0}
+[data-os=win95] .tab,[data-os=win98] .tab{background:#c6c6c6}
+/* Wallpapers: patterns tiled at their real size, the way Windows drew them; photos from a
+   thumbnail. The one on the desktop is selected. */
+.list-wallpapers,.list-sounds{list-style:none}
+.list-wallpapers{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 8px}
+.wall-item{width:140px;text-align:center;font:11px Arial,sans-serif}
+.wall-preview{display:block;width:128px;height:96px;margin:0 auto 4px;padding:0;border:1px solid #808080;background-color:#fff;cursor:pointer}
+.wall-preview.full{background-position:center;background-size:cover;image-rendering:auto}
+.wall-name{padding:0 2px;color:#000}
+.wall-item.active .wall-name{background:navy;color:#fff}
+/* Download: a small pixel down arrow after the name, darker on hover. */
+.wall-save{display:inline-block;width:9px;height:11px;margin-left:5px;vertical-align:-1px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='11' shape-rendering='crispEdges'%3E%3Cpath d='M3 0h3v4h3L4.5 8.5 0 4h3zM0 10h9v1H0z'/%3E%3C/svg%3E") no-repeat;opacity:.55}
+.wall-save:hover,.wall-save:focus-visible{opacity:1}
+.wall-item.active .wall-preview{outline:1px dotted #000;outline-offset:2px}
+/* Sounds: a details list. The playing row is selected and its play mark turns to stop. */
+.list-sounds{max-width:560px;margin:0 auto;text-align:left}
+.sound-item{display:flex;align-items:center;border-bottom:1px solid #eee;font:11px Arial,sans-serif}
+.sound-play{display:flex;flex:1;align-items:center;gap:8px;min-width:0;padding:5px 6px;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.sound-play::before{content:"";flex:none;width:0;height:0;border:5px solid transparent;border-right:0;border-left:7px solid}
+.sound-item.playing .sound-play::before{width:8px;height:8px;margin-right:-1px;border:0;background:currentColor}
+.sound-time{margin-left:auto;opacity:.7}
+.sound-save{padding:0 8px;color:inherit;text-decoration:underline}
+.sound-item.playing{background:navy;color:#fff}
+
+/* Windows 98 is the base look above, plus its gradient title bar. Windows 95 is the base look. */
+[data-os=win98] .windows-header{background:linear-gradient(90deg,navy,#1084d0)}
+
+/* Windows 3.1: silver desktop, no taskbar, minimized programs along the bottom. */
+[data-os=win31]{background:silver}
+[data-os=win31] .start-bar{display:none}
+/* File Manager's status bar: 22px of silver under a black line, with two sunken fields. */
+[data-os=win31] .status-bar{display:flex;gap:8px;left:0;right:0;bottom:0;height:23px;padding:2px 8px;border:0;border-top:1px solid #000;background:silver;font:13px/13px win31-sans,Arial,sans-serif}
+[data-os=win31] .js-count,[data-os=win31] .status-total{display:block;flex:1 1 0;max-width:276px;height:18px;padding:1px 0 0 3px;border:1px solid;border-color:#808080 #fff #fff #808080;overflow:hidden;white-space:nowrap}
+/* 3.1's own fonts, built from its .FON bitmaps by scripts/import_win31_fonts.py: System at 16px
+   for title bars and menus, MS Sans Serif at 13px for everything else. Each is one size only. */
+@font-face{font-family:win31-system;src:url(fonts/win31/system.woff2) format('woff2')}
+@font-face{font-family:win31-sans;src:url(fonts/win31/sans.woff2) format('woff2')}
+[data-os=win31] .windows,[data-os=win31] .ui-icon span{letter-spacing:0;-webkit-font-smoothing:none}
+/* The sizing frame, title bar and buttons, pixel for pixel from a 640x480 screenshot of File
+   Manager: a 4px frame (black, two of silver, black) with a tick 22px from each corner, an 18px
+   title bar over a black line, and 18px control-menu, minimize and maximize boxes. */
+[data-os=win31] .windows{border:4px solid transparent;box-shadow:none;background:linear-gradient(#000,#000) 22px 1px/1px 2px no-repeat border-box,linear-gradient(#000,#000) calc(100% - 22px) 1px/1px 2px no-repeat border-box,linear-gradient(#000,#000) 22px calc(100% - 1px)/1px 2px no-repeat border-box,linear-gradient(#000,#000) calc(100% - 22px) calc(100% - 1px)/1px 2px no-repeat border-box,linear-gradient(#000,#000) 1px 22px/2px 1px no-repeat border-box,linear-gradient(#000,#000) 1px calc(100% - 22px)/2px 1px no-repeat border-box,linear-gradient(#000,#000) calc(100% - 1px) 22px/2px 1px no-repeat border-box,linear-gradient(#000,#000) calc(100% - 1px) calc(100% - 22px)/2px 1px no-repeat border-box,linear-gradient(#fff,#fff) padding-box,linear-gradient(#000,#000) 3px 3px/calc(100% - 6px) calc(100% - 6px) no-repeat border-box,linear-gradient(silver,silver) 1px 1px/calc(100% - 2px) calc(100% - 2px) no-repeat border-box #000}
+[data-os=win31] .windows-header{height:19px;padding:0 0 0 19px!important;border:0;border-bottom:1px solid #000;text-align:center;font:16px/18px win31-system,Arial,sans-serif}
+[data-os=win31] .sysmenu{display:block;position:absolute;left:0;top:0;width:19px;height:18px;border-right:1px solid #000;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' shape-rendering='crispEdges'%3E%3Cpath fill='silver' d='M0 0h18v18H0z'/%3E%3Cpath d='M2 7h13v3H2z'/%3E%3Cpath fill='white' d='M3 8h11v1H3z'/%3E%3Cpath fill='gray' d='M15 8h1v3H3v-1h12z'/%3E%3C/svg%3E")}
+[data-os=win31] .windows-header .windows-button{width:19px!important;height:18px!important;margin:0!important;border:0;border-left:1px solid #000;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' shape-rendering='crispEdges'%3E%3Cpath fill='silver' d='M0 0h18v18H0z'/%3E%3Cpath fill='white' d='M0 0h17v1H1v16H0z'/%3E%3Cpath fill='gray' d='M17 0h1v18H0v-1h1v-1h15V1h1z'/%3E%3Cpath d='M8 6h1v1h1v1h1v1h1v1H5V9h1V8h1V7h1z'/%3E%3C/svg%3E")}
+[data-os=win31] .windows-header .windows-button:last-of-type{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' shape-rendering='crispEdges'%3E%3Cpath fill='silver' d='M0 0h18v18H0z'/%3E%3Cpath fill='white' d='M0 0h17v1H1v16H0z'/%3E%3Cpath fill='gray' d='M17 0h1v18H0v-1h1v-1h15V1h1z'/%3E%3Cpath d='M5 7h7v1h-1v1h-1v1H9v1H8v-1H7V9H6V8H5z'/%3E%3C/svg%3E")}
+[data-os=win31] .windows-button img,[data-os=winxp] .windows-button img{display:none}
+[data-os=win31] .form-content{padding:0 0 23px}
+[data-os=win31] .icon-wrap,[data-os=win31] .icon-outer-container,[data-os=win31] .icon-inner-container{border:0;padding:0}
+[data-os=win31] .ui-desktop{top:auto;bottom:6px;left:6px;width:auto;display:flex}
+[data-os=win31] .windows-container{padding-bottom:79px}
+[data-os=win31] .ui-icon span{color:#000;font:13px/14px win31-sans,Arial,sans-serif}
+/* 3.1 had no tab controls, so the tabs are its menu bar, the open one highlighted. */
+[data-os=win31] .tabs{margin:0;padding:0;border-bottom:1px solid #000;background:#fff}
+[data-os=win31] .tab,[data-os=win31] .tab[aria-selected=true]{margin:0;padding:0 8px 2px 9px;border:0;border-radius:0;background:none;box-shadow:none;font:16px/16px win31-system,Arial,sans-serif}
+[data-os=win31] .tab[aria-selected=true],[data-os=win31] .sound-item.playing{background:navy;color:#fff}
+[data-os=win31] .wall-preview{border-color:#000}
+[data-os=win31] .wall-item,[data-os=win31] .sound-item{font:13px/16px win31-sans,Arial,sans-serif}
+
+/* Windows XP (Luna): blue frame and taskbar, green Start button, Bliss on the desktop. Bliss is
+   an 800x600 photo, so it scales smoothly instead of with the page's pixelated rendering. */
+[data-os=winxp]{background:#3a6ea5 url(wallpapers/winxp/bliss.jpg) center/cover;image-rendering:auto}
+[data-os=winxp] .windows{border:3px solid #0054e3;border-top:0;border-radius:8px 8px 0 0;background:#ece9d8;font-family:Tahoma,Verdana,sans-serif}
+[data-os=winxp] .windows-header{height:29px;padding:0 4px 0 8px!important;border:0;border-radius:7px 7px 0 0;background:linear-gradient(#0997ff,#0053ee 8%,#0050ee 40%,#06f 88%,#06f 93%,#005bff 95%,#003dd7 96%,#003dd7);font:700 13px/29px "Trebuchet MS",Tahoma,sans-serif;text-shadow:1px 1px #0f1089}
+[data-os=winxp] .windows-header .windows-button{width:21px!important;height:21px!important;margin:4px 0 0 2px!important;border:1px solid #fff;border-radius:3px;background:linear-gradient(160deg,#4f8ff7,#2160e8 50%,#1a4fd6);box-shadow:inset 0 0 2px rgba(255,255,255,.6)}
+[data-os=winxp] .windows-header .windows-button:first-of-type{background:linear-gradient(160deg,#e98a6a,#d5502a 50%,#bb3913)}
+[data-os=winxp] .windows-button:first-of-type::before,[data-os=winxp] .windows-button:first-of-type::after{content:"";position:absolute;left:9px;top:3px;width:2px;height:13px;background:#fff;transform:rotate(45deg)}
+[data-os=winxp] .windows-button:first-of-type::after{transform:rotate(-45deg)}
+[data-os=winxp] .windows-button:last-of-type::before{content:"?";position:absolute;left:0;right:0;top:0;color:#fff;font:700 13px/19px Tahoma,sans-serif;text-align:center}
+[data-os=winxp] .form-content{padding:6px 6px 52px}
+[data-os=winxp] .icon-wrap,[data-os=winxp] .icon-outer-container{border:0;padding:0}
+[data-os=winxp] .icon-inner-container{border:1px solid #7f9db9}
+[data-os=winxp] .status-bar{left:0;right:0;bottom:0;border:0;border-top:1px solid #d6d2c2;font-family:Tahoma,sans-serif}
+/* The taskbar is Luna's own bitmaps from the XP disc (theme/winxp/, built by
+   scripts/import_xp_theme.py), drawn with the msstyles 9-slice margins as CSS border-images. */
+[data-os=winxp] .start-bar{height:30px;padding:0;border:0;box-shadow:none;background:url(theme/winxp/taskbar.png) repeat-x}
+[data-os=winxp] .start-button-wrapper{width:99px;height:30px;min-width:0;margin:0 4px 0 0;padding:0;border:0;box-shadow:none;background:url(theme/winxp/start.png) 0 0}
+[data-os=winxp] .start-button-wrapper:hover{background-position:0 -30px}
+[data-os=winxp] .start-button-wrapper:active{background-position:0 -60px}
+[data-os=winxp] .start-button{display:none}
+[data-os=winxp] .start-bar-window,[data-os=winxp] .clock{position:relative;z-index:0;border:0;box-shadow:none;background:none;color:#fff;font:11px Tahoma,sans-serif}
+[data-os=winxp] .start-bar-window::before,[data-os=winxp] .clock::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:-1;border-style:solid}
+[data-os=winxp] .start-bar-window{width:160px;max-width:calc(100% - 175px);height:24px;margin-top:3px;padding:0 8px 0 29px;line-height:24px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+[data-os=winxp] .task-icon{left:8px;top:4px}
+[data-os=winxp] .start-bar-window::before{border-width:15px 5px 8px 17px;border-image:url(theme/winxp/task.png) 15 5 8 17 fill stretch}
+[data-os=winxp] .start-bar-window:hover::before{border-image-source:url(theme/winxp/task-hot.png)}
+[data-os=winxp] .clock{height:30px;padding:0 13px 0 19px;line-height:30px}
+[data-os=winxp] .clock::before{border-width:12px 10px 12px 34px;border-image:url(theme/winxp/tray.png) 12 10 12 34 fill stretch}
+[data-os=winxp] .ui-icon span{font:11px Tahoma,sans-serif;text-shadow:1px 1px 1px #000}
+/* Luna tabs: pale, with an orange top edge on the open and hovered ones. */
+/* XP's folder windows had a blue task pane down the left. Icons, Wallpapers and Sounds are its
+   "Other Places" links, under the search field. Phones have no room for it and keep tabs. */
+@media (min-width:631px){
+[data-os=winxp] .form-content{flex-direction:row;padding:0 0 49px}
+[data-os=winxp] .tabs{flex-direction:column;align-items:stretch;width:178px;margin:0;padding:12px;background:linear-gradient(#7ba2e7,#6375d6)}
+[data-os=winxp] .tabs::before{content:"Other Places";order:1;padding:0 11px;border-radius:4px 4px 0 0;background:linear-gradient(90deg,#fff,#c6d3f7);color:#215dc6;font:700 11px/24px Tahoma,sans-serif}
+[data-os=winxp] .tab,[data-os=winxp] .tab[aria-selected=true]{order:2;margin:0;padding:4px 12px;border:0;border-radius:0;background:#d6dff7;box-shadow:none;color:#215dc6;font:11px Tahoma,sans-serif;text-align:left}
+[data-os=winxp] .tab:first-of-type{padding-top:10px}
+[data-os=winxp] .tab:last-of-type{padding-bottom:11px}
+[data-os=winxp] .tab:hover{text-decoration:underline}
+[data-os=winxp] .tab[aria-selected=true]{color:#000;font-weight:700}
+[data-os=winxp] .search{order:0;align-self:stretch;width:auto;height:22px;margin:0 0 12px}
+[data-os=winxp] .icon-inner-container{border-width:0 0 0 1px}
+}
+@media (max-width:630px){
+[data-os=winxp] .tab{margin-right:1px;border-color:#919b9c;border-bottom:0;background:linear-gradient(#fff,#f3f3ef 70%,#e3e1d6);box-shadow:none;font:11px Tahoma,sans-serif}
+[data-os=winxp] .tab:hover,[data-os=winxp] .tab[aria-selected=true]{border-top-color:#e68b2c;box-shadow:inset 0 2px #ffc83c}
+[data-os=winxp] .tab[aria-selected=true]{background:#fcfcfe}
+}
+[data-os=winxp] .wall-item,[data-os=winxp] .sound-item{font-family:Tahoma,sans-serif}
+[data-os=winxp] .wall-item.active .wall-name,[data-os=winxp] .sound-item.playing{background:#316ac5}
+[data-os=winxp] .wall-preview{border-color:#7f9db9}
+
+/* Windows 2000: the 98 look in 2000's colors (warmer gray, slate-blue desktop, darker title
+   gradient and selection) and Tahoma. */
+[data-os=win2000]{background:#3a6ea5}
+[data-os=win2000] .windows,[data-os=win2000] .start-bar,[data-os=win2000] .start-button-wrapper,[data-os=win2000] .windows .windows-button,[data-os=win2000] .tab{background-color:#d4d0c8}
+[data-os=win2000] .windows-header{background:linear-gradient(90deg,#0a246a,#a6caf0)}
+[data-os=win2000] .windows,[data-os=win2000] .windows-header,[data-os=win2000] .tab,[data-os=win2000] .status-bar,[data-os=win2000] .wall-item,[data-os=win2000] .sound-item,[data-os=win2000] .start-bar-window,[data-os=win2000] .clock,[data-os=win2000] .ui-icon span{font-family:Tahoma,Verdana,sans-serif}
+[data-os=win2000] .wall-item.active .wall-name,[data-os=win2000] .sound-item.playing{background:#0a246a}
+[data-os=win2000] .ui-icon span{font-size:11px}
+[data-os=win2000] .start-bar-window{border-color:#404040 #fff #fff #404040;box-shadow:inset 1px 1px #808080,inset -1px -1px #d4d0c8,inset 0 2px #fff;background:repeating-conic-gradient(#d4d0c8 0 25%,#fff 0 50%) 0 1px/2px 2px}
+
+/* Windows Vista (Aero): a glass window frame and black glass taskbar over the Aurora wallpaper
+   (img24), with the Start orb and active task button from Aero's own images. The glass blurs
+   what's behind it, as Vista's did. */
+[data-os=winvista]{background:#123 url(sets/winvista-desktop.webp) center/cover;image-rendering:auto}
+[data-os=winvista] .windows,[data-os=win7] .windows{border:1px solid rgba(0,0,0,.7);border-radius:7px 7px 0 0;padding:0 7px 7px;background:linear-gradient(rgba(255,255,255,.62),rgba(210,228,238,.45) 30px,rgba(150,180,196,.4) 60%,rgba(120,150,166,.45));-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.6),0 4px 22px rgba(0,0,0,.6);font-family:"Segoe UI",Tahoma,sans-serif}
+[data-os=winvista] .windows-header,[data-os=win7] .windows-header{height:30px;padding:0 0 0 2px!important;border:0;background:none;color:#000;font:12px/30px "Segoe UI",Tahoma,sans-serif;letter-spacing:0;text-shadow:0 0 6px #fff,0 0 10px #fff}
+[data-os=winvista] .windows-header .windows-button,[data-os=win7] .windows-header .windows-button{width:26px!important;height:18px!important;margin:0!important;padding:0;border:1px solid rgba(0,0,0,.65);border-top:0;border-radius:0 0 4px 4px;background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,.32) 45%,rgba(60,80,92,.28) 50%,rgba(255,255,255,.38));box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+[data-os=winvista] .windows-header .windows-button:first-of-type,[data-os=win7] .windows-header .windows-button:first-of-type{width:43px!important;background:linear-gradient(#eab2a4,#d9826c 45%,#c2412a 50%,#d9653c)}
+[data-os=winvista] .windows-button img,[data-os=win7] .windows-button img{display:none}
+[data-os=winvista] .windows-button:first-of-type::before,[data-os=winvista] .windows-button:first-of-type::after,[data-os=win7] .windows-button:first-of-type::before,[data-os=win7] .windows-button:first-of-type::after{content:"";position:absolute;left:20px;top:4px;width:3px;height:11px;background:#fff;box-shadow:0 0 1px rgba(0,0,0,.8);transform:rotate(45deg)}
+[data-os=winvista] .windows-button:first-of-type::after,[data-os=win7] .windows-button:first-of-type::after{transform:rotate(-45deg)}
+[data-os=winvista] .windows-button:last-of-type::before,[data-os=win7] .windows-button:last-of-type::before{content:"?";position:absolute;left:0;right:0;top:0;color:#fff;font:700 12px/17px "Segoe UI",Tahoma,sans-serif;text-align:center;text-shadow:0 0 2px #000,0 0 1px #000}
+[data-os=winvista] .form-content,[data-os=win7] .form-content{height:calc(100% - 30px)!important;padding:6px 6px 28px;border:1px solid rgba(0,0,0,.55);background:#f0f0f0}
+[data-os=winvista] .icon-wrap,[data-os=winvista] .icon-outer-container,[data-os=win7] .icon-wrap,[data-os=win7] .icon-outer-container{border:0;padding:0}
+[data-os=winvista] .icon-inner-container,[data-os=win7] .icon-inner-container{border:1px solid #828790}
+[data-os=winvista] .status-bar,[data-os=win7] .status-bar{left:8px;right:8px;bottom:8px;border:0;border-top:1px solid #d7d7d7;background:#f0f0f0;font-family:"Segoe UI",Tahoma,sans-serif}
+[data-os=winvista] .show-earlier input,[data-os=win7] .show-earlier input{box-shadow:none;border:1px solid #8f8f8f}
+[data-os=winvista] .start-bar{height:30px;padding:0;border:0;border-top:1px solid rgba(0,0,0,.85);box-shadow:inset 0 1px rgba(255,255,255,.28);background:linear-gradient(rgba(62,62,62,.82),rgba(36,36,36,.85) 50%,rgba(6,6,6,.9) 50%,rgba(0,0,0,.93));-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+/* The orb's image is taller than the taskbar, centered on it, so the orb rises above it (placed
+   by fitting the image to a screenshot of Vista's taskbar). */
+[data-os=winvista] .start-button-wrapper{width:60px;height:46px;min-width:0;margin:-9px 0 0;padding:0;border:0;box-shadow:none;background:url(theme/winvista/start.png) 0 0}
+[data-os=winvista] .start-button-wrapper:hover{background-position:0 -46px}
+[data-os=winvista] .start-button-wrapper:active{background-position:0 -92px}
+[data-os=winvista] .start-button{display:none}
+[data-os=winvista] .start-bar-window,[data-os=winvista] .clock,[data-os=win7] .start-bar-window,[data-os=win7] .clock{position:relative;z-index:0;border:0;box-shadow:none;background:none;color:#fff;font:12px "Segoe UI",Tahoma,sans-serif}
+[data-os=winvista] .start-bar-window{width:158px;height:29px;margin-left:2px;padding:0 10px 0 30px;line-height:28px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+[data-os=winvista] .task-icon{left:8px;top:6px}
+[data-os=winvista] .start-bar-window::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:-1;border-style:solid;border-width:14px 4px;border-image:url(theme/winvista/task.png) 14 4 fill stretch}
+[data-os=winvista] .start-bar-window:hover::before{border-image-source:url(theme/winvista/task-hot.png)}
+[data-os=winvista] .clock{height:29px;padding:0 12px;line-height:29px}
+[data-os=winvista] .ui-icon span,[data-os=win7] .ui-icon span{font:12px "Segoe UI",Tahoma,sans-serif;text-shadow:0 1px 2px #000,0 0 2px #000}
+/* Vista and 7's Explorer: an address bar showing where you are (the page sets data-path) with
+   the search box at its right, then a command bar whose buttons are Icons, Wallpapers and Sounds. */
+[data-os=winvista] .tabs,[data-os=win7] .tabs{flex-wrap:wrap;align-items:center;row-gap:6px;margin:-6px -6px 6px;padding:6px 6px 0;background:linear-gradient(#fafcfd,#e6f0fa 50%,#dce6f4 50%,#dde9f7) 0 100%/100% 28px no-repeat;box-shadow:inset 0 -1px #a0afc3}
+[data-os=winvista] .tabs{background-image:linear-gradient(#3c8d9f,#16667a 50%,#075367 50%,#0f5d70);box-shadow:inset 0 -1px #03323f}
+[data-os=winvista] .tabs::before,[data-os=win7] .tabs::before{content:"\25B8\00A0\00A0" attr(data-path);order:0;flex:1;min-width:0;height:22px;margin-right:6px;padding:0 8px;border:1px solid;border-color:#7b8ea5 #b7c2d1 #b7c2d1 #9aa9bd;background:#fff;color:#000;font:12px/20px "Segoe UI",Tahoma,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+[data-os=winvista] .tabs::after,[data-os=win7] .tabs::after{content:"";order:2;flex-basis:100%;height:0}
+[data-os=winvista] .search,[data-os=win7] .search{order:1;width:170px;margin:0}
+[data-os=winvista] .tab,[data-os=win7] .tab,[data-os=winvista] .tab[aria-selected=true],[data-os=win7] .tab[aria-selected=true]{order:3;height:28px;margin:0;padding:0 11px;border:0;border-radius:0;background:none;box-shadow:none;color:#1e395b;font:12px "Segoe UI",Tahoma,sans-serif}
+[data-os=win7] .tab:hover{box-shadow:inset 0 0 0 1px #b8d6fb;background:linear-gradient(#f7fbff,#e3f0fd)}
+[data-os=win7] .tab[aria-selected=true]{box-shadow:inset 0 0 0 1px #7da2ce;background:linear-gradient(#dcebfc,#c1dcfc)}
+[data-os=winvista] .tab,[data-os=winvista] .tab[aria-selected=true]{color:#fff}
+[data-os=winvista] .tab:hover{box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);background:rgba(255,255,255,.12)}
+[data-os=winvista] .tab[aria-selected=true]{box-shadow:inset 0 0 0 1px rgba(255,255,255,.7);background:rgba(255,255,255,.26)}
+@media (max-width:630px){[data-os=winvista] .search,[data-os=win7] .search{width:96px}[data-os=winvista] .tab,[data-os=win7] .tab{padding:0 8px}}
+[data-os=winvista] .wall-item,[data-os=winvista] .sound-item,[data-os=win7] .wall-item,[data-os=win7] .sound-item{font-family:"Segoe UI",Tahoma,sans-serif}
+[data-os=winvista] .wall-item.active .wall-name,[data-os=winvista] .sound-item.playing,[data-os=win7] .wall-item.active .wall-name,[data-os=win7] .sound-item.playing{background:linear-gradient(#f1f7fe,#c8ddfb);color:#000;box-shadow:inset 0 0 0 1px #84acdd}
+[data-os=winvista] .wall-preview,[data-os=win7] .wall-preview{border-color:#828790}
+/* Windows 7 (Aero): Vista's glass window (the rules above), tinted 7's default Sky color, over
+   the Harmony wallpaper (img0). The 40px taskbar is glass with the top lines of Aero's own
+   taskbar image (845: black at 60%, white at 40%, then black at 23%); the orb, task button and
+   Show desktop button are 7's own images (theme/win7/, built by scripts/import_win7_theme.py). */
+[data-os=win7]{background:#1c5f9e url(sets/win7-desktop.webp) center/cover;image-rendering:auto}
+[data-os=win7] .windows{background:linear-gradient(rgba(255,255,255,.55),rgba(196,222,248,.42) 30px,rgba(116,184,252,.3) 60%,rgba(96,150,206,.38))}
+[data-os=win7] .start-bar{height:40px;padding:0;border:0;box-shadow:none;background:linear-gradient(rgba(0,0,0,.6) 1px,rgba(255,255,255,.4) 1px 2px,rgba(0,0,0,.23) 2px),rgba(116,184,252,.3);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+/* The orb's image is taller than the taskbar, centered on it. Task buttons start 5px after it. */
+[data-os=win7] .start-button-wrapper{width:54px;height:54px;min-width:0;margin:-7px 5px 0 0;padding:0;border:0;box-shadow:none;background:url(theme/win7/start.png) 0 0}
+[data-os=win7] .start-button-wrapper:hover{background-position:0 -54px}
+[data-os=win7] .start-button-wrapper:active{background-position:0 -108px}
+[data-os=win7] .start-button{display:none}
+/* 7's task buttons show only the app's 32px icon, centered (its default, "always combine"). */
+[data-os=win7] .start-bar-window{width:60px;height:40px;padding:0}
+[data-os=win7] .start-bar-window .js-title{display:none}
+[data-os=win7] .task-icon{left:14px;top:4px;width:32px;height:32px}
+[data-os=win7] .start-bar-window::before{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:-1;border-style:solid;border-width:3px;border-image:url(theme/win7/task.png) 3 fill stretch}
+[data-os=win7] .start-bar-window:hover::before{border-image-source:url(theme/win7/task-hot.png)}
+[data-os=win7] .clock{height:40px;margin-right:17px;padding:4px 10px 0;line-height:16px;text-align:center}
+[data-os=win7] .clock-date{display:block}
+[data-os=win7] .start-bar::after{content:"";position:absolute;top:0;right:0;width:17px;height:40px;background:url(theme/win7/showdesktop.png) 0 0;pointer-events:none}
+	</style>
+</head>
+<body>
+<div class="app">
+	<header class="topbar">
+		<img class="site-logo js-logo" src="icons/png/windows-5.png" alt="" title="Play this version's startup sound" width="22" height="22">
+		<h1 class="site-title">Windows Icons</h1>
+		<a class="about-link" href="https://alexmeub.com/old-windows-icons/" target="_blank" title="Windows 98 Icons are Great (blog post)" aria-label="About this site: Windows 98 Icons are Great, a blog post">?</a>
+		<nav class="versions" role="radiogroup" aria-label="Windows version"></nav>
+	</header>
+	<main class="screen" data-os="win98">
+		<div class="windows-container js-windows-container" style="position:relative; margin: 0px auto;">
+			<div class="form windows js-windows windows-form" id="form">
+				<header class="js-winheader windows-header" style="padding-right:3px;">
+					<span class="sysmenu" aria-hidden="true"></span>
+					<span class="js-title">Windows 98</span>
+					<button class="windows-button" style="padding:0; height:16px;width:16px;position:relative;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoyNUYxQUZDNTZDMzlFODExOTVEN0VBQjVBRkRGRjgwNSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRjM1MzA3QTM5NkUxMUU4QkI2ODk1NUE4MzQwMTEyQyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRjM1MzA3OTM5NkUxMUU4QkI2ODk1NUE4MzQwMTEyQyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI1RjFBRkM1NkMzOUU4MTE5NUQ3RUFCNUFGREZGODA1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjI1RjFBRkM1NkMzOUU4MTE5NUQ3RUFCNUFGREZGODA1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+SHg7twAAAFFJREFUeNpi/P//PwMxgImBSABWyMjI+B+E0SWRxcEKgdYzwiSQFSHLwa1GVgxV9BkmBhZH9wy6SVg9g81qDIXIJmFzMxMu69AVM1I9wAECDAAQQDQKXD6G0wAAAABJRU5ErkJggg==" style="position:absolute;left:1px;top:0px;"></button>
+					<button class="windows-button" style="padding:0; height:16px;width:16px;position:relative;margin-right:3px;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAALCAYAAABGbhwYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoyNUYxQUZDNTZDMzlFODExOTVEN0VBQjVBRkRGRjgwNSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1RUIxOTY5RDM5NkUxMUU4QjUyNURGM0NBMzc1MzE4QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1RUIxOTY5QzM5NkUxMUU4QjUyNURGM0NBMzc1MzE4QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjI1RjFBRkM1NkMzOUU4MTE5NUQ3RUFCNUFGREZGODA1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjI1RjFBRkM1NkMzOUU4MTE5NUQ3RUFCNUFGREZGODA1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+0IJsOQAAAEFJREFUeNpi/P//PwMxgAWZw8jIiKILaAgjjM2ErggkCVOArJGJgUjAiM2NyKbjNBGbIsqtxgawWo0eTLSxGiDAADBzIg1/fiPuAAAAAElFTkSuQmCC" style="position:absolute;left:1px;top:0px;"></button>
+				</header>
+				<div class="form-content" style="height:100%;">
+					<div class="tabs" role="tablist" aria-label="Show"><input class="search js-search" type="search" placeholder="Search" aria-label="Search this list by name" autocomplete="off" spellcheck="false"></div>
+					<div class="icon-wrap">
+						<div class="icon-outer-container">
+							<div class="icon-inner-container" style="padding:20px; text-align:center;">
+								<ul></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="status-bar"><span class="js-count"></span><span class="status-total js-total"></span><label class="show-earlier js-earlier" hidden><input type="checkbox"><span></span></label></div>
+			</div>
+		</div>
+		<div class="ui-desktop"></div>
+		<div class="start-bar">
+			<a href="https://alexmeub.com/old-windows-icons/" title="Start Menu" class="button start-button-wrapper js-start-button" target="_blank">
+				<div class="start-button"></div>
+			</a>
+			<span class="start-bar-window"><img class="task-icon js-task-icon" alt=""><span class="js-title">Windows 98</span></span>
+			<span class="clock js-clock"><span class="clock-time"></span><span class="clock-date"></span></span>
+			<div class="start-menu js-start-menu" hidden><div class="start-banner"><b>Windows</b><span class="js-banner"></span></div><div class="start-items js-start-items"></div></div>
+		</div>
+		<div class="shutdown js-shutdown" hidden></div>
+	</main>
+</div>
+<script>
+(function(){
+  // One entry per version, oldest first. key matches SETS in scripts/build_icons.py and the
+  // data-os themes in the CSS; hash is the URL fragment. taskIcon is the taskbar button's icon,
+  // a PNG in icons/<key>/png/ (16px; 32px on 7): the folder icon, as a folder window shows, or
+  // on 7 Explorer's. The desktop icons are DESKTOP_ICONS in the build, which puts them in the
+  // main sprite and lists them in sets/<key>.js.
+  var VERSIONS = [
+    {key: 'win31', hash: '31', name: 'Windows 3.1', year: 1992, startup: 'Tada', shutdown: 'Chimes'},
+    {key: 'win95', hash: '95', name: 'Windows 95', year: 1995, taskIcon: 'directory_closed_cool_2-1', startup: 'The Microsoft Sound', shutdown: 'Tada'},
+    {key: 'win98', hash: '98', name: 'Windows 98', year: 1998, taskIcon: 'directory_closed-5', startup: 'The Microsoft Sound', shutdown: 'Logoff'},
+    {key: 'win2000', hash: '2000', name: 'Windows 2000', year: 2000, taskIcon: 'directory_closed-5', startup: 'Windows Logon Sound', shutdown: 'Windows Logoff Sound'},
+    {key: 'winxp', hash: 'xp', name: 'Windows XP', year: 2001, taskIcon: 'directory_closed_2-12', startup: 'Windows XP Startup', shutdown: 'Windows XP Shutdown'},
+    {key: 'winvista', hash: 'vista', name: 'Windows Vista', year: 2007, taskIcon: 'imageres_3-9', startup: 'Windows Logon Sound', shutdown: 'Windows Shutdown'},
+    {key: 'win7', hash: '7', name: 'Windows 7', year: 2009, taskIcon: 'explorer_ico_mycomputer-12', startup: 'Windows Logon Sound', shutdown: 'Windows Shutdown'}
+  ];
+  // The viewer's tabs. key names a list in sets/<key>.js; a version with nothing in a list
+  // doesn't show that tab. Links are #<version>/<tab>, plain #<version> for icons.
+  var TABS = [
+    {key: 'icons', label: 'Icons', hint: ''},
+    {key: 'wallpapers', label: 'Wallpapers', hint: 'click one to put it on the desktop'},
+    {key: 'sounds', label: 'Sounds', hint: 'click one to play it'}
+  ];
+  var DEFAULT_KEY = 'win98';
+  var SITE_NAME = 'Windows Icons';
+  var BATCH = 80;            // icons rendered per scroll step
+  var SWAP_DELAY = 120;      // ms into the switch blink, when the screen is darkest
+
+  // The taskbar clock shows the visitor's own time and date in their own format, as Windows
+  // showed the PC's, with the long date on hover. It updates on each new minute.
+  var clock = document.querySelector('.js-clock');
+  function tick() {
+    var now = new Date();
+    clock.querySelector('.clock-time').textContent = now.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'});
+    clock.querySelector('.clock-date').textContent = now.toLocaleDateString();
+    clock.title = now.toLocaleDateString([], {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+    setTimeout(tick, 60000 - now % 60000);
+  }
+  tick();
+
+  var root = document.documentElement;
+  var screen = document.querySelector('.screen');
+  var bar = document.querySelector('.versions');
+  var desk = document.querySelector('.ui-desktop');
+  var ul = document.querySelector('.icon-inner-container ul');
+  var scroller = document.querySelector('.icon-inner-container');
+  var count = document.querySelector('.js-count');
+  var total = document.querySelector('.js-total');
+  var titles = document.querySelectorAll('.js-title');
+  var taskIcon = document.querySelector('.js-task-icon');
+  var earlierLabel = document.querySelector('.js-earlier');
+  var earlierBox = earlierLabel.querySelector('input');
+  var earlierText = earlierLabel.querySelector('span');
+  var tabBar = document.querySelector('.tabs');
+  var search = document.querySelector('.js-search');
+  var startMenu = document.querySelector('.js-start-menu');
+  var shutdown = document.querySelector('.js-shutdown');
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var buttons = [], radios = [], tabButtons = [];
+  var names = {};
+  VERSIONS.forEach(function (v) { names[v.key] = v.name; });
+  // shown is the current set and tab the open tab; list is what's on screen: for icons, the
+  // ones new in this version, or all of them when "Show ... older icons" is checked.
+  var active = -1, shown = null, tab = 'icons', list = [], showEarlier = false, query = '', idx = 0, swapTimer = 0;
+  // The wallpaper put on the desktop (its file), and the sound playing (its file and Audio).
+  var wallpaper = null, playing = null, audio = null;
+
+  // Icon sets are sets/<key>.js, loaded the first time a version is shown.
+  var waiting = {};
+  function loadSet(key, done) {
+    var sets = window.ICON_SETS || {};
+    if (sets[key]) return done(sets[key]);
+    if (waiting[key]) return waiting[key].push(done);
+    waiting[key] = [done];
+    var script = document.createElement('script');
+    script.src = 'sets/' + key + '.js';
+    script.onload = function () {
+      var set = window.ICON_SETS[key];
+      set.byName = {};
+      set.icons.forEach(function (icon) { set.byName[icon[0]] = icon; });
+      waiting[key].forEach(function (cb) { cb(set); });
+      delete waiting[key];
+    };
+    script.onerror = function () { delete waiting[key]; count.textContent = 'Could not load the icons.'; };
+    document.head.appendChild(script);
+  }
+
+  function toTitle(s) { return s.replace(/[_]/g, ' ').replace(/\w\S*/g, function (t) { return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase(); }); }
+  // icon is [name, PNG number or null, width, height, x, y, since] from sets/<key>.js.
+  // icon[7] is its sprite: the main one (new icons and the desktop's) or the carried-over icons'.
+  function tileStyle(icon) { return 'background:var(' + (icon[7] ? '--sp-older' : '--sp') + ') -' + icon[4] + 'px -' + icon[5] + 'px;width:' + icon[2] + 'px;height:' + icon[3] + 'px'; }
+  function pngUrl(set, icon) { return set.png + icon[0] + (icon[1] === null ? '' : '-' + icon[1]) + '.png'; }
+
+  function iconItem(icon) {
+    var title = toTitle(icon[0]) + (icon[6] ? ' (from ' + names[icon[6]] + ')' : '');
+    var li = document.createElement('li');
+    li.className = icon[6] ? 'icon-item carried' : 'icon-item';
+    li.innerHTML = '<a href="' + pngUrl(shown, icon) + '" target="_blank" aria-label="' + title + '"><div style="' + tileStyle(icon) + '"></div></a>';
+    return li;
+  }
+
+  // The hovered or focused icon's name, in a tooltip under its tile (above it on the bottom row).
+  // One element placed on the page, not in the list, so the list's scrolling edge can't clip it.
+  var tip = document.createElement('div');
+  tip.className = 'icon-tip';
+  tip.setAttribute('aria-hidden', 'true');  // the link's aria-label already names the icon
+  tip.hidden = true;
+  screen.appendChild(tip);
+  function iconLink(node) {
+    for (; node && node !== ul; node = node.parentNode) if (node.tagName === 'A') return node;
+    return null;
+  }
+  function showTip(link) {
+    tip.textContent = link.getAttribute('aria-label');
+    tip.hidden = false;
+    var tile = link.parentNode.getBoundingClientRect(), list = scroller.getBoundingClientRect();
+    var left = tile.left + (tile.width - tip.offsetWidth) / 2;
+    var top = tile.bottom + 2;
+    if (top + tip.offsetHeight > list.bottom) top = tile.top - tip.offsetHeight - 2;
+    tip.style.left = Math.max(list.left, Math.min(left, list.right - tip.offsetWidth)) + 'px';
+    tip.style.top = top + 'px';
+  }
+  function hideTip() { tip.hidden = true; }
+  ul.addEventListener('mouseover', function (e) { var link = iconLink(e.target); if (link) showTip(link); });
+  ul.addEventListener('focusin', function (e) { var link = iconLink(e.target); if (link) showTip(link); });
+  ul.addEventListener('mouseout', hideTip);
+  ul.addEventListener('focusout', hideTip);
+  // ".png" from "wallpapers/win95/clouds.png?v=...", so a download saves under Windows' name.
+  function fileType(url) { return url.split('?')[0].replace(/^.*(\.[a-z0-9]+)$/i, '$1'); }
+  // w is [file, name, width, height, thumbnail or null]. Patterns preview tiled at full size,
+  // like Windows drew them; full-screen pictures preview from their thumbnail.
+  function wallpaperItem(w) {
+    var li = document.createElement('li');
+    li.className = 'wall-item' + (w[0] === wallpaper ? ' active' : '');
+    li.setAttribute('data-file', w[0]);
+    li.innerHTML = '<button type="button" class="wall-preview"></button><a class="wall-name" target="_blank"></a><a class="wall-save"></a>';
+    var preview = li.childNodes[0], link = li.childNodes[1], save = li.childNodes[2];
+    preview.style.backgroundImage = 'url("' + (w[4] || w[0]) + '")';
+    if (w[4]) preview.className += ' full';
+    preview.title = 'Put ' + w[1] + ' on the desktop';
+    preview.addEventListener('click', function () { setWallpaper(w); });
+    link.href = w[0];
+    link.textContent = w[1];
+    link.title = 'Open ' + w[1] + ' (' + w[2] + ' x ' + w[3] + ')';
+    save.href = w[0];
+    save.setAttribute('download', w[1] + fileType(w[0]));
+    save.title = 'Download ' + w[1] + fileType(w[0]);
+    save.setAttribute('aria-label', save.title);
+    return li;
+  }
+  // s is [file, name, seconds].
+  function soundItem(s) {
+    var li = document.createElement('li');
+    li.className = 'sound-item' + (s[0] === playing ? ' playing' : '');
+    li.setAttribute('data-file', s[0]);
+    li.innerHTML = '<button type="button" class="sound-play"><span></span><span class="sound-time"></span></button><a class="sound-save" download>WAV</a>';
+    var play = li.firstChild;
+    play.firstChild.textContent = s[1];
+    play.lastChild.textContent = (s[2] < 10 ? s[2].toFixed(1) : Math.round(s[2])) + ' sec';
+    play.addEventListener('click', function () { playSound(s[0]); });
+    li.lastChild.href = s[0];
+    li.lastChild.setAttribute('download', s[1] + '.wav');
+    li.lastChild.title = 'Save ' + s[1] + '.wav';
+    return li;
+  }
+  var RENDER = {icons: iconItem, wallpapers: wallpaperItem, sounds: soundItem};
+
+  function renderBatch() {
+    if (!shown || idx >= list.length) return;
+    var end = Math.min(idx + BATCH, list.length);
+    var frag = document.createDocumentFragment();
+    for (var i = idx; i < end; i++) frag.appendChild(RENDER[tab](list[i]));
+    ul.appendChild(frag);
+    idx = end;
+  }
+  // Mark the list items whose data-file is file (the wallpaper on the desktop, the sound playing).
+  function markItems(selector, cls, file) {
+    var items = ul.querySelectorAll(selector);
+    for (var i = 0; i < items.length; i++) items[i].classList.toggle(cls, items[i].getAttribute('data-file') === file);
+  }
+  // Clicking the wallpaper that's already up takes it down again.
+  function setWallpaper(w) {
+    wallpaper = w && w[0] !== wallpaper ? w[0] : null;
+    screen.style.background = !wallpaper ? '' : 'url("' + w[0] + '")' + (w[4] ? ' center / cover no-repeat' : '');
+    // Photos scale smoothly; patterns stay sharp at 1:1.
+    screen.style.imageRendering = !wallpaper ? '' : w[4] ? 'auto' : 'pixelated';
+    markItems('.wall-item', 'active', wallpaper);
+  }
+  // Clicking the sound that's playing stops it.
+  function playSound(file) {
+    if (audio) audio.pause();
+    playing = file !== playing ? file : null;
+    audio = null;
+    if (playing) {
+      audio = new Audio(playing);
+      audio.addEventListener('ended', function () { playing = null; markItems('.sound-item', 'playing', null); });
+      audio.play().catch(function () { playing = null; markItems('.sound-item', 'playing', null); });
+    }
+    markItems('.sound-item', 'playing', playing);
+  }
+  function onScroll() {
+    hideTip();
+    if (scroller.scrollHeight - scroller.scrollTop - scroller.clientHeight < 400) renderBatch();
+  }
+
+  // Fill the list from the open tab of the shown set, and say what's in it on the status bar.
+  function showList() {
+    var v = VERSIONS[active];
+    if (tab === 'icons') {
+      var fresh = shown.icons.filter(function (icon) { return !icon[6]; });
+      var carried = shown.icons.length - fresh.length;
+      list = showEarlier ? shown.icons : fresh;
+      count.textContent = fresh.length + ' new in ' + v.name;
+      earlierLabel.hidden = !carried;
+      earlierText.textContent = 'Show ' + carried + ' older icons';
+    } else {
+      list = shown[tab];
+      count.textContent = list.length + ' ' + tabInfo(tab).label.toLowerCase() + ' in ' + v.name + ', ' + tabInfo(tab).hint;
+      earlierLabel.hidden = true;
+    }
+    // A search looks through the whole tab by name, the carried-over icons included, and every
+    // word typed has to be in the name. It stays as typed across tabs and versions.
+    if (!query) clippyHide();
+    if (query) {
+      var all = shown[tab], words = query.split(' ');
+      list = all.filter(function (item) {
+        var name = (tab === 'icons' ? toTitle(item[0]) : item[1]).toLowerCase();
+        return words.every(function (word) { return name.indexOf(word) !== -1; });
+      });
+      count.textContent = list.length + ' of ' + all.length + ' ' + tabInfo(tab).label.toLowerCase() + ' match "' + query + '"';
+      earlierLabel.hidden = true;
+      if (list.length) clippyHide(); else clippyShow();
+    }
+    tabBar.setAttribute('data-path', v.name + ' \u25B8 ' + tabInfo(tab).label);   // Vista and 7's address bar
+    // Only 3.1's status bar has this second field, as File Manager's does.
+    total.textContent = 'Total ' + shown.icons.length + ' icon(s), ' + shown.wallpapers.length + ' wallpaper(s), ' + shown.sounds.length + ' sound(s)';
+    ul.className = 'list-' + tab;
+    idx = 0;
+    hideTip();  // its tile is going, and removing it fires no mouseout
+    ul.innerHTML = '';
+    scroller.scrollTop = 0;
+    renderBatch(); renderBatch(); renderBatch();
+  }
+  function tabInfo(key) { return TABS.filter(function (t) { return t.key === key; })[0]; }
+
+  function showTab(key) {
+    tab = key;
+    tabButtons.forEach(function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-tab') === key)); });
+    updateHash();
+    if (shown) showList();
+  }
+  function updateHash() {
+    try { history.replaceState(null, '', '#' + VERSIONS[active].hash + (tab === 'icons' ? '' : '/' + tab)); } catch (e) {}
+  }
+
+  function showSet(v, set) {
+    shown = set;
+    root.style.setProperty('--sp', 'url("' + set.sprite + '")');
+    // Only a tile that uses it fetches it: the older icons' sprite loads when they're shown.
+    root.style.setProperty('--sp-older', set.olderSprite ? 'url("' + set.olderSprite + '")' : 'none');
+    // Tabs with nothing in them hide, and so do all of them when only Icons is left.
+    var visible = 0;
+    tabButtons.forEach(function (b) {
+      var has = (set[b.getAttribute('data-tab')] || []).length > 0;
+      b.hidden = !has;
+      visible += has;
+    });
+    if (visible < 2) tabButtons.forEach(function (b) { b.hidden = true; });
+    if (!set[tab] || !set[tab].length) tab = 'icons';
+    tabButtons.forEach(function (b) { b.setAttribute('aria-selected', String(b.getAttribute('data-tab') === tab)); });
+    showList();
+    desk.innerHTML = '';
+    set.desktop.forEach(function (d) {  // [label, icon, link]
+      var game = /^game:/.test(d[2] || '') ? d[2].slice(5) : '';
+      var download = d[2] === 'download', href = download ? set.zip : game ? '' : d[2];
+      var item = document.createElement(href ? 'a' : 'div');
+      item.className = 'ui-icon';
+      if (game) {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', function () { openGame(game); });
+      }
+      if (href) item.href = href;
+      if (download) item.setAttribute('download', '');
+      else if (href) item.target = '_blank';
+      item.innerHTML = '<div class="ui-icon-container"><div class="desk-img" style="' + tileStyle(set.byName[d[1]]) + '"></div><span></span></div>';
+      item.querySelector('span').textContent = d[0];
+      desk.appendChild(item);
+    });
+  }
+
+  // A version's data and sprite start loading when the pointer reaches its button, a moment
+  // before the click. Loading both neighbors while idle made switching instant but was most of
+  // every visit's download (550 of 883 KB on 98, 2 MB more on XP, Vista and 7; 2026-11-09).
+  function preload(i) {
+    loadSet(VERSIONS[i].key, function (set) { new Image().src = set.sprite; });
+  }
+
+  function select(i) {
+    if (i === active) return;
+    var first = active < 0;
+    var v = VERSIONS[i];
+    active = i;
+    buttons.forEach(function (button, j) { button.classList.toggle('active', j === i); });
+    radios[i].checked = true;
+    function swap() {
+      screen.setAttribute('data-os', v.key);
+      // A wallpaper or sound picked in the last version goes with it.
+      setWallpaper(null);
+      playSound(null);
+      document.title = v.name + ' Icons · ' + SITE_NAME;
+      for (var k = 0; k < titles.length; k++) titles[k].textContent = v.name;
+      if (v.taskIcon) taskIcon.src = 'icons/' + v.key + '/png/' + v.taskIcon + '.png';
+      count.textContent = 'Loading...';
+      loadSet(v.key, function (set) {
+        if (VERSIONS[active] !== v) return;
+        showSet(v, set);
+        if (!first) updateHash();  // after showSet, which falls back to Icons if this tab is empty
+      });
+    }
+    clearTimeout(swapTimer);
+    if (first || reduceMotion) return swap();
+    screen.classList.remove('switching');
+    void screen.offsetWidth; // restart the blink animation
+    screen.classList.add('switching');
+    swapTimer = setTimeout(swap, SWAP_DELAY);
+  }
+
+  // Each button is a label around a hidden radio, so the arrow keys move between versions.
+  VERSIONS.forEach(function (v, i) {
+    var button = document.createElement('label');
+    button.className = 'os-button';
+    button.title = v.name + ', ' + v.year;
+    var radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'version';
+    radio.setAttribute('aria-label', v.name + ', ' + v.year);
+    radio.addEventListener('change', function () { if (radio.checked) select(i); });
+    button.addEventListener('pointerenter', function () { preload(i); });
+    var text = document.createElement('span');
+    text.textContent = v.name.replace('Windows ', '');
+    text.setAttribute('aria-hidden', 'true');
+    button.appendChild(radio);
+    button.appendChild(text);
+    bar.appendChild(button);
+    buttons.push(button);
+    radios.push(radio);
+  });
+
+  function indexOf(test) {
+    for (var i = 0; i < VERSIONS.length; i++) if (test(VERSIONS[i])) return i;
+    return -1;
+  }
+  TABS.forEach(function (t) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'tab';
+    b.setAttribute('role', 'tab');
+    b.setAttribute('data-tab', t.key);
+    b.textContent = t.label;
+    b.addEventListener('click', function () { if (tab !== t.key) showTab(t.key); });
+    tabBar.insertBefore(b, search);
+    tabButtons.push(b);
+  });
+
+  // #95 or #95/sounds -> {version index or -1, tab key}.
+  function fromHash() {
+    var parts = location.hash.slice(1).split('/');
+    var t = tabInfo(parts[1]);
+    return {version: indexOf(function (v) { return v.hash === parts[0]; }), tab: t ? t.key : 'icons'};
+  }
+  // Easter eggs: the header logo plays the version's startup sound; Start opens a menu whose
+  // Shut Down plays the shutdown sound and covers the screen until a click or key restarts it.
+  var START_ITEMS = [
+    {label: 'Download All Icons', action: 'download'},
+    {label: 'About This Site', action: 'about'},
+    null,
+    {label: 'Shut Down...', action: 'shutdown'}
+  ];
+  var ABOUT_URL = 'https://alexmeub.com/old-windows-icons/';
+  var OFF_TEXT = {winxp: 'Windows is shutting down...', winvista: 'Shutting down...', win7: 'Shutting down...'};
+  var OFF_DEFAULT = "It's now safe to turn off\nyour computer.";
+  // Play the sound the shown set calls name, unless it's the one already playing.
+  function chime(name) {
+    var match = shown && shown.sounds.filter(function (s) { return s[1] === name; })[0];
+    if (match && match[0] !== playing) playSound(match[0]);
+  }
+  function closeStart() { startMenu.hidden = true; }
+  function openStart() {
+    if (!shown) return;
+    var v = VERSIONS[active], items = startMenu.querySelector('.js-start-items');
+    startMenu.querySelector('.js-banner').textContent = v.name.replace('Windows ', '');
+    items.innerHTML = '';
+    START_ITEMS.forEach(function (item) {
+      var el = document.createElement(!item ? 'div' : item.action === 'shutdown' ? 'button' : 'a');
+      el.className = item ? 'start-item' : 'start-sep';
+      if (item) el.textContent = item.label;
+      if (item && item.action === 'download') { el.href = shown.zip; el.setAttribute('download', ''); }
+      if (item && item.action === 'about') { el.href = ABOUT_URL; el.target = '_blank'; }
+      if (item && item.action === 'shutdown') { el.type = 'button'; el.addEventListener('click', shutDown); }
+      items.appendChild(el);
+    });
+    startMenu.hidden = false;
+  }
+  function shutDown() {
+    closeStart();
+    chime(VERSIONS[active].shutdown);
+    shutdown.textContent = OFF_TEXT[VERSIONS[active].key] || OFF_DEFAULT;
+    shutdown.hidden = false;
+  }
+  function restart() {
+    shutdown.hidden = true;
+    chime(VERSIONS[active].startup);
+  }
+  document.querySelector('.js-start-button').addEventListener('click', function (e) {
+    e.preventDefault();  // its href is only for a page without script
+    if (startMenu.hidden) openStart(); else closeStart();
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.js-start-button')) closeStart();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!shutdown.hidden) restart(); else if (e.key === 'Escape') closeStart();
+  });
+  shutdown.addEventListener('click', restart);
+  document.querySelector('.js-logo').addEventListener('click', function () { chime(VERSIONS[active].startup); });
+
+  // Clippy (vendor/clippy/, from clippy.js) appears when a search finds nothing and leaves when
+  // it finds something or is cleared. "Go away" keeps him away until the search box is emptied.
+  // States: off, loading (his frames are on their way), on, dismissed.
+  var CLIPPY_IDLES = ['IdleEyeBrowRaise', 'IdleFingerTap', 'IdleHeadScratch', 'IdleSideToSide', 'LookDown'];
+  var clippy = {state: 'off', el: null};
+  // Step through one of his animations, following its random branches, then call done.
+  function clippyPlay(el, name, done) {
+    var frames = window.CLIPPY_AGENT.animations[name], sprite = el.lastChild, i = 0, steps = 0;
+    (function step() {
+      if (!el.parentNode) return;
+      var frame = frames[i], at = frame.images && frame.images[0], next = i + 1, roll = Math.random() * 100;
+      sprite.style.backgroundPosition = at ? -at[0] + 'px ' + -at[1] + 'px' : '124px 0';
+      (frame.branching ? frame.branching.branches : []).some(function (b) {
+        roll -= b.weight;
+        if (roll < 0) next = b.frameIndex;
+        return roll < 0;
+      });
+      i = next;
+      el.timer = setTimeout(i < frames.length && ++steps < 400 ? step : done, frame.duration);
+    })();
+  }
+  function clippyIdle(el) {
+    el.timer = setTimeout(function () {
+      clippyPlay(el, CLIPPY_IDLES[Math.floor(Math.random() * CLIPPY_IDLES.length)], function () { clippyIdle(el); });
+    }, 3000 + Math.random() * 4000);
+  }
+  function clippyShow() {
+    if (clippy.state !== 'off') return;
+    clippy.state = 'loading';
+    function arrive() {
+      if (clippy.state !== 'loading') return;
+      clippy.state = 'on';
+      var el = clippy.el = document.createElement('div');
+      el.className = 'clippy';
+      el.innerHTML = '<div class="clippy-balloon" hidden>It looks like you\'re searching for an icon that isn\'t here. Would you like help?<button type="button">Clear the search</button><button type="button">Go away</button></div><div class="clippy-sprite"></div>';
+      el.firstChild.children[0].addEventListener('click', function () { search.value = ''; query = ''; showList(); search.focus(); });
+      el.firstChild.children[1].addEventListener('click', function () { clippyHide('dismissed'); });
+      screen.appendChild(el);
+      clippyPlay(el, 'Show', function () {
+        el.firstChild.hidden = false;
+        clippyPlay(el, 'Searching', function () { clippyIdle(el); });
+      });
+    }
+    if (window.CLIPPY_AGENT) return arrive();
+    var script = document.createElement('script');
+    script.src = 'vendor/clippy/agent.js';
+    script.onload = arrive;
+    script.onerror = function () { clippy.state = 'off'; };
+    document.head.appendChild(script);
+  }
+  // Wave goodbye and go. Emptying the search (no state given) also forgets a "Go away".
+  function clippyHide(state) {
+    var el = clippy.el;
+    if (clippy.state === 'dismissed' && state === undefined && query) return;
+    clippy.state = state || 'off';
+    clippy.el = null;
+    if (!el) return;
+    clearTimeout(el.timer);
+    el.firstChild.hidden = true;
+    clippyPlay(el, 'GoodBye', function () { el.remove(); });
+  }
+
+  // The desktop's games (games/<key>.js, drawn by games/games.css), fetched when first opened.
+  // Each opens in its own window with a copy of the viewer's title bar, so it wears whatever
+  // version is showing; the title bar drags it and the close button (3.1: the control box) shuts it.
+  var games = {};   // key -> {win, game} while that game's window is open
+  function loadOnce(tag, attr, url, done) {
+    var el = document.querySelector(tag + '[' + attr + '="' + url + '"]');
+    if (el) return el.loaded ? done() : el.addEventListener('load', done);
+    el = document.createElement(tag);
+    if (tag === 'link') el.rel = 'stylesheet';
+    el[attr] = url;
+    el.addEventListener('load', function () { el.loaded = true; done(); });
+    document.head.appendChild(el);
+  }
+  function openGame(key) {
+    if (games[key]) return screen.appendChild(games[key].win);   // already open: bring it to the front
+    var win = document.createElement('div'), header = document.querySelector('.js-winheader').cloneNode(true);
+    var body = document.createElement('div'), title = header.querySelector('.js-title');
+    win.className = 'windows game-window';
+    body.className = 'game-body';
+    header.classList.remove('js-winheader');
+    title.className = '';
+    win.appendChild(header);
+    win.appendChild(body);
+    games[key] = {win: win, game: null};
+    function close() {
+      if (games[key].game) games[key].game.destroy();
+      win.remove();
+      delete games[key];
+    }
+    header.querySelector('.windows-button').addEventListener('click', close);
+    header.querySelector('.sysmenu').addEventListener('click', close);
+    header.addEventListener('pointerdown', function (e) {
+      if (e.target.closest('.windows-button, .sysmenu')) return;
+      var x = e.clientX - win.offsetLeft, y = e.clientY - win.offsetTop;
+      function move(m) {
+        win.style.left = Math.max(60 - win.offsetWidth, Math.min(screen.clientWidth - 60, m.clientX - x)) + 'px';
+        win.style.top = Math.max(0, Math.min(screen.clientHeight - 60, m.clientY - y)) + 'px';
+      }
+      function stop() { document.removeEventListener('pointermove', move); document.removeEventListener('pointerup', stop); }
+      document.addEventListener('pointermove', move);
+      document.addEventListener('pointerup', stop);
+    });
+    win.addEventListener('pointerdown', function () { if (screen.lastElementChild !== win) screen.appendChild(win); });
+    loadOnce('link', 'href', 'games/games.css', function () {
+      loadOnce('script', 'src', 'games/' + key + '.js', function () {
+        if (!games[key] || games[key].win !== win) return;   // closed while loading
+        title.textContent = window.WIN_GAMES[key].title;
+        games[key].game = window.WIN_GAMES[key].mount(body, screen);
+        screen.appendChild(win);
+        var open = Object.keys(games).length - 1;
+        win.style.left = Math.max(4, (screen.clientWidth - win.offsetWidth) / 2 + open * 24) + 'px';
+        win.style.top = Math.max(4, Math.min(40 + open * 24, screen.clientHeight - win.offsetHeight - 40)) + 'px';
+      });
+    });
+  }
+
+  search.addEventListener('input', function () {
+    query = search.value.toLowerCase().replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+    if (shown) showList();
+  });
+  earlierBox.addEventListener('change', function () {
+    showEarlier = earlierBox.checked;
+    if (shown) showList();
+  });
+  window.addEventListener('hashchange', function () {
+    var h = fromHash();
+    if (h.version < 0) return;
+    if (h.version !== active) { tab = h.tab; select(h.version); }
+    else if (h.tab !== tab) showTab(h.tab);
+  });
+  scroller.addEventListener('scroll', onScroll, {passive: true});
+  var start = fromHash();
+  tab = start.tab;
+  select(start.version >= 0 ? start.version : indexOf(function (v) { return v.key === DEFAULT_KEY; }));
+})();
+</script>
+<script data-goatcounter="https://a9n27kisdf.execute-api.us-east-1.amazonaws.com/count/win98icons"
+        async src="count.js"></script>
+</body>
+</html>
