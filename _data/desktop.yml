@@ -12,6 +12,21 @@
 - label: MS-DOS Prompt
   icon: ms_dos-1
   open: dos
+- label: Winamp
+  icon: media_player-0
+  open: winamp
+- label: mIRC
+  icon: cchat_128-0
+  open: mirc
+- label: Paint
+  icon: mspaint_2-3
+  open: paint
+- label: Campo Minado
+  icon: game_mine_1-0
+  open: mines
+- label: 3D Pinball
+  icon: joystick-3
+  open: pinball
 - label: Lixeira
   icon: recycle_bin_empty-3
   open: dlg:trash

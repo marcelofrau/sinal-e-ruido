@@ -394,6 +394,15 @@
   }
 
   // ---------- lançadores: ícones do desktop, menu Iniciar, data-open ----------
+  // API mínima pros apps carregados sob demanda (mirc.js, mines.js).
+  window.__snr = { makeWin, restore, ICONS, BASE, setLoading };
+  function openApp(url, cb) {
+    if (cb()) return;
+    const s = doc.createElement("script");
+    s.src = url;
+    s.onload = () => cb();
+    doc.head.append(s);
+  }
   function launch(el) {
     const open = el.dataset.open;
     if (el.href) { location.href = el.href; return; }
@@ -401,6 +410,11 @@
     else if (open === "dos") openDos();
     else if (open === "notepad") openNotepad();
     else if (open === "shutdown") doc.getElementById("shutdown").hidden = false;
+    else if (open === "mirc") openApp(BASE + "/assets/js/mirc.js", () => window.snrMirc?.());
+    else if (open === "mines") openApp(BASE + "/assets/js/mines.js", () => window.snrMines?.());
+    else if (open === "winamp") openWeb(new URL(BASE + "/winamp/", location.href).href, "Winamp");
+    else if (open === "paint") openWeb("https://jspaint.app", "Paint");
+    else if (open === "pinball") openWeb("https://pinball.alula.me", "3D Pinball");
     else if (open?.startsWith("dlg:")) dialog(open.slice(4));
   }
 
