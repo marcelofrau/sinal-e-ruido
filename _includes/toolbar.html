@@ -19,4 +19,6 @@
 <nav class="ns-bar ns-personal" aria-label="Seções">
   {% for s in site.data.sections %}<a class="ns-mini" href="{{ '/' | append: s.key | append: '/' | relative_url }}"><svg><use href="#i-bm"/></svg>{{ s.name }}</a>{% endfor %}
   <a class="ns-mini" href="{{ '/arquivo/' | relative_url }}"><svg><use href="#i-bm"/></svg>Arquivo</a>
+  <a class="ns-mini" href="{{ '/favoritos/' | relative_url }}"><svg><use href="#i-bm"/></svg>Favoritos</a>
+  <a class="ns-mini" href="{{ '/sobre/' | relative_url }}"><svg><use href="#i-bm"/></svg>Sobre</a>
 </nav>
