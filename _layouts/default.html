@@ -3,6 +3,7 @@
 <head>{% include head.html %}</head>
 <body>
 {% include ns-sprite.html %}
+{% include fa-sprite.html %}
 <div class="desktop" id="desktop">
   <ul class="dicons" aria-label="Área de trabalho">{% include launchers.html %}</ul>
 
@@ -27,7 +28,7 @@
 </div>
 
 <div class="taskbar">
-  <button class="start" type="button" id="start-btn" aria-haspopup="menu" aria-expanded="false"><img src="{{ '/assets/icons/windows-0.png' | relative_url }}" alt="" width="16" height="16">Iniciar</button>
+  <button class="start" type="button" id="start-btn" aria-haspopup="menu" aria-expanded="false"><svg class="start-flag" width="16" height="16" aria-hidden="true"><use href="#i-start"/></svg>Iniciar</button>
   <div class="tasks" id="tasks"></div>
   <div class="tray"><img src="{{ '/assets/icons/channels-3.png' | relative_url }}" alt="" width="16" height="16"><time id="clock"></time></div>
 </div>

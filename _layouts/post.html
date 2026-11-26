@@ -3,7 +3,8 @@ layout: default
 ---
 {% comment %}O desktop.js extrai este article.post (com o h1) pra mostrar o post em popup.{% endcomment %}
 <article class="post">
-  <header class="post-head">
+  {% assign band = '#00686b' %}{% for s in site.data.sections %}{% if page.categories[0] == s.key %}{% assign band = s.color %}{% endif %}{% endfor %}
+  <header class="post-head" style="--band: {{ band }}">
     {% include post-meta.html post=page %}
     <h1>{{ page.title | default: 'Fragmento' }}</h1>
     {% if page.description %}<p class="post-lede">{{ page.description }}</p>{% endif %}

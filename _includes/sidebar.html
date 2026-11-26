@@ -2,8 +2,8 @@
   <section class="box">
     <h2>Seções</h2>
     <ul class="box-list">
-      {% for s in site.data.sections %}{% if s.key == 'fragmentos' %}{% assign ico = 'notepad-3' %}{% else %}{% assign ico = 'directory_closed-3' %}{% endif %}
-      <li><a href="{{ '/' | append: s.key | append: '/' | relative_url }}"><img src="{{ '/assets/icons/' | append: ico | append: '.png' | relative_url }}" alt="" width="16" height="16">{{ s.name }}</a><span class="count">{{ site.categories[s.key] | size }}</span></li>
+      {% for s in site.data.sections %}
+      <li><a href="{{ '/' | append: s.key | append: '/' | relative_url }}"><svg class="fa" style="color: {{ s.color }}"><use href="#fa-{{ s.icon }}"/></svg>{{ s.name }}</a><span class="count">{{ site.categories[s.key] | size }}</span></li>
       {% endfor %}
     </ul>
   </section>
@@ -16,10 +16,11 @@
   <section class="box">
     <h2>Explorar</h2>
     <ul class="box-list">
-      <li><a href="{{ '/arquivo/' | relative_url }}"><img src="{{ '/assets/icons/directory_open_file_mydocs-3.png' | relative_url }}" alt="" width="16" height="16">Arquivo</a></li>
-      <li><a href="{{ '/feed.xml' | relative_url }}"><img src="{{ '/assets/icons/channels-3.png' | relative_url }}" alt="" width="16" height="16">Feed RSS</a></li>
-      <li><button type="button" data-random><img src="{{ '/assets/icons/joystick-3.png' | relative_url }}" alt="" width="16" height="16">Post aleatório</button></li>
-      <li><button type="button" data-open="dos"><img src="{{ '/assets/icons/ms_dos-1.png' | relative_url }}" alt="" width="16" height="16">MS-DOS Prompt</button></li>
+      <li><a href="{{ '/arquivo/' | relative_url }}"><svg class="fa"><use href="#fa-box-archive"/></svg>Arquivo</a></li>
+      <li><a href="{{ '/feed.xml' | relative_url }}"><svg class="fa" style="color: #e8590c"><use href="#fa-rss"/></svg>Feed RSS</a></li>
+      <li><button type="button" data-random><svg class="fa"><use href="#fa-shuffle"/></svg>Post aleatório</button></li>
+      <li><button type="button" data-open="dos"><svg class="fa"><use href="#fa-terminal"/></svg>MS-DOS Prompt</button></li>
+      <li><button type="button" data-open="notepad"><svg class="fa"><use href="#fa-note-sticky"/></svg>Bloco de Notas</button></li>
     </ul>
   </section>
   <div class="badges">

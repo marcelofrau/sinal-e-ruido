@@ -232,7 +232,7 @@
     const body = doc.createElement("div");
     body.className = "pop";
     body.innerHTML = `<div class="pop-page"><p class="pop-wait">Carregando...</p></div><div class="ns-status"><span class="panel panel-text">Documento: Concluído</span><span class="panel"><a href="${path}">Abrir na janela principal</a></span></div>`;
-    const win = makeWin({ title: "Carregando... - Netscape", icon: "html-3", cls: "win-pop", body, w: 780, h: Math.round(desk.clientHeight * 0.82) });
+    const win = makeWin({ title: "Carregando... - Netscape", icon: "html-3", cls: "win-pop", body, w: Math.max(640, Math.min(1040, desk.clientWidth * 0.78)), h: desk.clientHeight - 24 });
     popups.set(path, win);
     win._onclose = silent => {
       popups.delete(path);
@@ -313,12 +313,38 @@
       });
   }
 
+  // ---------- Bloco de Notas (texto salvo só no localStorage deste navegador) ----------
+  const NOTE_KEY = "sr.notepad";
+  const NOTE_HELLO = "Bem-vindo ao Bloco de Notas.\r\n\r\nO que você escrever aqui fica salvo só neste navegador.\r\nF5 insere a hora e a data, como no original.\r\n";
+  function openNotepad() {
+    const old = desk.querySelector(".win-notepad");
+    if (old) return restore(old);
+    const body = doc.createElement("div");
+    body.className = "np";
+    body.innerHTML = '<div class="np-menu" aria-hidden="true"><u>A</u>rquivo <u>E</u>ditar <u>P</u>esquisar <u>A</u>juda</div><textarea class="np-text" spellcheck="false" aria-label="Texto do Bloco de Notas"></textarea>';
+    const ta = body.querySelector("textarea");
+    let saved = null;
+    try { saved = localStorage.getItem(NOTE_KEY); } catch (_) {}
+    ta.value = saved ?? NOTE_HELLO;
+    ta.addEventListener("input", () => { try { localStorage.setItem(NOTE_KEY, ta.value); } catch (_) {} });
+    ta.addEventListener("keydown", e => {
+      if (e.key !== "F5") return;
+      e.preventDefault();
+      const now = new Date();
+      ta.setRangeText(now.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }) + " " + now.toLocaleDateString("pt-BR"), ta.selectionStart, ta.selectionEnd, "end");
+      ta.dispatchEvent(new Event("input"));
+    });
+    makeWin({ title: "Sem título - Bloco de Notas", icon: "notepad-3", cls: "win-notepad", body, w: 520, h: 360 });
+    ta.focus();
+  }
+
   // ---------- lançadores: ícones do desktop, menu Iniciar, data-open ----------
   function launch(el) {
     const open = el.dataset.open;
     if (el.href) { location.href = el.href; return; }
     if (open === "browser") restore(browser);
     else if (open === "dos") openDos();
+    else if (open === "notepad") openNotepad();
     else if (open === "shutdown") doc.getElementById("shutdown").hidden = false;
     else if (open?.startsWith("dlg:")) dialog(open.slice(4));
   }

@@ -148,7 +148,8 @@ button { font: inherit; color: inherit; }
   color: #000; text-decoration: none; cursor: default; white-space: nowrap;
 }
 .ns-btn:visited { color: #000; }
-.ns-btn svg, .ns-btn img { width: 24px; height: 24px; flex: none; }
+.ns-btn svg { width: 20px; height: 20px; margin: 2px; flex: none; }
+.ns-btn img { width: 24px; height: 24px; flex: none; object-fit: scale-down; } /* ícones do Mozilla Classic em tamanho nativo (~20px) */
 .ns-btn:hover { border-color: var(--hi) var(--shadow) var(--shadow) var(--hi); }
 .ns-btn:active { border-color: var(--shadow) var(--hi) var(--hi) var(--shadow); }
 .ns-btn:active > * { transform: translate(1px, 1px); }
@@ -182,14 +183,24 @@ button { font: inherit; color: inherit; }
 
 /* popup de post */
 .pop { flex: 1; min-height: 0; display: flex; flex-direction: column; }
-.pop-page { flex: 1; min-height: 0; overflow: auto; margin: 1px; padding: 28px clamp(16px, 6%, 56px) 36px; background: var(--paper); box-shadow: var(--sunken); container-type: inline-size; }
-.pop-page .post { max-width: 70ch; margin: 0 auto; }
+.pop-page { flex: 1; min-height: 0; overflow: auto; margin: 1px; padding: 0 0 40px; background: var(--paper); box-shadow: var(--sunken); container-type: inline-size; }
+/* no popup a faixa do título ocupa a largura toda; o resto fica numa coluna de leitura centralizada */
+.pop-page .post-head { margin-bottom: 30px; padding-inline: max(24px, calc((100% - 72ch) / 2)); }
+.pop-page .post > :not(.post-head) { width: min(72ch, 100% - 48px); margin-inline: auto; }
 .pop-wait { font: 13px var(--ui); }
 
 /* ---------- MS-DOS ---------- */
 .win-dos { min-width: 320px; }
 .dos-screen { flex: 1; min-height: 0; position: relative; background: #000; }
 .dos-boot { margin: 0; padding: 10px; color: #c0c0c0; font: 15px/1.25 "Courier New", Courier, monospace; white-space: pre-wrap; }
+
+/* ---------- Bloco de Notas ---------- */
+.np { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.np-menu { padding: 2px 4px; word-spacing: 8px; }
+.np-text {
+  flex: 1; min-height: 0; width: 100%; margin: 0; padding: 4px 6px; border: 0; resize: none; outline: none;
+  background: #fff; color: #000; box-shadow: var(--sunken); font: 15px/1.35 "Fixedsys Excelsior", "Lucida Console", "Courier New", monospace;
+}
 
 /* ---------- barra de tarefas e menu Iniciar ---------- */
 .taskbar {
@@ -202,6 +213,8 @@ button { font: inherit; color: inherit; }
   background: var(--face); box-shadow: var(--raised); white-space: nowrap;
 }
 .start { flex: none; font-weight: bold; }
+.start-flag { flex: none; }
+.fa { flex: none; width: 15px; height: 15px; color: var(--navy); }
 .start.is-down, .task.is-active {
   box-shadow: var(--sunken);
   background: repeating-conic-gradient(#fff 0 25%, var(--face) 0 50%) 0 0 / 2px 2px;
@@ -330,9 +343,17 @@ button { font: inherit; color: inherit; }
 
 /* ---------- post (página e popup) ---------- */
 .post { color: var(--ink); font: 15px/1.55 var(--sans); }
-.post-head { margin-bottom: 26px; }
-.post-head h1 { margin: 8px 0 10px; font: 650 clamp(28px, 5cqi, 42px)/1.12 var(--display); letter-spacing: -.015em; text-wrap: balance; }
-.post-lede { margin: 0; max-width: 60ch; font: 19px/1.5 var(--serif); color: #4a4f57; text-wrap: pretty; }
+/* faixa do título: mesma ideia do cabeçalho azul, na cor da seção (--band, de sections.yml) */
+.post-head {
+  --band: #00686b;
+  margin-bottom: 26px; padding: 22px 24px 20px; color: #fff;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--band), #fff 22%) 0%, var(--band) 55%, color-mix(in srgb, var(--band), #000 18%) 100%);
+  border-bottom: 2px solid color-mix(in srgb, var(--band), #000 40%);
+}
+.post-head h1 { margin: 8px 0 8px; font: 650 clamp(28px, 5cqi, 42px)/1.12 var(--display); letter-spacing: -.015em; text-wrap: balance; text-shadow: 1px 1px 0 rgba(0, 0, 0, .35); }
+.post-head .meta { color: rgba(255, 255, 255, .82); }
+.post-head .meta > * + *::before { color: rgba(255, 255, 255, .5); }
+.post-lede { margin: 0; max-width: 60ch; font: 19px/1.5 var(--serif); color: rgba(255, 255, 255, .9); text-wrap: pretty; }
 .post-hero { margin: 0 0 28px; }
 .post-hero img { display: block; width: 100%; height: auto; image-rendering: auto; border: 1px solid var(--rule); }
 

@@ -14,8 +14,11 @@
 - label: Lixeira
   icon: recycle_bin_empty-3
   open: dlg:trash
-- label: Fragmentos.txt
+- label: Bloco de Notas
   icon: notepad-3
+  open: notepad
+- label: Fragmentos.txt
+  icon: notepad_file-1
   url: /fragmentos/
 - label: Arquivo
   icon: directory_open_file_mydocs-3

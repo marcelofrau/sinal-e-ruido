@@ -1,10 +1,21 @@
+# icon: Font Awesome (symbol #fa-<icon> em _includes/fa-sprite.html). color: faixa do título do post.
 - key: abas-abertas
   name: Abas Abertas
+  icon: window-restore
+  color: "#0b6e6a"
 - key: entre-margens
   name: Entre Margens
+  icon: scale-balanced
+  color: "#5b2a8c"
 - key: o-que-fica
   name: O Que Fica
+  icon: hourglass-half
+  color: "#9a4f12"
 - key: fora-de-escopo
   name: Fora de Escopo
+  icon: ghost
+  color: "#a3262a"
 - key: fragmentos
   name: Fragmentos
+  icon: note-sticky
+  color: "#2d6a3a"

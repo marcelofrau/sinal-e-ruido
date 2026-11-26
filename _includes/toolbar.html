@@ -1,17 +1,19 @@
-{% comment %}Netscape 4: barra de menus + Navigation Toolbar + Location Toolbar + Personal Toolbar.{% endcomment %}
+{% comment %}Netscape 4: barra de menus + Navigation Toolbar + Personal Toolbar.
+Ícones da toolbar: tema Classic do Mozilla 1.x (que imitava o NS4), MPL — ver assets/img/ns/README.md.{% endcomment %}
+{% assign ns = '/assets/img/ns/' | relative_url %}
 <div class="ns-menubar">
   <span aria-hidden="true"><u>A</u>rquivo</span><span aria-hidden="true"><u>E</u>ditar</span><span aria-hidden="true"><u>E</u>xibir</span><span aria-hidden="true"><u>I</u>r</span><span aria-hidden="true"><u>C</u>ommunicator</span><button type="button" data-open="dlg:about"><u>A</u>juda</button>
 </div>
 <nav class="ns-bar ns-nav" aria-label="Navegação">
-  <button class="ns-btn" type="button" data-cmd="back"><svg><use href="#i-back"/></svg><span>Voltar</span></button>
-  <button class="ns-btn" type="button" data-cmd="forward"><svg><use href="#i-fwd"/></svg><span>Avançar</span></button>
-  <button class="ns-btn" type="button" data-cmd="reload"><svg><use href="#i-reload"/></svg><span>Recarregar</span></button>
-  <a class="ns-btn" href="{{ '/' | relative_url }}"><svg><use href="#i-home"/></svg><span>Início</span></a>
-  <a class="ns-btn" href="{{ '/arquivo/' | relative_url }}"><img src="{{ '/assets/icons/search_web-0.png' | relative_url }}" alt=""><span>Pesquisar</span></a>
+  <button class="ns-btn" type="button" data-cmd="back"><img src="{{ ns }}back.png" alt=""><span>Voltar</span></button>
+  <button class="ns-btn" type="button" data-cmd="forward"><img src="{{ ns }}forward.png" alt=""><span>Avançar</span></button>
+  <button class="ns-btn" type="button" data-cmd="reload"><img src="{{ ns }}reload.png" alt=""><span>Recarregar</span></button>
+  <a class="ns-btn" href="{{ '/' | relative_url }}"><img src="{{ ns }}home.png" alt=""><span>Início</span></a>
+  <a class="ns-btn" href="{{ '/arquivo/' | relative_url }}"><img src="{{ ns }}search.png" alt=""><span>Pesquisar</span></a>
   <button class="ns-btn" type="button" data-random><svg><use href="#i-dice"/></svg><span>Aleatório</span></button>
-  <button class="ns-btn" type="button" data-cmd="print"><img src="{{ '/assets/icons/printer-3.png' | relative_url }}" alt=""><span>Imprimir</span></button>
-  <button class="ns-btn" type="button" data-open="dlg:security"><img src="{{ '/assets/icons/key_padlock-0.png' | relative_url }}" alt=""><span>Segurança</span></button>
-  <button class="ns-btn" type="button" data-cmd="stop"><svg><use href="#i-stop"/></svg><span>Parar</span></button>
+  <button class="ns-btn" type="button" data-cmd="print"><img src="{{ ns }}print.png" alt=""><span>Imprimir</span></button>
+  <button class="ns-btn" type="button" data-open="dlg:security"><img src="{{ '/assets/icons/key_padlock-0.png' | relative_url }}" alt="" width="24" height="24"><span>Segurança</span></button>
+  <button class="ns-btn" type="button" data-cmd="stop"><img src="{{ ns }}stop.png" alt=""><span>Parar</span></button>
   <span class="throbber" role="img" aria-label="Netscape"></span>
 </nav>
 <nav class="ns-bar ns-personal" aria-label="Seções">
