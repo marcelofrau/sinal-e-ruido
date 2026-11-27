@@ -26,10 +26,10 @@ Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Page
 
 ## Rascunhos e material bruto
 
-- `drafts/` é o backlog manual do dono (hoje `ideas.md`, assuntos por seção). Local, gitignored e **excluído do build** (`exclude` no `_config.yml`) — como `inbox/`, nunca deve virar conteúdo do site: o repo é público.
+- `drafts/` é a bancada do dono: `ideas.md` (backlog de assuntos, por seção) e stubs por assunto em `drafts/<chave>/<slug>.md`. Local, gitignored e **excluído do build** (`exclude` no `_config.yml`) — como `inbox/`, nunca deve virar conteúdo do site: o repo é público.
 - `inbox/` é o material bruto capturado (uma mensagem do Telegram = um item `.md`: link + comentário cru). Sincronização: `node scripts/inbox-telegram.mjs` (bot próprio criado no @BotFather, token em `TELEGRAM_BOT_TOKEN`). Chat com bot não é e2e: nada sensível por ali.
 - `_drafts/` são rascunhos de posts: `node scripts/new-post.mjs --draft <secao> ["titulo"]` — front matter **sem** `date` (só entra na promoção). Preview: `jekyll serve --drafts`; o build de produção ignora a pasta.
-- Triagem (inbox + backlog → rascunho): skill `digerir`. Publicação: sempre a skill `postar`.
+- Ideas.md → stubs por seção: skill `distribuir` (limpa do ideas.md o que virou stub). Inbox → rascunho: skill `digerir`. Publicação: sempre a skill `postar`.
 - Promoção: `node scripts/new-post.mjs <secao> "titulo"` (sem `--draft`), colar o corpo do rascunho no arquivo criado, apagar o rascunho. Só aqui o post passa a existir de verdade (URL imutável dali em diante).
 
 ## Sections

@@ -33,7 +33,7 @@ node scripts/new-post.mjs <secao> "Título curto"
 
 Em `fragmentos` e `ruido-branco`, omita o título (o slug sai automático). Nas demais, preencha `description` (uma frase, a mesma que aparece na listagem) e `tags` (minúsculas, sem acento, 1 a 3). Não mexa em `date` nem no nome do arquivo.
 
-Partindo de um rascunho em `_drafts/`: rode o mesmo comando com a seção e o título do rascunho, cole o corpo do rascunho no arquivo criado e apague o rascunho (fluxo na seção "Rascunhos e material bruto" do `AGENTS.md`).
+Partindo de um rascunho (em `_drafts/` ou stub terminado em `drafts/<seção>/`): rode o mesmo comando com a seção e o título do rascunho, cole o corpo no arquivo criado e apague o rascunho (fluxo na seção "Rascunhos e material bruto" do `AGENTS.md`).
 
 ## 3. Escrever
 

@@ -10,7 +10,7 @@ Leia "Rascunhos e material bruto" no `AGENTS.md` se ainda não leu. Este skill s
 ## 1. Carregar o material
 
 - **Inbox:** liste `inbox/*.md` (subpastas como `feito/` e o `.state.json` não contam). Vazia e com `TELEGRAM_BOT_TOKEN` no ambiente: rode `node scripts/inbox-telegram.mjs` e liste de novo.
-- **Backlog:** `drafts/ideas.md`, assuntos por seção — fonte extra; ofereça quando a inbox estiver vazia ou quando o dono pedir backlog.
+- **Backlog:** se o dono pedir, encaminhe pra skill `distribuir` (o `ideas.md` vira stubs em `drafts/<seção>/`). A inbox segue sendo sua fonte principal.
 - Sem material nenhum: encerre.
 
 ## 2. Triar item por item
