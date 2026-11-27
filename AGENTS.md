@@ -24,6 +24,14 @@ Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Page
 - Para postar: skill `postar` em `.claude/skills/postar/` (Claude Code e opencode).
 - Comentários nos posts via giscus: IDs vêm das Actions Variables `GISCUS_REPO_ID`/`GISCUS_CATEGORY_ID` no CI (`scripts/prepare-giscus.mjs` gera o gitignored `_data/giscus.yml`). Sem as variáveis, build sai sem comentários. O loader fica em `assets/js/desktop.js` (`activateGiscus`), pois o popup extrai o `.post` sem executar scripts.
 
+## Rascunhos e material bruto
+
+- `drafts/` é o backlog manual do dono (hoje `ideas.md`, assuntos por seção). Local, gitignored e **excluído do build** (`exclude` no `_config.yml`) — como `inbox/`, nunca deve virar conteúdo do site: o repo é público.
+- `inbox/` é o material bruto capturado (uma mensagem do Telegram = um item `.md`: link + comentário cru). Sincronização: `node scripts/inbox-telegram.mjs` (bot próprio criado no @BotFather, token em `TELEGRAM_BOT_TOKEN`). Chat com bot não é e2e: nada sensível por ali.
+- `_drafts/` são rascunhos de posts: `node scripts/new-post.mjs --draft <secao> ["titulo"]` — front matter **sem** `date` (só entra na promoção). Preview: `jekyll serve --drafts`; o build de produção ignora a pasta.
+- Triagem (inbox + backlog → rascunho): skill `digerir`. Publicação: sempre a skill `postar`.
+- Promoção: `node scripts/new-post.mjs <secao> "titulo"` (sem `--draft`), colar o corpo do rascunho no arquivo criado, apagar o rascunho. Só aqui o post passa a existir de verdade (URL imutável dali em diante).
+
 ## Sections
 
 Chaves fixas: `abas-abertas`, `entre-margens`, `o-que-fica`, `fora-de-escopo`, `linha-de-comando`, `fragmentos`, `ruido-branco`. Não criar categoria nova sem aprovação. Páginas das seções em `_pages/<key>.md` (layout `category`, `category_key` = chave).

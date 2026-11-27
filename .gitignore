@@ -8,3 +8,6 @@ vendor/
 node_modules/
 .env
 *.sqlite
+_drafts/
+inbox/
+drafts/

@@ -2,9 +2,10 @@
 // Cria um post novo com frontmatter preenchido e data atual.
 // Uso:
 //   node scripts/new-post.mjs <secao> ["titulo do post"]
+//   node scripts/new-post.mjs --draft <secao> ["titulo do rascunho"]  → cria em _drafts/ sem date
 // Seções: abas-abertas, entre-margens, o-que-fica, fora-de-escopo, linha-de-comando, fragmentos, ruido-branco
 // Em "fragmentos" e "ruido-branco" o título é opcional (slug automático).
-import { writeFile } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 
 const SECTIONS = [
@@ -23,7 +24,9 @@ const AUTO_SLUG = {
   "ruido-branco": "ruido",
 };
 
-const [section, ...titleWords] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const isDraft = args[0] === "--draft";
+const [section, ...titleWords] = isDraft ? args.slice(1) : args;
 
 if (!SECTIONS.includes(section)) {
   console.error(`Seção inválida: ${section || "(vazia)"}\nUse uma de: ${SECTIONS.join(", ")}`);
@@ -63,12 +66,14 @@ const slug = title
   ? slugify(title)
   : `${AUTO_SLUG[section]}-${pad(now.getDate())}${pad(now.getMonth() + 1)}-${pad(now.getHours())}${pad(now.getMinutes())}`;
 
-const file = path.join("_posts", `${dateStr}-${slug}.md`);
+const dir = isDraft ? "_drafts" : "_posts";
+if (isDraft) await mkdir(dir, { recursive: true });
+const file = path.join(dir, isDraft ? `${slug}.md` : `${dateStr}-${slug}.md`);
 
 const fm = [
   "---",
   ...(title ? [`title: "${title.replace(/"/g, '\\"')}"`] : []),
-  `date: ${dateStr} ${timeStr}`,
+  ...(isDraft ? [] : [`date: ${dateStr} ${timeStr}`]),
   `categories: [${section}]`,
   "tags: []",
   ...(AUTO_SLUG[section] ? [] : ['description: ""']),
