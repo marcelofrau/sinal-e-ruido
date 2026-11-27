@@ -2,6 +2,12 @@
 layout: default
 ---
 <h1 class="page-h">Novidades</h1>
+{% if site.posts.size == 0 %}
+  <div class="empty-state">
+    <p>Não há nada aqui.</p>
+    <p>Quando houver sinal, aparece por aqui.</p>
+  </div>
+{% else %}
 <div class="post-list">
   {% for post in site.posts limit: 15 %}
     {% if post.categories contains 'fragmentos' %}
@@ -13,3 +19,4 @@ layout: default
     {% endif %}
   {% endfor %}
 </div>
+{% endif %}

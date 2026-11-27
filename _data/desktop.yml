@@ -19,6 +19,9 @@
 - label: WordPad
   icon: write_wordpad-1
   open: wordpad
+- label: Fortune Cookie
+  icon: tip
+  open: fortune
 - label: 3D Pinball
   icon: pinball
   open: pinball

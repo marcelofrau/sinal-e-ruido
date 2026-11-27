@@ -6,6 +6,9 @@ layout: default
 <input class="search-field" id="site-search" type="search" placeholder="Filtrar arquivo..." autocomplete="off">
 <p>Tudo que j&aacute; passou por aqui, por ano.</p>
 {% assign current_year = nil %}
+{% if site.posts.size == 0 %}
+  <p class="empty-state">Não há nada aqui. O arquivo se monta sozinho quando houver posts.</p>
+{% else %}
 {% for post in site.posts %}
   {% assign y = post.date | date: '%Y' %}
   {% if y != current_year %}
@@ -20,5 +23,6 @@ layout: default
   </li>
 {% endfor %}
 </ul>
+{% endif %}
 </div>
 <script src="{{ '/assets/js/search.js' | relative_url }}"></script>

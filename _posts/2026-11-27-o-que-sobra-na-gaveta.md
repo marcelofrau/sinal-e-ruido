@@ -1,4 +1,5 @@
 ---
+published: false
 title: "O que sobra na gaveta"
 date: 2026-11-27 11:21:09 +01:00
 categories: [o-que-fica]
@@ -9,6 +10,7 @@ hero: banner
 image_alt: "Um Commodore 64 bege com teclado, visto de frente e de lado"
 image_caption: "Commodore 64 — Foto: Evan-Amos, domínio público, Wikimedia Commons"
 ---
+<!-- Post de referência (exemplo dos primeiros dias do blog): fora do ar desde 27/11/2026 por decisão do dono. Modelo de formato da seção o-que-fica. -->
 
 Todo computador antigo tem duas vidas. Uma é a de ferramenta, que acaba quando ele fica lento demais. A outra é a de objeto, que dura bem mais e nem sempre faz sentido.
 

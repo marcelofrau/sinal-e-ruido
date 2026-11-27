@@ -1,4 +1,5 @@
 ---
+published: false
 title: "Como funcionava o modem discado"
 date: 2026-11-27 11:21:09 +01:00
 categories: [linha-de-comando]
@@ -8,6 +9,7 @@ image: /assets/img/posts/o-que-sobra-na-gaveta/ibm5150.jpg
 image_alt: "Um IBM PC 5150 com monitor e teclado"
 image_caption: "IBM PC 5150 — Foto: Fried Dough, domínio público, Wikimedia Commons"
 ---
+<!-- Post de referência (exemplo dos primeiros dias do blog): fora do ar desde 27/11/2026 por decisão do dono. Modelo de formato da seção linha-de-comando. -->
 
 O chiado do modem não era enfeite. Era a conversa entre dois aparelhos que precisavam descobrir, no escuro, o que a linha telefônica aguentava.
 

@@ -1,10 +1,12 @@
 ---
+published: false
 title: "O que a escola ensina fora da sala de aula"
 date: 2026-11-24 12:00:00 -03:00
 categories: [o-que-fica]
 tags: [memoria, bullying, autocritica]
 description: "Sobre o que ficou de anos de escola que não estavam no currículo — e sobre o hábito que ainda tenho de escutar a conversa toda antes de falar."
 ---
+<!-- Post de referência (exemplo dos primeiros dias do blog): fora do ar desde 27/11/2026 por decisão do dono. Modelo de formato da seção o-que-fica. -->
 
 Eu não escrevo sobre isso quase nunca. Não é a toa que este post é curto.
 

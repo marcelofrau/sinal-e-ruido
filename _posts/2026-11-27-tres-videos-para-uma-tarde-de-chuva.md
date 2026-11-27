@@ -1,10 +1,12 @@
 ---
+published: false
 title: "Três vídeos para uma tarde de chuva"
 date: 2026-11-27 11:21:09 +01:00
 categories: [abas-abertas]
 tags: [exemplo, videos, computacao-retro]
 description: "Exemplo de post com vídeos: três clássicos de computação antiga para deixar rodando enquanto chove lá fora."
 ---
+<!-- Post de referência (exemplo dos primeiros dias do blog): fora do ar desde 27/11/2026 por decisão do dono. Modelo de formato da seção abas-abertas. -->
 
 Chuva, uma aba aberta e nenhuma pressa. Três vídeos que aguentam ser vistos com o canto do olho, e um link para cair numa toca de coelho maior.
 

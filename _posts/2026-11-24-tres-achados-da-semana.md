@@ -1,10 +1,12 @@
 ---
+published: false
 title: "Três achados da semana"
 date: 2026-11-24 10:30:00 -03:00
 categories: [abas-abertas]
 tags: [simuladores, ia, ferramentas]
 description: "Um simulador de motor a combustão no navegador, um gerador local de legendas e um roguelike de esgoto que não devia funcionar tão bem."
 ---
+<!-- Post de referência (exemplo dos primeiros dias do blog): fora do ar desde 27/11/2026 por decisão do dono. Modelo de formato da seção abas-abertas. -->
 
 Semana curta de superfoco, então vai em ritmo de log:
 

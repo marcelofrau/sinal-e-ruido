@@ -17,6 +17,7 @@
         - { label: Bloco de Notas, icon: notepad-3, open: notepad }
         - { label: Paint, icon: mspaint_2-3, open: paint }
         - { label: WordPad, icon: write_wordpad-1, open: wordpad }
+        - { label: Fortune Cookie, icon: tip, open: fortune }
     - label: Internet
       icon: directory_closed-3
       items:

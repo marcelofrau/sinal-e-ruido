@@ -489,7 +489,7 @@
   }
 
   // ---------- Executar... (Iniciar > Executar) ----------
-  const RUN = { notepad: "notepad", wordpad: "wordpad", write: "wordpad", mspaint: "paint", paint: "paint", pbrush: "paint", winamp: "winamp", mirc: "mirc", winmine: "mines", minas: "mines", pinball: "pinball", skifree: "skifree", ski: "skifree", command: "dos", cmd: "dos", dos: "dos", msdos: "dos", netscape: "browser", iexplore: "browser", navigator: "browser" };
+  const RUN = { notepad: "notepad", wordpad: "wordpad", write: "wordpad", mspaint: "paint", paint: "paint", pbrush: "paint", winamp: "winamp", mirc: "mirc", winmine: "mines", minas: "mines", fortune: "fortune", biscoito: "fortune", pinball: "pinball", skifree: "skifree", ski: "skifree", command: "dos", cmd: "dos", dos: "dos", msdos: "dos", netscape: "browser", iexplore: "browser", navigator: "browser" };
   function runCmd(raw) {
     const c = raw.trim();
     if (/^(https?:\/\/|www\.)\S+$/i.test(c)) {
@@ -624,6 +624,10 @@
     else if (open === "mines") openApp(BASE + "/assets/js/mines.js", () => window.snrMines?.());
     else if (open === "winamp") openWinamp();
     else if (open === "wordpad") openApp(BASE + "/assets/js/wordpad.js", () => window.snrWordpad?.());
+    else if (open === "fortune") {
+      openApp(BASE + "/assets/js/fortunes-data.js", () => !!window.snrFortunesData);
+      openApp(BASE + "/assets/js/fortune.js", () => window.snrFortune?.());
+    }
     else if (open === "paint") openAppWin("https://jspaint.app", "sem título - Paint", "mspaint_2-3", { w: 720, h: 500 });
     // canvas do jogo: 600x440 em (10,30) da página, medido no headless
     else if (open === "pinball") openAppWin("https://pinball.alula.me", "3D Pinball for Windows - Space Cadet", "pinball", { crop: { x: 10, y: 30, w: 600, h: 440 } });

@@ -1,10 +1,12 @@
 ---
+published: false
 title: "Manual do mundo que não pede desculpas"
 date: 2026-11-24 13:00:00 -03:00
 categories: [fora-de-escopo]
 tags: [humor, cotidiano]
 description: "Três fenômenos documentados com rigor científico zero e má vontade máxima: a impressora, a reunião e o fundo do armário."
 ---
+<!-- Post de referência (exemplo dos primeiros dias do blog): fora do ar desde 27/11/2026 por decisão do dono. Modelo de formato da seção fora-de-escopo. -->
 
 Observações do cotidiano com o humor que elas merecem:
 
