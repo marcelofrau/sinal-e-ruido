@@ -3,16 +3,16 @@
 - { label: Windows Update, icon: windows_update_large-4, open: "dlg:update" }
 - sep: true
 - label: Programas
-  icon: cool_25-3
+  icon: windows-4
   items:
     - label: Acessórios
-      icon: cool_25-3
+      icon: windows-4
       items:
         - { label: Bloco de Notas, icon: notepad-3, open: notepad }
         - { label: Calculadora, icon: calculator-0, open: calc }
         - { label: Paint, icon: mspaint_2-3, open: paint }
     - label: Jogos
-      icon: cool_25-3
+      icon: windows-4
       items:
         - { label: Campo Minado, icon: game_mine_1-0, open: mines }
         - { label: Paciência, icon: game_solitaire-0, open: sol }
