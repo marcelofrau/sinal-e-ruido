@@ -11,11 +11,8 @@
         - { label: Bloco de Notas, icon: notepad-3, open: notepad }
         - { label: Calculadora, icon: calculator-0, open: calc }
         - { label: Paint, icon: mspaint_2-3, open: paint }
-    - label: Internet
-      icon: cool_25-3
-      items:
-        - { label: Netscape Navigator, icon: world-3, open: browser }
-        - { label: mIRC, icon: mirc, open: mirc }
+    - { label: Netscape Navigator, icon: world-3, open: browser }
+    - { label: mIRC, icon: mirc, open: mirc }
     - label: Jogos
       icon: cool_25-3
       items:
