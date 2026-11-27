@@ -674,7 +674,8 @@
     else if (open === "winamp") openWinamp();
     else if (open === "wordpad") openApp(BASE + "/assets/js/wordpad.js", () => window.snrWordpad?.());
     else if (open === "calc") openApp(BASE + "/assets/js/calc.js", () => window.snrCalc?.());
-    else if (open === "sol") openApp(BASE + "/assets/js/sol.js", () => window.snrSol?.());
+    // Paciência: Kardland (kardland.com/klondike.html), como o Paint/Pinball num iframe pelado
+    else if (open === "sol") openAppWin("https://www.kardland.com/klondike.html", "Paciência", "game_solitaire-0", { w: 700, h: 540 });
     // dados antes do app: scripts injetados rodam fora de ordem
     else if (open === "fortune") openApp(BASE + "/assets/js/fortunes-data.js", () => window.snrFortunesData && (openApp(BASE + "/assets/js/fortune.js", () => window.snrFortune?.()), true));
     else if (open === "paint") openAppWin("https://jspaint.app", "sem título - Paint", "mspaint_2-3", { w: 720, h: 500 });

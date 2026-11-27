@@ -3,32 +3,32 @@
 - { label: Windows Update, icon: windows_update_large-4, open: "dlg:update" }
 - sep: true
 - label: Programas
-  icon: directory_closed-3
+  icon: cool_25-3
   items:
     - label: Acessórios
-      icon: directory_closed-3
+      icon: cool_25-3
       items:
         - { label: Bloco de Notas, icon: notepad-3, open: notepad }
         - { label: Calculadora, icon: calculator-0, open: calc }
         - { label: Paint, icon: mspaint_2-3, open: paint }
-- label: Jogos
-  icon: joystick-3
-  items:
-    - { label: Campo Minado, icon: game_mine_1-0, open: mines }
-    - { label: Paciência, icon: game_solitaire-0, open: sol }
-    - { label: 3D Pinball, icon: pinball, open: pinball }
-    - { label: SkiFree, icon: skifree, open: skifree }
-- label: Internet
-  icon: directory_closed-3
-  items:
-    - { label: Netscape Navigator, icon: world-3, open: browser }
-    - { label: mIRC, icon: mirc, open: mirc }
-- { label: Winamp, icon: winamp, open: winamp }
-- { label: WordPad, icon: write_wordpad-1, open: wordpad }
-- { label: MS-DOS Prompt, icon: ms_dos-1, open: dos }
+    - label: Internet
+      icon: cool_25-3
+      items:
+        - { label: Netscape Navigator, icon: world-3, open: browser }
+        - { label: mIRC, icon: mirc, open: mirc }
+    - label: Jogos
+      icon: cool_25-3
+      items:
+        - { label: Campo Minado, icon: game_mine_1-0, open: mines }
+        - { label: Paciência, icon: game_solitaire-0, open: sol }
+        - { label: 3D Pinball, icon: pinball, open: pinball }
+        - { label: SkiFree, icon: skifree, open: skifree }
+    - { label: Winamp, icon: winamp, open: winamp }
+    - { label: WordPad, icon: write_wordpad-1, open: wordpad }
+    - { label: MS-DOS Prompt, icon: ms_dos-1, open: dos }
 - sep: true
 - label: Favoritos
-  icon: directory_favorites-4
+  icon: directory_net_web-3
   url: /favoritos/
 - label: Documentos
   icon: directory_open_file_mydocs-3

@@ -101,6 +101,24 @@
       grid.append(b);
     }
 
-    return makeWin({ title: "Calculadora", icon: "calculator-0", cls: "win-calc", body, w: 260 });
+    // teclado físico: dígitos (inclui o numérico), operadores, Enter, Backspace, Esc, Delete, vírgula
+    const KEYMAP = { Enter: "=", "=": "=", Backspace: "←", Escape: "C", Delete: "CE", "%": "%", "+": "+", "-": "-", "*": "*", "/": "/", ",": "." };
+    const onKey = e => {
+      if (e.target.closest && e.target.closest("input, textarea, [contenteditable]")) return;
+      const k = /^\d$/.test(e.key) ? e.key : e.key === "." ? "." : KEYMAP[e.key];
+      if (k === undefined) return;
+      e.preventDefault();
+      const b = [...grid.querySelectorAll("button")].find(b => b.textContent === k);
+      if (K[k]) K[k]();
+      else if (k === ".") dot();
+      else if (OPS[k]) setOp(k);
+      else digit(k);
+      if (b) { b.classList.add("is-press"); setTimeout(() => b.classList.remove("is-press"), 90); }
+    };
+    doc.addEventListener("keydown", onKey);
+
+    const win = makeWin({ title: "Calculadora", icon: "calculator-0", cls: "win-calc", body, w: 260 });
+    win._onclose = () => doc.removeEventListener("keydown", onKey);
+    return win;
   };
 })();

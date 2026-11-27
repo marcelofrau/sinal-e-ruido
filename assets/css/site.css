@@ -416,27 +416,6 @@ button { font: inherit; color: inherit; }
 .calc-num { color: #00007f; }
 .calc-m { color: #7f0000; }
 
-/* Paciência (assets/js/sol.js) */
-.sol { position: relative; flex: none; padding: 0 8px 6px; background: #007000; font: 12px var(--ui); color: #fff; }
-.sol-menu { margin: 0 -8px 4px; padding: 2px 4px; color: #000; }
-.sol-top { display: flex; gap: 8px; margin-bottom: 10px; }
-.sol-gap { flex: 1; }
-.sol-slot, .sol-f, .sol-pile { position: relative; width: 60px; height: 88px; }
-.sol-slot { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); border-radius: 3px; }
-.sol-back { background: #fff; }
-.sol-empty { opacity: .6; }
-.sol-waste, .sol-f, .sol-pile { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .35); border-radius: 3px; }
-.sol-tab { display: flex; gap: 8px; }
-.sol-card {
-  position: absolute; left: 0; width: 60px; height: 88px; padding: 3px 4px;
-  background: #fff; color: #000; box-shadow: inset 0 0 0 1px #999; border-radius: 3px;
-  font: 400 13px/1 var(--pixel); user-select: none;
-}
-.sol-card.red { color: #c00000; }
-.sol-card.sol-down { background: #fff repeating-linear-gradient(45deg, #000080 0 4px, #0000a0 4px 8px); color: transparent; }
-.sol-card.is-sel { outline: 2px dashed #ff0; outline-offset: -2px; }
-.sol-hint { margin-top: 8px; font: 11px var(--ui); color: #cfe8cf; }
-.sol-win { position: absolute; inset: 0; z-index: 4; display: grid; place-items: center; background: rgba(0, 80, 0, .8); font: bold 18px var(--pixel); color: #ff0; text-align: center; }
 .mines { padding: 0 6px 6px; }
 .mines-menu { margin: 0 -6px 4px; padding: 2px 4px; }
 .mines-mi { position: relative; display: inline-block; }
