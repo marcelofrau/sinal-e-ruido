@@ -120,6 +120,24 @@
     if (!v) return;
     if (v.l) Object.assign(win.style, { left: v.l, top: v.t, width: v.w, height: v.h, right: "auto", bottom: "auto" });
     win.classList.toggle("is-max", !!v.max);
+    fit(win);
+  }
+
+  // Encolhe/puxa a janela pra dentro do desktop (tamanho salvo numa tela maior passava por baixo da taskbar).
+  function fit(win) {
+    if (!win.style.width) return;
+    const d = desk.getBoundingClientRect(), s = win.style;
+    const l = Math.max(0, Math.min(parseFloat(s.left), d.width - 260)), t = Math.max(0, Math.min(parseFloat(s.top), d.height - 140));
+    Object.assign(s, { left: l + "px", top: t + "px", width: Math.min(parseFloat(s.width), d.width - l) + "px", height: Math.min(parseFloat(s.height), d.height - t) + "px" });
+  }
+
+  function resetBrowser() {
+    try { localStorage.removeItem("sr.win.browser"); } catch (_) {}
+    const z = browser.style.zIndex;
+    browser.removeAttribute("style"); // volta à ancoragem do CSS (.win-browser)
+    browser.style.zIndex = z;
+    browser.classList.remove("is-max");
+    restore(browser);
   }
 
   // Cria janela a partir do template. opts: title, icon, cls, body (Node), w, h, center
@@ -617,6 +635,7 @@
     else if (open === "logoff") logoff();
     else if (open === "help") openHelp();
     else if (open === "browser") restore(browser);
+    else if (open === "reset-browser") resetBrowser();
     else if (open === "dos") openDos();
     else if (open === "notepad") openNotepad();
     else if (open === "shutdown") doc.getElementById("shutdown").hidden = false;
@@ -624,10 +643,8 @@
     else if (open === "mines") openApp(BASE + "/assets/js/mines.js", () => window.snrMines?.());
     else if (open === "winamp") openWinamp();
     else if (open === "wordpad") openApp(BASE + "/assets/js/wordpad.js", () => window.snrWordpad?.());
-    else if (open === "fortune") {
-      openApp(BASE + "/assets/js/fortunes-data.js", () => !!window.snrFortunesData);
-      openApp(BASE + "/assets/js/fortune.js", () => window.snrFortune?.());
-    }
+    // dados antes do app: scripts injetados rodam fora de ordem
+    else if (open === "fortune") openApp(BASE + "/assets/js/fortunes-data.js", () => window.snrFortunesData && (openApp(BASE + "/assets/js/fortune.js", () => window.snrFortune?.()), true));
     else if (open === "paint") openAppWin("https://jspaint.app", "sem título - Paint", "mspaint_2-3", { w: 720, h: 500 });
     // canvas do jogo: 600x440 em (10,30) da página, medido no headless
     else if (open === "pinball") openAppWin("https://pinball.alula.me", "3D Pinball for Windows - Space Cadet", "pinball", { crop: { x: 10, y: 30, w: 600, h: 440 } });
@@ -704,6 +721,7 @@
 
   // ---------- boot ----------
   load(browser);
+  addEventListener("resize", () => fit(browser));
   register(browser);
   focusWin(browser);
   window.SR = { openPost };

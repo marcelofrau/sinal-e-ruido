@@ -20,7 +20,7 @@
   icon: write_wordpad-1
   open: wordpad
 - label: Fortune Cookie
-  icon: tip
+  icon: claudino
   open: fortune
 - label: 3D Pinball
   icon: pinball

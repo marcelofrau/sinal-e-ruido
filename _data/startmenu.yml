@@ -17,7 +17,7 @@
         - { label: Bloco de Notas, icon: notepad-3, open: notepad }
         - { label: Paint, icon: mspaint_2-3, open: paint }
         - { label: WordPad, icon: write_wordpad-1, open: wordpad }
-        - { label: Fortune Cookie, icon: tip, open: fortune }
+        - { label: Fortune Cookie, icon: claudino, open: fortune }
     - label: Internet
       icon: directory_closed-3
       items:
@@ -39,6 +39,7 @@
   items:
     - { label: Painel de controle, icon: directory_control_panel-4, open: "dlg:control" }
     - { label: Impressoras, icon: printer-2, open: "dlg:printers" }
+    - { label: Restaurar janela do Netscape, icon: world-3, open: reset-browser }
 - label: Localizar
   icon: search_file-1
   items:
