@@ -5,7 +5,29 @@
   const { makeWin, restore, ICONS } = window.__snr;
   const doc = document;
 
+  let splashed = false;
+
+  // Splash "Sobre o mIRC" só na primeira abertura da sessão; a janela principal abre ao fechá-la.
   window.snrMirc = () => {
+    const old = doc.querySelector(".win-mirc, .win-mirc-splash");
+    if (old) return restore(old);
+    if (splashed) return openMirc();
+    splashed = true;
+    const body = doc.createElement("div");
+    body.className = "dlg mirc-splash";
+    body.innerHTML = '<div class="dlg-msg"><img src="' + ICONS + 'mirc.png" width="32" height="32" alt=""><div>' +
+      "<b>mIRC v5.91 32bit</b><br>Internet Relay Chat client<br>Copyright © 1995-2001 mIRC Co. Ltd.<br>Khaled Mardam-Bey<br><br>" +
+      "Esta é uma cópia não registrada. Você está usando o mIRC há 30 dias.</div></div>" +
+      '<div class="dlg-btns"><button class="btn" type="button" data-act="close">Continuar</button></div>';
+    const sp = makeWin({ title: "Sobre o mIRC", icon: "mirc", cls: "win-dialog win-mirc-splash", body, w: 360, center: true });
+    sp._onclose = openMirc;
+    const ok = body.querySelector("button");
+    sp.addEventListener("keydown", e => { if (e.key === "Escape") ok.click(); });
+    ok.focus();
+    return sp;
+  };
+
+  function openMirc() {
     const old = doc.querySelector(".win-mirc");
     if (old) return restore(old);
 
@@ -23,7 +45,7 @@
     body.className = "mirc";
     const menubar = doc.createElement("div");
     menubar.className = "mirc-menu";
-    menubar.innerHTML = "<span><u>F</u>ile</span><span><u>T</u>ools</span><span><u>H</u>elp</span>";
+    menubar.innerHTML = "<span><u>F</u>ile</span><span><u>T</u>ools</span><span><u>D</u>CC</span><span><u>C</u>ommands</span><span><u>W</u>indow</span><span><u>H</u>elp</span>";
     const libera = doc.createElement("a");
     Object.assign(libera, { href: "https://web.libera.chat/#sinal-e-ruido", target: "_blank", rel: "noopener", title: "O webchat do Libera bloqueia frames: abre numa aba real" });
     libera.textContent = "Libera \u2197";
@@ -75,7 +97,7 @@
       const store = ch === "Status" ? statusBuf : chans[ch]?.buffer || (chans[ch] = { nicks: [], buffer: [] }).buffer;
       store.push({ t: stamp(), parts });
       if (store.length > 300) store.shift();
-      if (ch === (ch === "Status" ? "Status" : active)) render();
+      if (ch === active) render();
     }
 
     function render() {
@@ -102,7 +124,7 @@
     const AMBIENT = [
       ["algu\u00e9m a\u00ed lembra do ICQ? melhor \u00e9poca", 0],
       ["esse blog abre mais r\u00e1pido que meu provedor discado", 0],
-      ["/me coloca um CD pra gravar enquanto espera o modem parar de chiando", 0],
+      ["/me coloca um CD pra gravar enquanto espera o modem parar de chiar", 0],
       ["algu\u00e9m tem o serial do winzip? t\u00f3 pedindo pra um amigo", 0],
       ["baixando mp3 a 4kb/s, a noite \u00e9 uma crian\u00e7a", 0],
       ["brb, minha m\u00e3e precisa usar o telefone", 0],
@@ -169,8 +191,8 @@
         const [, from, num, , rest] = m;
         if (num === "001") line("Status", [["* Conectado como " + myNick + ". Use /join #canal", "#009300"]]);
         else if (num === "353") {
-          const ch = (rest.match(/(\S+)\s*:(.*)/) || [])[1];
-          if (ch && chans[ch]) chans[ch].nicks = (RegExp.$2 || "").split(" ").filter(Boolean);
+          const [, ch, list = ""] = rest.match(/(\S+)\s*:(.*)/) || [];
+          if (ch && chans[ch]) chans[ch].nicks = list.split(" ").filter(Boolean);
           render();
         } else if (num === "433") { myNick += "_"; ws.send("NICK " + myNick + "\r\n"); }
         else if (num !== "002" && num !== "003" && num !== "004" && num !== "005" && num !== "251" && num !== "252" && num !== "253" && num !== "254" && num !== "255" && num !== "265" && num !== "266" && num !== "372" && num !== "375" && num !== "376" && num !== "422")
@@ -184,7 +206,9 @@
       if (cmd === "PRIVMSG") {
         const ch = target.startsWith("#") ? target : nick;
         if (!chans[ch]) { chans[ch] = { nicks: [], buffer: [] }; addTab(ch); }
-        line(ch, [["<" + nick + ">", nickColor(nick)], [" " + text, "#000"]]);
+        const t = (text || "").replace(/\x03\d{0,2}(,\d{1,2})?|[\x02\x0f\x16\x1d\x1f]/g, "");
+        const act = t.match(/^\x01ACTION (.*?)\x01?$/);
+        line(ch, act ? [["* " + nick, "#9c009c"], [" " + act[1], "#000"]] : [["<" + nick + ">", nickColor(nick)], [" " + t, "#000"]]);
       } else if (cmd === "JOIN" && !chans[target]) { chans[target] = { nicks: [], buffer: [] }; addTab(target); }
       else if (cmd === "QUIT") line("Status", [["* " + nick + " saiu", "#7f7f7f"]]);
     }
@@ -215,14 +239,20 @@
           ws.send("JOIN " + rest + "\r\n");
           return showTab(rest);
         }
-        if (cmd === "me") return active === "Status" ? null : line(active, [["* " + me, "#9c009c"], [" " + rest, "#000"]]);
+        if (cmd === "me") {
+          if (active === "Status" || !rest) return;
+          if (online) ws.send("PRIVMSG " + active + " :\x01ACTION " + rest + "\x01\r\n");
+          return line(active, [["* " + (online ? myNick : me), "#9c009c"], [" " + rest, "#000"]]);
+        }
         if (cmd === "clear") { (active === "Status" ? statusBuf : chans[active].buffer).length = 0; return render(); }
         if (cmd === "quit") { try { ws?.close(); } catch {} return; }
         return line("Status", [["* Comando desconhecido: " + cmd, "#ff0000"]]);
       }
       if (active === "Status") return line("Status", [["* Voc\u00ea est\u00e1 no Status. Entre num canal: /join #canal", "#7f7f7f"]]);
-      if (online) ws.send("PRIVMSG " + active + " :" + text + "\r\n");
-      else userLine(text);
+      if (online) {
+        ws.send("PRIVMSG " + active + " :" + text + "\r\n");
+        line(active, [["<" + myNick + ">", nickColor(myNick)], [" " + text, "#000"]]);
+      } else userLine(text);
     }
 
     inp.addEventListener("keydown", e => { if (e.key === "Enter") send(); });
@@ -235,5 +265,5 @@
     inp.focus();
     offlineTick();
     return win;
-  };
+  }
 })();

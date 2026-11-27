@@ -104,11 +104,14 @@ button { font: inherit; color: inherit; }
 .win-max::before { border-bottom-color: #000; border-top: 0; margin-top: -3px; }
 .win.is-max .win-max::before { margin-top: -5px; }
 .win.is-max .win-max::after { border-top-color: #000; border-bottom: 0; margin-top: 1px; }
-/* 3.11: caixa do menu de controle (barra de espaço) */
-.win-ctl::before {
-  content: ""; position: absolute; left: 2px; right: 3px; top: 5px; height: 3px;
-  background: #fff; border: 1px solid #000; box-shadow: 1px 1px 0 var(--shadow);
+/* 98: X de fechar, separado do ▼▲ por 2px */
+.win-close { margin-left: 2px; }
+.win-close::before, .win-close::after {
+  content: ""; position: absolute; left: 4px; right: 5px; top: 7px; height: 2px; background: #000;
 }
+.win-close::before { transform: rotate(45deg); }
+.win-close::after { transform: rotate(-45deg); }
+/* menus suspensos dos apps (Jogo do Campo Minado) */
 .win-menu {
   position: absolute; top: 23px; left: 3px; z-index: 5; min-width: 170px; padding: 2px 0;
   background: #fff; border: 1px solid #000; box-shadow: 2px 2px 0 rgba(0, 0, 0, .5);
@@ -244,6 +247,14 @@ button { font: inherit; color: inherit; }
 .startmenu .dicon:hover, .startmenu .dicon:focus { background: var(--navy); color: #fff; outline: none; }
 .startmenu .dicon:focus span { background: none; outline: 0; }
 .sm-sep { height: 0; margin: 3px 2px; border-top: 1px solid var(--shadow); border-bottom: 1px solid var(--hi); }
+/* submenus (Programas ▸ Acessórios ▸ ...): ícone 16px, abrem à direita no hover/foco */
+.sm-sub { position: relative; }
+.sm-sub > .dicon::after { content: ""; margin-left: auto; border: 4px solid transparent; border-left-color: currentColor; border-right: 0; }
+.sm-sub > ul { display: none; position: absolute; left: 100%; top: -3px; min-width: 170px; padding: 2px; background: var(--face); box-shadow: var(--raised); }
+.sm-sub:hover > ul, .sm-sub:focus-within > ul { display: block; }
+.sm-sub:hover > .dicon, .sm-sub:focus-within > .dicon { background: var(--navy); color: #fff; }
+.startmenu ul ul .dicon { padding: 3px 14px 3px 4px; }
+.startmenu ul ul .dicon img { width: 16px; height: 16px; image-rendering: auto; }
 .shutdown {
   position: fixed; inset: 0; z-index: 200000; display: flex; flex-direction: column; align-items: center; justify-content: center;
   background: #000; color: #ff8a00; text-align: center; cursor: pointer;
@@ -346,6 +357,13 @@ button { font: inherit; color: inherit; }
 /* app em janela pelada: titlebar 98 + iframe cheio (Pinball) */
 .app-frame { flex: 1; min-height: 0; display: flex; background: #000; }
 .app-frame .web-frame { flex: 1; }
+.app-crop { overflow: hidden; }
+.app-crop .web-frame { flex: none; }
+.win-fixed { resize: none; }
+.win-fixed .win-max { display: none; }
+/* Webamp: host vazio só pra centralizar; o #webamp (movido pro desktop) é a "janela" */
+.webamp-host { position: absolute; inset: 0; pointer-events: none; }
+#webamp.is-min { display: none; }
 
 /* mIRC 5.x fake (assets/js/mirc.js) */
 .mirc { flex: 1; min-height: 0; display: flex; flex-direction: column; background: var(--face); font: 12px var(--ui); }
@@ -359,6 +377,7 @@ button { font: inherit; color: inherit; }
 .mirc-sw button { min-width: 62px; padding: 1px 8px; border: 0; background: var(--face); box-shadow: var(--raised); font: inherit; }
 .mirc-sw button.is-on { box-shadow: var(--sunken); font-weight: bold; background: repeating-conic-gradient(#fff 0 25%, var(--face) 0 50%) 0 0 / 2px 2px; }
 .mirc-input { flex: none; display: flex; gap: 3px; padding: 2px 0 1px; }
+.mirc-splash .dlg-msg b { font-size: 13px; }
 .mirc-input input { flex: 1; min-width: 0; padding: 2px 4px; border: 0; background: #fff; box-shadow: var(--sunken); font: 12px "Fixedsys Excelsior", "Lucida Console", monospace; }
 .mirc-input button { padding: 1px 10px; border: 0; background: var(--face); box-shadow: var(--raised); font: inherit; }
 
@@ -371,6 +390,28 @@ button { font: inherit; color: inherit; }
 .mines-grid { display: grid; padding: 3px; box-shadow: var(--sunken); }
 .mc { width: 16px; height: 16px; padding: 0; border: 0; background: var(--face); box-shadow: var(--raised); font: 700 11px/16px var(--sans); }
 .mc.is-open { box-shadow: inset 1px 1px var(--shadow); background: #d6d3ce; }
+.win-mines { min-width: 0; min-height: 0; resize: none; }
+.win-mines .win-max { display: none; }
+.mines { padding: 0 6px 6px; }
+.mines-menu { margin: 0 -6px 4px; padding: 2px 4px; }
+.mines-mi { position: relative; display: inline-block; }
+.mines-mi > button { padding: 1px 6px; border: 0; background: none; }
+.mines-mi .win-menu { top: 100%; left: 0; min-width: 190px; }
+.mines-opt[data-chk]::before { content: attr(data-chk); position: absolute; left: 6px; }
+.mines-about { margin-bottom: 4px; padding: 2px 4px; font-size: 12px; box-shadow: var(--sunken); }
+
+/* WordPad (assets/js/wordpad.js) */
+.wp { flex: 1; min-height: 0; display: flex; flex-direction: column; background: var(--face); font: 12px var(--ui); }
+.wp-menu { padding: 2px 4px; word-spacing: 8px; }
+.wp-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 3px; padding: 3px 4px; box-shadow: var(--raised); }
+.wp-bar select { font: 12px var(--ui); height: 22px; }
+.wp-bar button { min-width: 23px; height: 22px; padding: 0 4px; font: 12px var(--ui); background: var(--face); border: 0; box-shadow: var(--raised); cursor: default; }
+.wp-bar button:active { box-shadow: var(--sunken); }
+.wp-bar .sep { width: 4px; }
+.wp-ruler { height: 14px; margin: 2px 4px 0; background: #fff repeating-linear-gradient(90deg, #000 0 1px, transparent 1px 12px); background-size: 100% 4px; background-repeat: repeat-x; background-position: 0 bottom; box-shadow: var(--sunken); }
+.wp-scroll { flex: 1; min-height: 0; overflow: auto; margin: 2px 4px; padding: 10px; background: #808080; box-shadow: var(--sunken); }
+.wp-page { min-height: 100%; box-sizing: border-box; padding: 16px 20px; background: #fff; color: #000; outline: none; font: 16px "Times New Roman", Times, serif; }
+.wp-status { padding: 2px 6px; box-shadow: var(--sunken); margin: 0 4px 4px; }
 
 /* comentários (giscus) no fim do post, dentro do popup e da página cheia */
 .comments { margin-top: 34px; border-top: 1px solid var(--rule); padding-top: 20px; }
@@ -390,15 +431,12 @@ button { font: inherit; color: inherit; }
 .box-recent li { align-items: baseline; }
 .box-recent a { display: block; line-height: 1.35; }
 .badges { display: grid; grid-template-columns: repeat(2, 88px); gap: 6px; }
-.badge { display: inline-flex; width: 88px; height: 31px; overflow: hidden; border: 1px solid #000; background: #fff; color: #000; font: bold 9px/1.05 Verdana, sans-serif; text-decoration: none; }
-.page .badge, .page .badge:visited { color: #000; text-decoration: none; }
-.badge i { display: flex; align-items: center; justify-content: center; width: 30px; flex: none; font-style: normal; font-size: 14px; color: #fff; }
-.badge span { display: flex; flex-direction: column; justify-content: center; padding: 0 3px; }
-.badge-ns i { background: #000033; font: bold 22px "Times New Roman", serif; }
-.badge-ns b { color: #c00; }
-.badge-rss i { background: #f60; font-size: 10px; }
-.badge-np i { background: var(--navy); }
-.badge-res i { background: var(--teal); font-size: 10px; }
+/* botões 88x31 de verdade (assets/img/88x31/README.md) */
+.badges img { display: block; }
+.badges button { padding: 0; border: 0; background: none; cursor: pointer; }
+/* contador de visitas: odômetro de GIF da época, só que em CSS */
+.counter { margin: 0; font: 11px var(--mono); color: var(--muted); text-align: center; }
+.odo { display: inline-block; margin-top: 4px; padding: 2px; background: #000; box-shadow: var(--sunken); font: 400 16px/1 var(--pixel); letter-spacing: 3px; color: #3f3; }
 
 @container (max-width: 820px) {
   .cols { grid-template-columns: minmax(0, 1fr); }
@@ -541,6 +579,7 @@ button { font: inherit; color: inherit; }
   .win { inset: 0 !important; width: auto !important; height: auto !important; resize: none; }
   .win-dialog { inset: auto 8px 30% 8px !important; }
   .ns-menubar, .ns-btn span, .panel-prog { display: none; }
+  .sm-sub > ul { position: static; padding: 0 0 0 16px; box-shadow: none; }
   .ns-btn { min-width: 32px; height: 32px; }
   .throbber { width: 32px; height: 32px; background-size: 30px 30px; }
   .ns-nav { overflow-x: auto; scrollbar-width: none; }

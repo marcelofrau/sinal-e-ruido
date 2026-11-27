@@ -1,7 +1,5 @@
-{% comment %}Itens do desktop e do menu Iniciar (mesmo markup, CSS diferente por container).
-Desktop: include sem parâmetro (pula itens menu_only). Menu Iniciar: include com
-menu=true (pula itens hide_menu). Seções do site ficam só dentro do Netscape
-(Personal Toolbar + sidebar).{% endcomment %}
-{% for i in site.data.desktop %}{% if include.menu and i.hide_menu %}{% continue %}{% endif %}{% unless include.menu %}{% if i.menu_only %}{% continue %}{% endif %}{% endunless %}
+{% comment %}Ícones do desktop (_data/desktop.yml). O menu Iniciar é o startmenu.html. Seções do site ficam só
+dentro do Netscape (Personal Toolbar + sidebar).{% endcomment %}
+{% for i in site.data.desktop %}
   <li>{% if i.url %}<a class="dicon" href="{{ i.url | relative_url }}">{% else %}<button class="dicon" type="button" data-open="{{ i.open }}">{% endif %}<img src="{{ '/assets/icons/' | append: i.icon | append: '.png' | relative_url }}" alt="" width="32" height="32"><span>{{ i.label }}</span>{% if i.url %}</a>{% else %}</button>{% endif %}</li>
 {% endfor %}

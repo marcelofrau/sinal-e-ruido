@@ -1,0 +1,10 @@
+{% comment %}Menu Iniciar a partir de _data/startmenu.yml. Recursivo: item com "items" vira submenu (abre no hover/foco).
+Item: label, icon (assets/icons/<icon>.png), e "url" (link) ou "open" (data-open do desktop.js).{% endcomment %}
+{%- for i in include.items -%}
+{%- if i.sep %}<li class="sm-sep"></li>{% continue %}{% endif -%}
+{%- capture img %}<img src="{{ '/assets/icons/' | append: i.icon | append: '.png' | relative_url }}" alt="" width="32" height="32"><span>{{ i.label }}</span>{% endcapture -%}
+{%- if i.items %}<li class="sm-sub"><button class="dicon" type="button" aria-haspopup="menu">{{ img }}</button><ul role="menu">{% include startmenu.html items=i.items %}</ul></li>
+{%- elsif i.url %}<li><a class="dicon" role="menuitem" href="{{ i.url | relative_url }}">{{ img }}</a></li>
+{%- else %}<li><button class="dicon" role="menuitem" type="button" data-open="{{ i.open }}">{{ img }}</button></li>
+{%- endif -%}
+{%- endfor -%}

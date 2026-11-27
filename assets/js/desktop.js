@@ -43,7 +43,7 @@
     b.type = "button";
     b.className = "task";
     b.innerHTML = `<img src="${ICONS}${win.dataset.icon || "html-3"}.png" alt="" width="16" height="16"><span></span>`;
-    b.querySelector("span").textContent = caption(win).textContent;
+    b.querySelector("span").textContent = win.dataset.title || caption(win).textContent;
     b.addEventListener("click", () => {
       if (win.hidden || win.classList.contains("is-min")) restore(win);
       else if (win.classList.contains("is-active")) minimize(win);
@@ -60,7 +60,7 @@
   }
 
   function focusWin(win) {
-    doc.querySelectorAll(".win.is-active").forEach(w => { w.classList.remove("is-active"); w._task?.classList.remove("is-active"); });
+    doc.querySelectorAll(".win.is-active, #webamp.is-active").forEach(w => { w.classList.remove("is-active"); w._task?.classList.remove("is-active"); });
     win.classList.add("is-active");
     win._task?.classList.add("is-active");
     win.style.zIndex = ++z;
@@ -190,25 +190,12 @@
     const t = e.target;
     if (t.closest(".win-min")) return minimize(win);
     if (t.closest(".win-max")) return toggleMax(win);
-    if (t.closest(".win-ctl")) {
-      const m = win.querySelector(".win-menu");
-      closeMenus(m);
-      m.hidden = !m.hidden;
-      return;
-    }
-    const act = t.closest("[data-act]")?.dataset.act;
-    if (!act) return;
-    win.querySelector(".win-menu").hidden = true;
-    if (act === "close") closeWin(win);
-    else if (act === "min") minimize(win);
-    else if (act === "max") { if (!win.classList.contains("is-max")) toggleMax(win); }
-    else if (act === "restore") { if (win.classList.contains("is-max")) toggleMax(win); }
+    if (t.closest("[data-act=close]")) win === browser ? confirmCloseBrowser() : closeWin(win);
   });
   desk.addEventListener("dblclick", e => {
     const win = e.target.closest(".win");
     if (!win) return;
-    if (e.target.closest(".win-ctl")) closeWin(win); // como no 3.11
-    else if (e.target.closest(".win-title") && !e.target.closest("button") && !win.classList.contains("win-dialog")) toggleMax(win);
+    if (e.target.closest(".win-title") && !e.target.closest("button") && !win.classList.contains("win-dialog")) toggleMax(win);
   });
 
   // ---------- diálogos ----------
@@ -221,6 +208,22 @@
     body.querySelector(".dlg-msg div").append(tpl.content.cloneNode(true));
     const win = makeWin({ title: tpl.dataset.title, icon: tpl.dataset.icon, cls: "win-dialog", body, w: 360, center: true });
     win.querySelector(".dlg-btns .btn").focus();
+    return win;
+  }
+
+  // Fechar o Netscape pede confirmação e ensina a reabrir (ele é a janela do blog).
+  function confirmCloseBrowser() {
+    const old = desk.querySelector(".win-confirm");
+    if (old) return focusWin(old);
+    const win = dialog("close-browser");
+    win.classList.add("win-confirm");
+    const yes = doc.createElement("button");
+    Object.assign(yes, { type: "button", className: "btn", textContent: "Sim" });
+    yes.addEventListener("click", () => { closeWin(win); closeWin(browser); });
+    const no = win.querySelector(".dlg-btns .btn");
+    no.textContent = "Não";
+    no.before(yes);
+    no.focus();
   }
 
   // ---------- posts em popup ----------
@@ -368,38 +371,6 @@
     openInBrowser(a.href, a.dataset.frame || a.textContent.trim());
   });
 
-  // ---------- apps em janelas próprias (Winamp, Paint, Pinball) ----------
-  const webs = new Map(); // url -> janela
-
-  function openWeb(url, title) {
-    if (webs.has(url)) return restore(webs.get(url));
-    const body = doc.createElement("div");
-    body.className = "web";
-    const bar = doc.createElement("div");
-    bar.className = "web-url";
-    const label = doc.createElement("b");
-    label.textContent = "Endere\u00e7o:";
-    const loc = doc.createElement("span");
-    loc.textContent = url;
-    bar.append(label, loc);
-    const frame = doc.createElement("iframe");
-    Object.assign(frame, { src: url, className: "web-frame", referrerPolicy: "no-referrer", title: title });
-    const hint = doc.createElement("div");
-    hint.className = "web-hint";
-    hint.append(doc.createTextNode("N\u00e3o carregou? O site pode bloquear frames: "));
-    const out = doc.createElement("a");
-    Object.assign(out, { href: url, target: "_blank", rel: "noopener" });
-    out.textContent = "abrir numa aba real";
-    hint.append(out);
-    body.append(bar, frame, hint);
-    const win = makeWin({ title: title + " - Netscape", icon: "world-3", cls: "win-web", body, w: Math.max(640, Math.min(1040, desk.clientWidth * 0.78)), h: desk.clientHeight - 24 });
-    setLoading(true, "Contatando o host: " + new URL(url).host + "...");
-    frame.addEventListener("load", () => setLoading(false));
-    webs.set(url, win);
-    win._onclose = () => webs.delete(url);
-    return win;
-  }
-
   // ---------- MS-DOS (js-dos v8, carregado só quando abre) ----------
   let dosLib;
   function loadDos() {
@@ -456,34 +427,63 @@
     ta.focus();
   }
 
-  // ---------- Winamp: Webamp direto no desktop (janelas skinned dele, sem moldura nossa) ----------
+  // ---------- Winamp: Webamp no desktop, com botão na barra de tarefas ----------
+  // O renderWhenReady assume o nó que recebe (no #desktop apagava tudo), então ganha um host vazio
+  // só pra centralizar. As janelas skinned vão pro #webamp, que o Webamp cria no <body>: movido pra
+  // dentro do #desktop (fixed = contexto de empilhamento próprio), ele entra no focusWin/minimize/restore.
   let webamp = null;
   function openWinamp() {
-    if (webamp) { webamp.reopen(); return; }
+    const el = desk.querySelector("#webamp");
+    if (el) return restore(el);
+    if (webamp) return; // ainda carregando
     setLoading(true, "Carregando o Winamp...");
-    const s = doc.createElement("script");
-    s.src = "https://unpkg.com/webamp@2.3.1/built/webamp.bundle.min.js";
-    s.onload = () => {
-      setLoading(false);
-      if (typeof Webamp === "undefined" || !Webamp.browserIsSupported()) return;
-      webamp = new Webamp({ initialWindowPosition: { top: 24, left: 84 }, zIndex: 9000 });
-      webamp.renderWhenReady(desk);
-    };
-    doc.head.append(s);
+    openApp("https://unpkg.com/webamp@2.3.1/built/webamp.bundle.min.js", () => {
+      if (typeof Webamp === "undefined") return false;
+      if (!Webamp.browserIsSupported()) { setLoading(false); return true; }
+      const host = doc.createElement("div");
+      host.className = "webamp-host";
+      desk.append(host);
+      const wa = webamp = new Webamp({});
+      wa.renderWhenReady(host).then(() => {
+        setLoading(false);
+        const win = doc.getElementById("webamp");
+        win.dataset.icon = "winamp";
+        win.dataset.title = "Winamp";
+        desk.append(win);
+        register(win);
+        focusWin(win);
+        win.addEventListener("pointerdown", () => { if (!win.classList.contains("is-active")) focusWin(win); }, true);
+        wa.onMinimize(() => minimize(win));
+        wa.onClose(() => closeWin(win));
+        win._onclose = () => { webamp = null; setTimeout(() => { wa.dispose(); host.remove(); }, 0); };
+      });
+      return true;
+    });
   }
 
-  // app em janela pelada: só a titlebar 98 e o iframe (Pinball)
-  function openAppWin(url, title, icon) {
-    const old = desk.querySelector(".win-app");
-    if (old) return restore(old);
+  // App em janela pelada: titlebar 98 + iframe, sem barra de endereço (Paint, Pinball, SkiFree).
+  // crop: recorta um retângulo da página (o Pinball desenha a própria moldura 98 em volta do canvas).
+  const apps = new Map(); // url -> janela
+  function openAppWin(url, title, icon, o = {}) {
+    if (apps.has(url)) return restore(apps.get(url));
     const body = doc.createElement("div");
     body.className = "app-frame";
     const frame = doc.createElement("iframe");
-    Object.assign(frame, { src: url, className: "web-frame", referrerPolicy: "no-referrer", title: title });
+    Object.assign(frame, { src: url, className: "web-frame", referrerPolicy: "no-referrer", title });
+    let w = o.w, h = o.h;
+    if (o.crop) {
+      const c = o.crop;
+      body.classList.add("app-crop");
+      frame.setAttribute("scrolling", "no");
+      Object.assign(frame.style, { width: c.w + 2 * c.x + "px", height: c.h + c.y + 20 + "px", margin: -c.y + "px 0 0 " + -c.x + "px" });
+      w = c.w + 6; h = c.h + 26; // + borda (3px) e titlebar (20px) da .win
+    }
     body.append(frame);
-    const win = makeWin({ title: title + " - Netscape", icon: icon, cls: "win-app", body, w: Math.max(640, Math.min(980, desk.clientWidth * 0.8)), h: desk.clientHeight - 24 });
+    const win = makeWin({ title, icon, cls: "win-app" + (o.crop ? " win-fixed" : ""), body, w, h });
     setLoading(true, "Contatando o host: " + new URL(url).host + "...");
-    frame.addEventListener("load", () => setLoading(false));
+    frame.addEventListener("load", () => setLoading(false), { once: true });
+    apps.set(url, win);
+    win._onclose = () => apps.delete(url);
     return win;
   }
 
@@ -507,9 +507,11 @@
     else if (open === "mirc") openApp(BASE + "/assets/js/mirc.js", () => window.snrMirc?.());
     else if (open === "mines") openApp(BASE + "/assets/js/mines.js", () => window.snrMines?.());
     else if (open === "winamp") openWinamp();
-    else if (open === "paint") openWeb("https://jspaint.app", "Paint");
-    else if (open === "pinball") openAppWin("https://pinball.alula.me", "3D Pinball", "pinball");
-    else if (open === "skifree") openAppWin("https://basicallydan.github.io/skifree.js/", "SkiFree", "skifree");
+    else if (open === "wordpad") openApp(BASE + "/assets/js/wordpad.js", () => window.snrWordpad?.());
+    else if (open === "paint") openAppWin("https://jspaint.app", "sem título - Paint", "mspaint_2-3", { w: 720, h: 500 });
+    // canvas do jogo: 600x440 em (10,30) da página, medido no headless
+    else if (open === "pinball") openAppWin("https://pinball.alula.me", "3D Pinball for Windows - Space Cadet", "pinball", { crop: { x: 10, y: 30, w: 600, h: 440 } });
+    else if (open === "skifree") openAppWin("https://basicallydan.github.io/skifree.js/", "SkiFree", "skifree", { w: 640, h: 480 });
     else if (open?.startsWith("dlg:")) dialog(open.slice(4));
   }
 
@@ -535,7 +537,7 @@
   });
   startMenu.addEventListener("click", e => {
     const it = e.target.closest(".dicon");
-    if (!it) return;
+    if (!it || it.parentElement.classList.contains("sm-sub")) return; // "Programas ▸" só abre o submenu
     closeMenus();
     if (it.dataset.open) launch(it); // links seguem normalmente
   });
@@ -544,7 +546,7 @@
   doc.addEventListener("click", e => {
     const el = e.target.closest("[data-open]");
     if (el && !el.closest(".dicons, .startmenu")) launch(el);
-    if (!e.target.closest(".win-menu, .win-ctl, .startmenu, #start-btn")) closeMenus();
+    if (!e.target.closest(".win-menu, .startmenu, #start-btn")) closeMenus();
   });
   doc.addEventListener("keydown", e => { if (e.key === "Escape") closeMenus(); });
   doc.getElementById("shutdown").addEventListener("click", e => { e.currentTarget.hidden = true; });
@@ -567,6 +569,18 @@
     clock.title = now.toLocaleDateString("pt-BR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
     setTimeout(tick, 60000 - (now % 60000));
   })();
+
+  // ---------- contador de visitas (abacus: JSON + CORS, sem cookie) ----------
+  // Conta uma vez por sessão do navegador; nas outras páginas só lê. Fora do GitHub Pages não conta.
+  const odo = doc.querySelector("[data-counter] .odo");
+  if (odo && location.hostname.endsWith(".github.io")) {
+    let seen = false;
+    try { seen = sessionStorage.getItem("sr.visit") === "1"; sessionStorage.setItem("sr.visit", "1"); } catch (_) {}
+    fetch("https://abacus.jasoncameron.dev/" + (seen ? "get" : "hit") + "/" + location.hostname + "/sinal-e-ruido")
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(j => { if (Number.isFinite(j.value)) odo.textContent = String(j.value).padStart(6, "0"); })
+      .catch(() => {});
+  }
 
   // ---------- boot ----------
   load(browser);

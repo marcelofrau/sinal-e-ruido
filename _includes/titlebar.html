@@ -1,14 +1,7 @@
-{% comment %}Barra de título híbrida: gradiente do 98, botões do 3.11 (caixa de controle, ▼, ▲). Param: title.{% endcomment %}
+{% comment %}Barra de título híbrida: gradiente do 98, ▼/▲ do 3.11 e o X de fechar do 98 (data-act="close"). Param: title.{% endcomment %}
 <div class="win-title">
-  <button class="win-ctl" type="button" aria-label="Menu de controle (duplo clique fecha)" aria-haspopup="menu"></button>
   <span class="win-caption">{{ include.title }}</span>
   <button class="win-min" type="button" aria-label="Minimizar"></button>
   <button class="win-max" type="button" aria-label="Maximizar"></button>
-</div>
-<div class="win-menu" role="menu" hidden>
-  <button type="button" role="menuitem" data-act="restore">Restaurar</button>
-  <button type="button" role="menuitem" data-act="min">Minimizar</button>
-  <button type="button" role="menuitem" data-act="max">Maximizar</button>
-  <hr>
-  <button type="button" role="menuitem" data-act="close"><b>Fechar</b><span>Alt+F4</span></button>
+  <button class="win-close" type="button" data-act="close" aria-label="Fechar"></button>
 </div>

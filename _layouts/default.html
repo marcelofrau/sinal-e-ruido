@@ -35,9 +35,7 @@
 <div class="startmenu" id="startmenu" role="menu" hidden>
   <div class="sm-side"><b>Sinal e Ruído</b>98</div>
   <ul>
-    {% include launchers.html menu=true %}
-    <li class="sm-sep"></li>
-    <li><button class="dicon" type="button" data-open="shutdown"><img src="{{ '/assets/icons/shut_down_normal-3.png' | relative_url }}" alt="" width="32" height="32"><span>Desligar...</span></button></li>
+    {% include startmenu.html items=site.data.startmenu %}
   </ul>
 </div>
 
@@ -56,9 +54,13 @@
   <p>A Lixeira está vazia.</p>
   <p>Rascunho que não presta nem chega até aqui.</p>
 </template>
+<template id="tpl-dlg-close-browser" data-title="Netscape" data-icon="msg_warning-1">
+  <p><b>Fechar o Netscape Navigator?</b></p>
+  <p>O blog mora nesta janela. Para abri-la de novo, dê dois cliques no ícone <b>Netscape Navigator</b> na área de trabalho, ou vá em Iniciar &gt; Programas &gt; Internet.</p>
+</template>
 <template id="tpl-dlg-security" data-title="Informações de Segurança" data-icon="key_padlock-0">
   <p>Este documento foi transferido por uma conexão segura (HTTPS).</p>
-  <p>Nenhum cookie, nenhum rastreador, nenhum contador de visitas. Só texto.</p>
+  <p>Nenhum cookie, nenhum rastreador. Só um contador de visitas, como manda a tradição: um número anônimo no abacus.jasoncameron.dev, contado uma vez por sessão.</p>
 </template>
 <div class="shutdown" id="shutdown" hidden><p>Agora você pode desligar<br>o computador com segurança.</p><small>(clique para religar)</small></div>
 

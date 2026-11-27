@@ -23,10 +23,15 @@
       <li><button type="button" data-open="notepad"><svg class="fa"><use href="#fa-note-sticky"/></svg>Bloco de Notas</button></li>
     </ul>
   </section>
+  <p class="counter" data-counter>Você é o visitante nº<br><span class="odo" aria-live="polite">000000</span></p>
+  {%- assign b = '/assets/img/88x31/' | relative_url -%}
   <div class="badges">
-    <a class="badge badge-ns" href="{{ '/' | relative_url }}"><i>N</i><span>Netscape<br><b>NOW!</b></span></a>
-    <a class="badge badge-rss" href="{{ '/feed.xml' | relative_url }}"><i>RSS</i><span>XML<br>feed</span></a>
-    <span class="badge badge-np"><i>&#9998;</i><span>feito no<br>Bloco de Notas</span></span>
-    <span class="badge badge-res"><i>800</i><span>melhor em<br>800&times;600</span></span>
+    <a href="{{ '/' | relative_url }}"><img src="{{ b }}netscape-now.gif" alt="Netscape Now!" width="88" height="31"></a>
+    <button type="button" data-open="notepad"><img src="{{ b }}notepad.gif" alt="Feito no Bloco de Notas" width="88" height="31"></button>
+    <button type="button" data-open="winamp"><img src="{{ b }}winamp.gif" alt="Winamp" width="88" height="31"></button>
+    <button type="button" data-open="mirc"><img src="{{ b }}mirc.gif" alt="mIRC Now" width="88" height="31"></button>
+    <img src="{{ b }}best-800x600.gif" alt="Melhor visto em 800x600" width="88" height="31">
+    <img src="{{ b }}any-browser.gif" alt="Qualquer navegador" width="88" height="31">
+    <img src="{{ b }}win98-plus.gif" alt="Windows 98" width="88" height="31">
   </div>
 </aside>

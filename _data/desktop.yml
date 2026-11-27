@@ -1,59 +1,33 @@
-# Ícones do desktop e do menu Iniciar, na ordem em que aparecem.
-# Use "url" (abre na janela do Netscape) ou "open": browser | dos | dlg:<id> (template #tpl-dlg-<id> no default.html).
-# "hide_menu: true" tira o item do menu Iniciar (fica só no desktop); "menu_only: true"
-# tira do desktop (fica só no menu). As seções do site não aparecem aqui: ficam só
-# dentro do Netscape (Personal Toolbar e sidebar).
-# Ícones: assets/icons/<icon>.png (set Windows 98 de windowsicons.alexmeub.com).
+# Ícones do desktop, na ordem em que aparecem (o menu Iniciar fica em startmenu.yml).
+# Use "url" (abre na janela do Netscape) ou "open": browser | dos | dlg:<id> (template #tpl-dlg-<id> no default.html)
+# ou o nome de um app (ver launch() no desktop.js). Poucos ícones, como no 98: cabem numa coluna
+# ao lado do Netscape; o resto dos programas mora em Iniciar > Programas.
+# As seções do site não aparecem aqui: ficam só dentro do Netscape (Personal Toolbar e sidebar).
+# Ícones: assets/icons/<icon>.png (set Windows 98 de win98icons.alexmeub.com).
 - label: Meu Computador
   icon: computer_explorer-3
   open: dlg:about
 - label: Netscape Navigator
   icon: world-3
   open: browser
-- label: MS-DOS Prompt
-  icon: ms_dos-1
-  open: dos
 - label: Winamp
   icon: winamp
   open: winamp
 - label: mIRC
   icon: mirc
   open: mirc
-- label: Paint
-  icon: mspaint_2-3
-  open: paint
-- label: Campo Minado
-  icon: game_mine_1-0
-  open: mines
+- label: WordPad
+  icon: write_wordpad-1
+  open: wordpad
 - label: 3D Pinball
   icon: pinball
   open: pinball
-- label: SkiFree
-  icon: skifree
-  open: skifree
 - label: Lixeira
   icon: recycle_bin_empty-3
   open: dlg:trash
-  hide_menu: true
-- label: Bloco de Notas
-  icon: notepad-3
-  open: notepad
 - label: Fragmentos.txt
   icon: notepad_file-1
   url: /fragmentos/
-  hide_menu: true
-- label: Arquivo
-  icon: directory_open_file_mydocs-3
-  url: /arquivo/
-- label: Sobre
-  icon: msg_information-1
-  url: /sobre/
-  menu_only: true
 - label: Favoritos
   icon: html-3
   url: /favoritos/
-  hide_menu: true
-- label: Canais
-  icon: channels-3
-  url: /feed.xml
-  hide_menu: true
