@@ -22,6 +22,9 @@
 - label: Fortune Cookie
   icon: claudino
   open: fortune
+- label: MS-DOS Prompt
+  icon: ms_dos-1
+  open: dos
 - label: 3D Pinball
   icon: pinball
   open: pinball
@@ -31,6 +34,3 @@
 - label: Fragmentos.txt
   icon: notepad_file-1
   url: /fragmentos/
-- label: Favoritos
-  icon: directory_favorites-4
-  url: /favoritos/

@@ -77,6 +77,12 @@
 <template id="tpl-dlg-notfound" data-title="Executar" data-icon="msg_warning-1">
   <p class="nf-msg"></p>
 </template>
+<template id="tpl-dlg-rss" data-title="Canais (RSS)" data-icon="channels-3">
+  <p><b>O que é isso?</b></p>
+  <p>O feed é um arquivo XML com os últimos posts do blog. Ele não foi feito para ser lido como uma página: é para um leitor de feeds.</p>
+  <p>Copie o endereço <code>{{ '/feed.xml' | relative_url }}</code> e cadastre no seu leitor (Feedly, NetNewsWire, Thunderbird...). Os posts novos chegam sozinhos, sem e-mail e sem rastreador.</p>
+  <p>Se você só quer espiar o arquivo, ele abre no navegador mesmo.</p>
+</template>
 <div class="shutdown" id="shutdown" hidden><p>Agora você pode desligar<br>o computador com segurança.</p><small>(clique para religar)</small></div>
 
 <script src="{{ '/assets/js/desktop.js' | relative_url }}"></script>

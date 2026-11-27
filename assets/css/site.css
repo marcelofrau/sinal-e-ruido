@@ -255,6 +255,14 @@ button { font: inherit; color: inherit; }
 .sm-sub > ul { display: none; position: absolute; left: 100%; top: -3px; min-width: 170px; padding: 2px; background: var(--face); box-shadow: var(--raised); }
 .sm-sub:hover > ul, .sm-sub:focus-within > ul { display: block; }
 .sm-sub:hover > .dicon, .sm-sub:focus-within > .dicon { background: var(--navy); color: #fff; }
+/* toque não tem hover: o clique abre/fecha (desktop.js), com aria-expanded */
+.sm-sub.is-open > ul { display: block; }
+.sm-sub.is-open > .dicon { background: var(--navy); color: #fff; }
+.sm-sub.is-open > .dicon::after { transform: rotate(90deg); }
+@media (hover: none) {
+  .sm-sub:hover > ul { display: none; }
+  .sm-sub.is-open > ul { display: block; } /* depois do :hover, vence no toque */
+}
 .startmenu ul ul .dicon { padding: 3px 14px 3px 4px; }
 .startmenu ul ul .dicon img { width: 16px; height: 16px; image-rendering: auto; }
 .shutdown {
@@ -644,12 +652,16 @@ button { font: inherit; color: inherit; }
 .archive-list li { display: flex; justify-content: space-between; align-items: baseline; gap: 1em; padding: 6px 0; border-bottom: 1px solid var(--rule); }
 .archive-list .meta { margin: 0; flex: none; }
 
-/* ---------- telas pequenas: tudo maximizado, sem arrastar ---------- */
-@media (max-width: 760px) {
+/* ---------- telas pequenas (ou janelas baixas): tudo maximizado, sem arrastar ---------- */
+@media (max-width: 760px), (max-height: 520px) {
   .win { inset: 0 !important; width: auto !important; height: auto !important; resize: none; }
   .win-dialog { inset: auto 8px 30% 8px !important; }
   .ns-menubar, .ns-btn span, .panel-prog { display: none; }
   .sm-sub > ul { position: static; padding: 0 0 0 16px; box-shadow: none; }
+  /* menu ocupa a largura da tela e rola; sem isso o submenu inline empurra os itens pra fora do topo */
+  .startmenu { left: 2px; right: 2px; max-height: calc(100vh - var(--taskbar) - 6px); max-height: calc(100dvh - var(--taskbar) - 6px); overflow-y: auto; }
+  .startmenu > ul, .startmenu ul { min-width: 0; }
+  .startmenu > ul { flex: 1; }
   .ns-btn { min-width: 32px; height: 32px; }
   .throbber { width: 32px; height: 32px; background-size: 30px 30px; }
   .ns-nav { overflow-x: auto; scrollbar-width: none; }

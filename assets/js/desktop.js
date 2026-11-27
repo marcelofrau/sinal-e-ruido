@@ -12,7 +12,7 @@
   const startMenu = doc.getElementById("startmenu");
   const status = doc.getElementById("ns-status");
   const browser = doc.getElementById("win-browser");
-  const narrow = matchMedia("(max-width: 760px)");
+  const narrow = matchMedia("(max-width: 760px), (max-height: 520px)");
   const coarse = matchMedia("(pointer: coarse)");
   const basePath = location.pathname, baseTitle = doc.title;
   let z = 10, cascade = 0;
@@ -199,7 +199,15 @@
 
   function closeMenus(except) {
     doc.querySelectorAll(".win-menu:not([hidden])").forEach(m => { if (m !== except) m.hidden = true; });
-    if (except !== startMenu) { startMenu.hidden = true; startBtn.setAttribute("aria-expanded", "false"); startBtn.classList.remove("is-down"); }
+    if (except !== startMenu) {
+      startMenu.hidden = true;
+      startMenu.querySelectorAll(".sm-sub.is-open").forEach(li => {
+        li.classList.remove("is-open");
+        li.firstElementChild.setAttribute("aria-expanded", "false");
+      });
+      startBtn.setAttribute("aria-expanded", "false");
+      startBtn.classList.remove("is-down");
+    }
   }
 
   desk.addEventListener("click", e => {
@@ -243,6 +251,30 @@
     no.before(yes);
     no.focus();
   }
+
+  // ---------- Feed RSS: explica o que é antes de despejar o XML na tela ----------
+  function openRss(href) {
+    const old = desk.querySelector(".win-rss");
+    if (old) return focusWin(old);
+    const win = dialog("rss");
+    win.classList.add("win-rss");
+    const open = win.querySelector(".dlg-btns .btn");
+    open.removeAttribute("data-act"); // o "Abrir" sai da página, não fecha a janela antes
+    open.textContent = "Abrir o XML";
+    open.addEventListener("click", () => { location.href = href; });
+    const cancel = doc.createElement("button");
+    Object.assign(cancel, { type: "button", className: "btn", textContent: "Cancelar" });
+    cancel.addEventListener("click", () => closeWin(win));
+    open.before(cancel);
+    open.focus();
+  }
+
+  doc.addEventListener("click", e => {
+    const a = e.target.closest("a[href$='/feed.xml']");
+    if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    openRss(a.href);
+  });
 
   // ---------- posts em popup ----------
   const popups = new Map(); // pathname -> janela
@@ -674,7 +706,18 @@
   });
   startMenu.addEventListener("click", e => {
     const it = e.target.closest(".dicon");
-    if (!it || it.parentElement.classList.contains("sm-sub")) return; // "Programas ▸" só abre o submenu
+    if (!it) return;
+    const sub = it.parentElement.classList.contains("sm-sub") ? it.parentElement : null;
+    if (sub) { // "Programas ▸" só abre/fecha o submenu: no toque não existe hover
+      const open = !sub.classList.contains("is-open");
+      sub.parentElement.querySelectorAll(".sm-sub.is-open").forEach(s => {
+        s.classList.remove("is-open");
+        s.firstElementChild.setAttribute("aria-expanded", "false");
+      });
+      sub.classList.toggle("is-open", open);
+      it.setAttribute("aria-expanded", String(open));
+      return;
+    }
     closeMenus();
     if (it.dataset.open) launch(it); // links seguem normalmente
   });
