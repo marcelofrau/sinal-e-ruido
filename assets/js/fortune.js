@@ -20,7 +20,6 @@
           <img src="${IMG}.webp" alt="Claudino, um bonequinho laranja de pixel art com camisa florida" width="320" height="180">
         </picture>
         <figure class="ft-bubble" aria-live="polite">
-          <figcaption class="ft-label">O Claudino diz:</figcaption>
           <blockquote class="ft-quote"></blockquote>
           <p class="ft-src"></p>
         </figure>
