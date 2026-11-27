@@ -11,8 +11,6 @@
         - { label: Bloco de Notas, icon: notepad-3, open: notepad }
         - { label: Calculadora, icon: calculator-0, open: calc }
         - { label: Paint, icon: mspaint_2-3, open: paint }
-    - { label: Netscape Navigator, icon: world-3, open: browser }
-    - { label: mIRC, icon: mirc, open: mirc }
     - label: Jogos
       icon: cool_25-3
       items:
@@ -20,6 +18,8 @@
         - { label: Paciência, icon: game_solitaire-0, open: sol }
         - { label: 3D Pinball, icon: pinball, open: pinball }
         - { label: SkiFree, icon: skifree, open: skifree }
+    - { label: Netscape Navigator, icon: world-3, open: browser }
+    - { label: mIRC, icon: mirc, open: mirc }
     - { label: Winamp, icon: winamp, open: winamp }
     - { label: WordPad, icon: write_wordpad-1, open: wordpad }
     - { label: MS-DOS Prompt, icon: ms_dos-1, open: dos }
