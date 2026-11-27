@@ -5,6 +5,7 @@
   const doc = document, root = doc.documentElement;
   const BASE = root.dataset.baseurl || "";
   const ICONS = BASE + "/assets/icons/";
+  const V = root.dataset.version ? "?v=" + root.dataset.version : "";
   const JSDOS = "https://v8.js-dos.com/latest/";
   const desk = doc.getElementById("desktop");
   const tasks = doc.getElementById("tasks");
@@ -201,10 +202,7 @@
     doc.querySelectorAll(".win-menu:not([hidden])").forEach(m => { if (m !== except) m.hidden = true; });
     if (except !== startMenu) {
       startMenu.hidden = true;
-      startMenu.querySelectorAll(".sm-sub.is-open").forEach(li => {
-        li.classList.remove("is-open");
-        li.firstElementChild.setAttribute("aria-expanded", "false");
-      });
+      closeSubs();
       startBtn.setAttribute("aria-expanded", "false");
       startBtn.classList.remove("is-down");
     }
@@ -539,7 +537,7 @@
   }
 
   // ---------- Executar... (Iniciar > Executar) ----------
-  const RUN = { notepad: "notepad", wordpad: "wordpad", write: "wordpad", mspaint: "paint", paint: "paint", pbrush: "paint", winamp: "winamp", mirc: "mirc", winmine: "mines", minas: "mines", fortune: "fortune", biscoito: "fortune", pinball: "pinball", skifree: "skifree", ski: "skifree", command: "dos", cmd: "dos", dos: "dos", msdos: "dos", netscape: "browser", iexplore: "browser", navigator: "browser" };
+  const RUN = { notepad: "notepad", wordpad: "wordpad", write: "wordpad", calc: "calc", calculadora: "calc", sol: "sol", solitaire: "sol", paciencia: "sol", mspaint: "paint", paint: "paint", pbrush: "paint", winamp: "winamp", mirc: "mirc", winmine: "mines", minas: "mines", fortune: "fortune", biscoito: "fortune", pinball: "pinball", skifree: "skifree", ski: "skifree", command: "dos", cmd: "dos", dos: "dos", msdos: "dos", netscape: "browser", iexplore: "browser", navigator: "browser" };
   function runCmd(raw) {
     const c = raw.trim();
     if (/^(https?:\/\/|www\.)\S+$/i.test(c)) {
@@ -656,7 +654,7 @@
   function openApp(url, cb) {
     if (cb()) return;
     const s = doc.createElement("script");
-    s.src = url;
+    s.src = url.startsWith(BASE + "/") ? url + V : url; // ?v=<build>: navegador não serve o app antigo do cache
     s.onload = () => cb();
     doc.head.append(s);
   }
@@ -675,6 +673,8 @@
     else if (open === "mines") openApp(BASE + "/assets/js/mines.js", () => window.snrMines?.());
     else if (open === "winamp") openWinamp();
     else if (open === "wordpad") openApp(BASE + "/assets/js/wordpad.js", () => window.snrWordpad?.());
+    else if (open === "calc") openApp(BASE + "/assets/js/calc.js", () => window.snrCalc?.());
+    else if (open === "sol") openApp(BASE + "/assets/js/sol.js", () => window.snrSol?.());
     // dados antes do app: scripts injetados rodam fora de ordem
     else if (open === "fortune") openApp(BASE + "/assets/js/fortunes-data.js", () => window.snrFortunesData && (openApp(BASE + "/assets/js/fortune.js", () => window.snrFortune?.()), true));
     else if (open === "paint") openAppWin("https://jspaint.app", "sem título - Paint", "mspaint_2-3", { w: 720, h: 500 });
@@ -697,8 +697,27 @@
   icons.addEventListener("dblclick", e => { const ic = e.target.closest(".dicon"); if (ic) launch(ic); });
   icons.addEventListener("keydown", e => { const ic = e.target.closest(".dicon"); if (ic && e.key === "Enter") { e.preventDefault(); launch(ic); } });
 
+  // No toque o submenu abre por cima do menu: desloca pra caber entre o topo do menu e a taskbar.
+  function placeSub(sub) {
+    const ul = sub.querySelector(":scope > ul");
+    ul.style.transform = "";
+    const box = startMenu.getBoundingClientRect(), r = ul.getBoundingClientRect();
+    const dy = r.bottom > box.bottom ? Math.max(box.top - r.top, box.bottom - r.bottom)
+      : r.top < box.top ? box.top - r.top : 0;
+    ul.style.transform = dy ? `translateY(${dy}px)` : "";
+  }
+
+  // painéis de submenu abertos por toque (is-open): fecha todos e reseta o aria
+  function closeSubs() {
+    startMenu.querySelectorAll(".sm-sub.is-open").forEach(li => {
+      li.classList.remove("is-open");
+      li.firstElementChild.setAttribute("aria-expanded", "false");
+    });
+  }
+
   startBtn.addEventListener("click", () => {
     const open = startMenu.hidden;
+    if (!open) closeSubs(); // fechando: não deixa painel aberto cobrindo o menu na próxima abertura
     closeMenus(startMenu);
     startMenu.hidden = !open;
     startBtn.setAttribute("aria-expanded", String(open));
@@ -716,6 +735,7 @@
       });
       sub.classList.toggle("is-open", open);
       it.setAttribute("aria-expanded", String(open));
+      if (open && narrow.matches) placeSub(sub);
       return;
     }
     closeMenus();
