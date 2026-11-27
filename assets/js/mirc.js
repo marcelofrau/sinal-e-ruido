@@ -120,20 +120,34 @@
 
     function showTab(ch) { active = ch; render(); inp.focus(); }
 
-    // -- modo offline: conversa scriptada --
-    const AMBIENT = [
-      ["algu\u00e9m a\u00ed lembra do ICQ? melhor \u00e9poca", 0],
-      ["esse blog abre mais r\u00e1pido que meu provedor discado", 0],
-      ["/me coloca um CD pra gravar enquanto espera o modem parar de chiar", 0],
-      ["algu\u00e9m tem o serial do winzip? t\u00f3 pedindo pra um amigo", 0],
-      ["baixando mp3 a 4kb/s, a noite \u00e9 uma crian\u00e7a", 0],
-      ["brb, minha m\u00e3e precisa usar o telefone", 0],
-      ["quem manja de overclock? meu K6-2 t\u00e1 pedindo", 0],
-      ["vi no Emulatronia que saiu emulador novo, vou testar", 0],
-      ["7 em 1 do camel\u00f3 \u00e9 golpe, mas o CD-ROM valia", 0],
-      ["esse banner de pop-up j\u00e1 me persegue em tr\u00eas sites", 0],
+    // -- modo offline: conversas scriptadas (só nicks de NICKS; convidados entram/saem à parte) --
+    const [SF, VO, ZZ, DP, WG, WK] = NICKS;
+    const THREADS = [
+      [[VO, "alguém aí lembra do ICQ? meu número era de 6 dígitos"], [WG, "o meu tinha 7, " + VO + ", e o barulhinho de uh-oh me dava infarto"], [VO, "kkkk o uh-oh de mensagem nova no meio da aula de informática"], [DP, "/me ainda tem o ICQ aberto minimizado, só por nostalgia"], [WG, DP + " vc é de outro século"]],
+      [[WK, "baixando um mp3 no Kazaa faz 3 horas, tá em 94%"], [ZZ, WK + " aí cai a conexão e volta pra 0%, clássico"], [WK, "não fala isso, a minha mãe tá com a mão no telefone"], [SF, "dica: eMule com crédito baixa mais rápido que Kazaa, mas é fila de banco"], [WK, "/me anota e reza pro modem não cair"]],
+      [[DP, "gente, achei uma skin do Winamp de samurai, ficou linda"], [WG, DP + " passa o link! a minha ainda é aquela verde padrão"], [DP, "tá no winamp.com, tem 1,2 MB, vai levar uns 8 minutos"], [VO, "/me já tem 40 skins e usa só a original"], [WG, VO + " traidor"], [DP, "kkkk"]],
+      [[ZZ, "alguém empresta um CD-R? o meu queimou de novo no 40%"], [SF, ZZ + " tem que gravar em 4x, 16x só dá coaster"], [ZZ, "mas eu tenho pressa, é a coletânea da formatura"], [VO, "/me coloca o CD-R estragado no relógio de parede"], [ZZ, VO + " rindo de mim e eu aqui com 12 reais perdidos"]],
+      [[WK, "Counter-Strike 1.6 hoje na lan house, quem vai?"], [VO, "eu! mas só se for de_dust2 de novo"], [WK, VO + " vc sempre pega AWP e morre no spawn"], [DP, "/me vai de faca e dignidade"], [SF, "a lan house cobra por hora, não esquece o troco"], [VO, "tá bom, hoje eu juro que acerto um"]],
+      [[SF, "o provedor discado hoje tá lento ou sou eu?"], [ZZ, "é a hora, " + SF + ". depois da meia-noite a internet fica rápida"], [WK, "pulso em dobro até as 6h, fecha o telefone da vizinha"], [SF, "/me liga o despertador pras 00:01"], [ZZ, "o jeito é esperar a tarifa reduzida"]],
+      [[WG, "vcs viram o trailer novo do Matrix? tô sem sono"], [VO, WG + " eu baixei, 14 MB, levou a noite toda"], [DP, "e valeu a pena? o Quicktime travou aqui"], [VO, "o Quicktime sempre trava, é sagrado"], [WG, "/me pede pra um amigo gravar em VHS"]],
+      [[DP, "alguém sabe de um emulador de SNES que rode no meu 486?"], [SF, DP + " no 486 só se for Pong"], [ZZ, "tenta o ZSNES, mas com 8 MB de RAM nem sonhe"], [DP, "/me suspira e abre o Paint"], [WK, "pelo menos o Paint abre rápido"]],
+      [[VO, "minha placa de vídeo é uma Voodoo2 de 12 MB e eu tenho orgulho disso"], [WK, VO + " o nick denuncia"], [ZZ, "a minha é uma S3 Trio, joga só Paciência"], [VO, "Paciência roda lindo em 3dfx"], [WG, "/me manda um beijo pra Voodoo2"]],
+      [[ZZ, "recebi uma corrente de e-mail dizendo que o Bill Gates vai me dar 500 dólares"], [SF, ZZ + " não repassa, já caí 15 vezes nessa"], [WG, "e se for verdade? kkkk"], [WK, "/me repassa pra 20 pessoas só por garantia"], [ZZ, "ok, deleto. e o pop-up de 'você ganhou'?"], [SF, "fecha e finge que não viu"]],
+      [[WG, "gente, brb, vou baixar o Napster antes que fechem"], [DP, WG + " já fechou, vai de Audiogalaxy"], [WK, "tem tudo no WinMX também"], [WG, "/me abre os três e reza"], [SF, "tudo no mesmo discado? boa sorte"]],
     ];
-    const HELLO = ["e a\u00ed", "oi", "ol\u00e1", "salve", "bom dia", "boa noite", "boa tarde"];
+    const GUESTS = ["gatinha_13", "Tiozao_PC", "xX_Neo_Xx", "CS_Pro_SP", "lamer_br"], guests = [];
+    const HELP = [
+      "pra falar com gente de verdade: digita /connect (liga por WebSocket em irc.swiftirc.net:4443)",
+      "depois /nick SeuNick, /join #sinal-e-ruido (ou #retro) e pronto. /disconnect pra sair",
+      "redes grandes tipo o Libera não aceitam WebSocket de navegador aqui, então não adianta /connect pra elas",
+      "pro Libera usa o link \"Libera ↗\" no canto direito de cima: abre o web.libera.chat numa aba nova",
+      "e se quiser o negócio de verdade: mIRC original ou HexChat, servidor irc.libera.chat porta 6697 com SSL",
+    ];
+    const HELLO = ["e aí", "oi", "olá", "salve", "bom dia", "boa noite", "boa tarde"];
+    let bag = [], helped = false, helping = false;
+    const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const pick = a => a[Math.floor(Math.random() * a.length)];
 
     function say(nick, text, meAct) {
       const parts = meAct
@@ -142,28 +156,64 @@
       line("#sinal-e-ruido", parts);
     }
 
-    function offlineTick() {
-      const n = NICKS[Math.floor(Math.random() * NICKS.length)];
-      const [msg] = AMBIENT[Math.floor(Math.random() * AMBIENT.length)];
-      const delay = 18000 + Math.random() * 40000;
-      timers.push(setTimeout(() => {
-        say(n, msg, msg.startsWith("/me"));
-        offlineTick();
-      }, delay));
+    // toca [[nick, texto]...] com ritmo de digitação; devolve a duração total
+    function play(lines) {
+      let t = 0;
+      for (const [n, x] of lines) {
+        const act = x.startsWith("/me ");
+        later(() => say(n, act ? x.slice(4) : x, act), t += rnd(2000, 6000));
+      }
+      return t;
+    }
+
+    function thread(delay) {
+      later(() => {
+        if (!bag.length) bag = THREADS.map((_, i) => i).sort(() => Math.random() - .5);
+        thread(play(THREADS[bag.pop()]) + rnd(15000, 40000));
+      }, delay);
+    }
+
+    function help() {
+      helped = helping = true;
+      later(() => helping = false, play(HELP.map(x => [SF, x])) + 1000);
+    }
+
+    // convidados entram/saem/mudam de nick; a lista fica entre 6 e 9 nicks
+    function chanEvent() {
+      later(() => {
+        const list = chans["#sinal-e-ruido"].nicks, free = GUESTS.filter(g => !guests.includes(g));
+        const r = Math.random(), g = guests.length ? pick(guests) : "";
+        const mask = n => "* " + n + " (~" + n.toLowerCase() + "@" + (Math.random() * 255 | 0) + "-" + (Math.random() * 255 | 0) + ".dialup.br)";
+        if (free.length && guests.length < 3 && (!g || r < .45)) {
+          const n = pick(free);
+          guests.push(n); list.push(n);
+          line("#sinal-e-ruido", [[mask(n) + " entrou em #sinal-e-ruido", "#009300"]]);
+        } else if (g && r < .8) {
+          guests.splice(guests.indexOf(g), 1);
+          list.splice(list.indexOf(g), 1);
+          line("#sinal-e-ruido", [[mask(g) + (Math.random() < .5 ? " saiu (Ping timeout)" : " saiu de #sinal-e-ruido"), "#7f7f7f"]]);
+        } else if (g) {
+          const n = g + "|away";
+          guests[guests.indexOf(g)] = n; list[list.indexOf(g)] = n;
+          line("#sinal-e-ruido", [["* " + g + " mudou o nick para " + n, "#7f7f7f"]]);
+        }
+        chanEvent();
+      }, rnd(25000, 60000));
     }
 
     function userLine(text) {
       const m = text.match(/^\/me (.+)/i);
       if (m) say(me, m[1], true);
       else say(me, text);
+      if (!helping && (!helped || /ajuda|help|conectar|servidor|real/i.test(text))) return later(help, rnd(2500, 4500));
       // respostas scriptadas
       const low = text.toLowerCase();
       if (HELLO.some(h => low.includes(h))) {
-        timers.push(setTimeout(() => say(NICKS[2], "e a\u00ed, " + me + ", senta a\u00ed"), 1500 + Math.random() * 2000));
+        later(() => say(ZZ, "e aí, " + me + ", senta aí"), rnd(1500, 3500));
       } else if (low.includes("?")) {
-        timers.push(setTimeout(() => say(NICKS[1], "boa pergunta, deve ter no Cad\u00ea?"), 2500 + Math.random() * 3000));
+        later(() => say(VO, "boa pergunta, deve ter no Cadê?"), rnd(2500, 5500));
       } else if (Math.random() < .4) {
-        timers.push(setTimeout(() => say(NICKS[4], ["kkkk verdade", " concordo", " anotado"][Math.floor(Math.random() * 3)].trim()), 3000 + Math.random() * 4000));
+        later(() => say(WG, pick(["kkkk verdade", "concordo", "anotado"])), rnd(3000, 7000));
       }
     }
 
@@ -263,7 +313,13 @@
     line("#sinal-e-ruido", [["* Este canal \u00e9 uma simula\u00e7\u00e3o offline do mIRC. Conex\u00e3o real: /connect", "#7f7f7f"]]);
     render();
     inp.focus();
-    offlineTick();
+    later(() => {
+      line("#sinal-e-ruido", [["* T\u00f3pico de #sinal-e-ruido: sinal e ru\u00eddo \u00b7 papo de quem lembra do modem 56k \u00b7 !help pra ajuda", "#7f7f7f"]]);
+      line("#sinal-e-ruido", [["* T\u00f3pico definido por superfoco", "#7f7f7f"]]);
+    }, 1200);
+    thread(4000);
+    chanEvent();
+    later(() => !helped && say(SF, "dica: digite !help pra saber como entrar num servidor de verdade"), rnd(60000, 90000));
     return win;
   }
 })();

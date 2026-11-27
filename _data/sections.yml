@@ -15,6 +15,10 @@
   name: Fora de Escopo
   icon: ghost
   color: "#a3262a"
+- key: linha-de-comando
+  name: Linha de Comando
+  icon: terminal
+  color: "#1d4e89"
 - key: fragmentos
   name: Fragmentos
   icon: note-sticky

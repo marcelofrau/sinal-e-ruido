@@ -12,6 +12,7 @@ Blog pessoal. Jekyll + GitHub Pages. Tema: desktop Windows 98 com janelas de bot
 | Entre Margens | `entre-margens` | Reflexões, equidade, filosofia |
 | O Que Fica | `o-que-fica` | Memória, vivências, autocrítica |
 | Fora de Escopo | `fora-de-escopo` | Devaneios, humor |
+| Linha de Comando | `linha-de-comando` | Código, ferramentas, scripts, diagramas |
 | Fragmentos | `fragmentos` | Notas curtíssimas, sem título obrigatório |
 | Ruído Branco | `ruido-branco` | Microblog: pensamentos soltos, sem título obrigatório |
 

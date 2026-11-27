@@ -21,11 +21,12 @@ Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Page
 - Links para posts em listagens levam `data-popup` (abrem em janela popup via `assets/js/desktop.js`, que extrai o `.post` da página do post). Sem JS, viram link normal.
 - Índice estático `/index.json` (gerado de `_pages/index.json`) alimenta o botão Aleatório. Sempre via Liquid, nunca editar à mão o output.
 - Criar posts com `node scripts/new-post.mjs <secao> [titulo]` — não inventar front matter na mão.
+- Para postar: skill `postar` em `.claude/skills/postar/` (Claude Code e opencode).
 - Comentários nos posts via giscus: IDs vêm das Actions Variables `GISCUS_REPO_ID`/`GISCUS_CATEGORY_ID` no CI (`scripts/prepare-giscus.mjs` gera o gitignored `_data/giscus.yml`). Sem as variáveis, build sai sem comentários. O loader fica em `assets/js/desktop.js` (`activateGiscus`), pois o popup extrai o `.post` sem executar scripts.
 
 ## Sections
 
-Chaves fixas: `abas-abertas`, `entre-margens`, `o-que-fica`, `fora-de-escopo`, `fragmentos`, `ruido-branco`. Não criar categoria nova sem aprovação. Páginas das seções em `_pages/<key>.md` (layout `category`, `category_key` = chave).
+Chaves fixas: `abas-abertas`, `entre-margens`, `o-que-fica`, `fora-de-escopo`, `linha-de-comando`, `fragmentos`, `ruido-branco`. Não criar categoria nova sem aprovação. Páginas das seções em `_pages/<key>.md` (layout `category`, `category_key` = chave).
 
 ## Validation
 

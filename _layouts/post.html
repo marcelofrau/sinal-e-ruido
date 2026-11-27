@@ -4,12 +4,15 @@ layout: default
 {% comment %}O desktop.js extrai este article.post (com o h1) pra mostrar o post em popup.{% endcomment %}
 <article class="post">
   {% assign band = '#00686b' %}{% for s in site.data.sections %}{% if page.categories[0] == s.key %}{% assign band = s.color %}{% endif %}{% endfor %}
-  <header class="post-head" style="--band: {{ band }}">
+  {% assign banner = false %}{% if page.image and page.hero == 'banner' %}{% assign banner = true %}{% endif %}
+  <header class="post-head{% if banner %} has-banner{% endif %}" style="--band: {{ band }}{% if banner %}{% endif %}">
+    {% if banner %}<img class="banner-img" src="{{ page.image | relative_url }}" alt="{{ page.image_alt }}">{% endif %}
     {% include post-meta.html post=page %}
     <h1>{{ page.title | default: 'Fragmento' }}</h1>
     {% if page.description %}<p class="post-lede">{{ page.description }}</p>{% endif %}
+    {% if banner and page.image_caption %}<small class="banner-credit">{{ page.image_caption }}</small>{% endif %}
   </header>
-  {% if page.image %}<figure class="post-hero"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt }}"></figure>{% endif %}
+  {% if page.image and banner == false %}<figure class="post-hero"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt }}">{% if page.image_caption %}<figcaption>{{ page.image_caption }}</figcaption>{% endif %}</figure>{% endif %}
   <div class="post-body">{{ content }}</div>
   <footer class="post-foot">
     {% if page.tags.size > 0 %}<p class="tags">{% for t in page.tags %}<span class="tag">#{{ t }}</span>{% endfor %}</p>{% endif %}

@@ -65,6 +65,38 @@ function sorteia(lista) {
 }
 ```
 
+Todo bloco de código ganha uma barra com a linguagem e o botão "Copiar".
+
+```mermaid
+flowchart LR
+  A[Post em Markdown] --> B{Tem mermaid?}
+  B -- sim --> C[Carrega do CDN]
+  B -- não --> D[Nada a carregar]
+```
+
+Diagramas Mermaid (bloco de código com a linguagem `mermaid`) só carregam a biblioteca se a página tiver algum.
+
+## Matemática
+
+Fórmula em linha: $$ E = mc^2 $$ no meio da frase. Em bloco, com linhas em branco em volta:
+
+$$
+\int_0^\infty e^{-x^2}\,dx = \frac{\sqrt{\pi}}{2}
+$$
+
+O KaTeX também só carrega quando há fórmula.
+
+## Imagem de título
+
+No front matter, `image:` mostra a imagem sob a faixa do título; `image_caption:` põe a legenda. Com `hero: banner` a imagem vira o fundo da faixa (a legenda vira um crédito no canto):
+
+```yaml
+image: /assets/img/estilos-exemplo.jpg
+image_alt: "Descrição da imagem"
+image_caption: "Foto: fulano"
+hero: banner
+```
+
 ## Tabela
 
 | Jogo | Ano | Comando |

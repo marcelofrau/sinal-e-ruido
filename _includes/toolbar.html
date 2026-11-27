@@ -2,7 +2,7 @@
 Ícones da toolbar: tema Classic do Mozilla 1.x (que imitava o NS4), MPL — ver assets/img/ns/README.md.{% endcomment %}
 {% assign ns = '/assets/img/ns/' | relative_url %}
 <div class="ns-menubar">
-  <span aria-hidden="true"><u>A</u>rquivo</span><span aria-hidden="true"><u>E</u>ditar</span><span aria-hidden="true"><u>E</u>xibir</span><span aria-hidden="true"><u>I</u>r</span><span aria-hidden="true"><u>C</u>ommunicator</span><button type="button" data-open="dlg:about"><u>A</u>juda</button>
+  <span aria-hidden="true"><u>A</u>rquivo</span><span aria-hidden="true"><u>E</u>ditar</span><span aria-hidden="true"><u>E</u>xibir</span><span aria-hidden="true"><u>I</u>r</span><span aria-hidden="true"><u>C</u>ommunicator</span><button type="button" data-open="help"><u>A</u>juda</button>
 </div>
 <nav class="ns-bar ns-nav" aria-label="Navegação">
   <button class="ns-btn" type="button" data-cmd="back"><img src="{{ ns }}back.png" alt=""><span>Voltar</span></button>
@@ -20,5 +20,5 @@
   {% for s in site.data.sections %}<a class="ns-mini" href="{{ '/' | append: s.key | append: '/' | relative_url }}"><svg><use href="#i-bm"/></svg>{{ s.name }}</a>{% endfor %}
   <a class="ns-mini" href="{{ '/arquivo/' | relative_url }}"><svg><use href="#i-bm"/></svg>Arquivo</a>
   <a class="ns-mini" href="{{ '/favoritos/' | relative_url }}"><svg><use href="#i-bm"/></svg>Favoritos</a>
-  <a class="ns-mini" href="{{ '/sobre/' | relative_url }}"><svg><use href="#i-bm"/></svg>Sobre</a>
+  <a class="ns-mini" href="{{ '/sobre/' | relative_url }}" data-open="help"><svg><use href="#i-bm"/></svg>Sobre</a>
 </nav>

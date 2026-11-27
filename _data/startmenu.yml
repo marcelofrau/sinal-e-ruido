@@ -1,5 +1,7 @@
 # Menu Iniciar (renderizado por _includes/startmenu.html). "items" vira submenu; "sep: true" é separador.
 # Folha: "url" (link, passa por relative_url) ou "open" (mesmos valores do desktop.yml / launch() no desktop.js).
+- { label: Windows Update, icon: windows_update_large-4, open: "dlg:update" }
+- sep: true
 - label: Programas
   icon: directory_closed-3
   items:
@@ -23,7 +25,7 @@
     - { label: Winamp, icon: winamp, open: winamp }
     - { label: MS-DOS Prompt, icon: ms_dos-1, open: dos }
 - label: Favoritos
-  icon: html-3
+  icon: directory_favorites-4
   url: /favoritos/
 - label: Documentos
   icon: directory_open_file_mydocs-3
@@ -31,10 +33,19 @@
     - { label: Arquivo, icon: directory_open_file_mydocs-3, url: /arquivo/ }
     - { label: Fragmentos.txt, icon: notepad_file-1, url: /fragmentos/ }
     - { label: Canais (RSS), icon: channels-3, url: /feed.xml }
-- label: Ajuda
-  icon: help_book_big-0
-  url: /sobre/
+- label: Configurações
+  icon: settings_gear-0
+  items:
+    - { label: Painel de controle, icon: directory_control_panel-4, open: "dlg:control" }
+    - { label: Impressoras, icon: printer-2, open: "dlg:printers" }
+- label: Localizar
+  icon: search_file-1
+  items:
+    - { label: Arquivos ou pastas..., icon: search_file-1, url: /arquivo/ }
+- { label: Ajuda, icon: help_book_big-0, open: help }
+- { label: Executar..., icon: executable-0, open: run }
 - sep: true
+- { label: "Fazer logoff de Visitante...", icon: key_win-0, open: logoff }
 - label: Desligar...
   icon: shut_down_normal-3
   open: shutdown

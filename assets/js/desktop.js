@@ -268,6 +268,7 @@
         if (!art) throw new Error("sem .post");
         body.querySelector(".pop-page").replaceChildren(art);
         activateGiscus(art);
+        window.snrEnhance?.(art); // post-extras.js: código, mermaid, fórmulas
         const h1 = art.querySelector("h1");
         setCaption(win, (h1 ? h1.textContent.trim() : "Fragmento") + " - Netscape");
         if (popups.get(path) === win) doc.title = d.title;
@@ -487,6 +488,118 @@
     return win;
   }
 
+  // ---------- Executar... (Iniciar > Executar) ----------
+  const RUN = { notepad: "notepad", wordpad: "wordpad", write: "wordpad", mspaint: "paint", paint: "paint", pbrush: "paint", winamp: "winamp", mirc: "mirc", winmine: "mines", minas: "mines", pinball: "pinball", skifree: "skifree", ski: "skifree", command: "dos", cmd: "dos", dos: "dos", msdos: "dos", netscape: "browser", iexplore: "browser", navigator: "browser" };
+  function runCmd(raw) {
+    const c = raw.trim();
+    if (/^(https?:\/\/|www\.)\S+$/i.test(c)) {
+      const u = /^www\./i.test(c) ? "https://" + c : c;
+      try { restore(browser); openInBrowser(new URL(u).href, c); return true; } catch (_) { return false; }
+    }
+    const app = RUN[c.toLowerCase().replace(/\.exe$/, "")];
+    if (app) launch({ dataset: { open: app } });
+    return !!app;
+  }
+  function openRun() {
+    const old = desk.querySelector(".win-run");
+    if (old) { restore(old); return old.querySelector("input").focus(); }
+    const body = doc.createElement("form");
+    body.className = "dlg run";
+    body.innerHTML = `<div class="dlg-msg"><img src="${ICONS}executable-0.png" alt="" width="32" height="32"><p>Digite o nome de um programa, pasta, documento ou recurso da Internet, e o Windows o abrirá para você.</p></div><div class="run-row"><label for="run-in">Abrir:</label><input id="run-in" type="text" autocomplete="off" spellcheck="false"></div><div class="dlg-btns"><button class="btn" type="submit">OK</button><button class="btn" type="button" data-act="close">Cancelar</button></div>`;
+    const win = makeWin({ title: "Executar", icon: "executable-0", cls: "win-dialog win-run", body, w: 360, center: true });
+    const input = body.querySelector("input");
+    try { input.value = localStorage.getItem("sr.run") || ""; } catch (_) {}
+    input.focus(); input.select();
+    input.addEventListener("keydown", e => { if (e.key === "Escape") closeWin(win); });
+    body.addEventListener("submit", e => {
+      e.preventDefault();
+      const c = input.value.trim();
+      if (!c) return;
+      try { localStorage.setItem("sr.run", c); } catch (_) {}
+      closeWin(win);
+      if (!runCmd(c)) {
+        const d = dialog("notfound");
+        d.querySelector(".nf-msg").textContent = `Não é possível encontrar '${c}'. Verifique se o nome foi digitado corretamente e tente novamente.`;
+      }
+    });
+  }
+
+  // ---------- logoff: tela rápida e recarrega a página ----------
+  function logoff() {
+    const o = doc.createElement("div");
+    o.className = "shutdown";
+    o.innerHTML = "<p>Fazendo logoff...</p>";
+    doc.body.append(o);
+    setTimeout(() => location.reload(), 1200);
+  }
+
+  // ---------- Ajuda: a página /sobre/ numa janela de HTML Help do 98 ----------
+  function openHelp() {
+    const old = desk.querySelector(".win-help");
+    if (old) return restore(old);
+    const body = doc.createElement("div");
+    body.className = "hlp";
+    body.innerHTML = `<div class="hlp-bar"><button type="button" class="hlp-btn" data-h="hide"><i>&#9703;</i><span>Ocultar</span></button><button type="button" class="hlp-btn" data-h="back" disabled><i>&#9664;</i><span>Voltar</span></button><button type="button" class="hlp-btn" data-h="opts"><i>&#9776;</i><span>Opções</span></button></div>
+<div class="hlp-main"><div class="hlp-nav"><div class="hlp-tabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-tab="toc">Conteúdo</button><button type="button" role="tab" data-tab="idx">Índice</button><button type="button" role="tab" data-tab="find">Pesquisar</button></div>
+<div class="hlp-panes"><div class="hlp-pane" data-pane="toc"></div><div class="hlp-pane" data-pane="idx" hidden></div><div class="hlp-pane" data-pane="find" hidden><label>Digite a palavra a procurar:<input type="text" spellcheck="false"></label><div class="hlp-results"></div></div></div></div>
+<div class="hlp-topic"><p class="hlp-wait">Carregando...</p></div></div>`;
+    const win = makeWin({ title: "Ajuda do Sinal e Ruído", icon: "help_book_big-0", cls: "win-help", body, w: 700, h: 470 });
+    const $ = s => body.querySelector(s);
+    const view = $(".hlp-topic"), nav = $(".hlp-nav"), backBtn = $("[data-h=back]");
+    let topics = [], hist = [];
+    const item = (t, icon) => { const b = doc.createElement("button"); b.type = "button"; b.dataset.i = t.i; b.className = "hlp-item"; b.innerHTML = `<img src="${ICONS}${icon}.png" alt="" width="16" height="16"><span></span>`; b.lastChild.textContent = t.title; return b; };
+    function show(i, fromBack) {
+      if (!fromBack) hist.push(i);
+      backBtn.disabled = hist.length < 2;
+      view.replaceChildren(...topics[i].nodes.map(n => n.cloneNode(true)));
+      view.scrollTop = 0;
+      body.querySelectorAll(".hlp-item").forEach(b => b.classList.toggle("is-sel", +b.dataset.i === i));
+    }
+    function build(nodes) {
+      let cur = { title: "Bem-vindo", nodes: [] };
+      const out = [];
+      for (const n of nodes) {
+        if (n.tagName === "H2") { out.push(cur); cur = { title: n.textContent.trim(), nodes: [] }; }
+        cur.nodes.push(n);
+      }
+      out.push(cur);
+      topics = out.filter(t => t.nodes.length).map((t, i) => Object.assign(t, { i }));
+      const toc = $("[data-pane=toc]");
+      const root = doc.createElement("div");
+      root.innerHTML = `<button type="button" class="hlp-book" aria-expanded="true"><img src="${ICONS}help_book_small-0.png" alt="" width="16" height="16"><span>Sinal e Ruído</span></button><div class="hlp-kids"></div>`;
+      root.querySelector(".hlp-kids").append(...topics.map(t => item(t, "help_question_mark-0")));
+      toc.append(root);
+      $("[data-pane=idx]").append(...[...topics].sort((a, b) => a.title.localeCompare(b.title, "pt")).map(t => item(t, "help_question_mark-0")));
+      show(0);
+    }
+    fetch(BASE + "/sobre/")
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+      .then(html => {
+        const pb = new DOMParser().parseFromString(html, "text/html").querySelector(".page-body");
+        if (!pb) throw new Error("sem .page-body");
+        build([...pb.children].filter(n => !n.matches("h1")).map(n => doc.adoptNode(n)));
+      })
+      .catch(() => { view.innerHTML = `<p>Não foi possível carregar a ajuda. <a href="${BASE}/sobre/">Abrir a página Sobre</a></p>`; });
+    body.addEventListener("click", e => {
+      const it = e.target.closest(".hlp-item"), tab = e.target.closest("[data-tab]"), h = e.target.closest("[data-h]");
+      if (it) show(+it.dataset.i);
+      else if (e.target.closest(".hlp-book")) { const b = e.target.closest(".hlp-book"); b.setAttribute("aria-expanded", String(b.getAttribute("aria-expanded") !== "true")); }
+      else if (tab) {
+        body.querySelectorAll("[data-tab]").forEach(b => b.setAttribute("aria-selected", String(b === tab)));
+        body.querySelectorAll("[data-pane]").forEach(p => { p.hidden = p.dataset.pane !== tab.dataset.tab; });
+      } else if (h) {
+        if (h.dataset.h === "hide") { nav.hidden = !nav.hidden; h.querySelector("span").textContent = nav.hidden ? "Mostrar" : "Ocultar"; }
+        else if (h.dataset.h === "back" && hist.length > 1) { hist.pop(); show(hist[hist.length - 1], true); }
+        else if (h.dataset.h === "opts") body.classList.toggle("hlp-big"); // Opções: só o tamanho do texto
+      }
+    });
+    $("[data-pane=find] input").addEventListener("input", e => {
+      const q = e.target.value.trim().toLowerCase(), res = $(".hlp-results");
+      res.replaceChildren(...(q ? topics.filter(t => (t.title + " " + t.nodes.map(n => n.textContent).join(" ")).toLowerCase().includes(q)).map(t => item(t, "help_question_mark-0")) : []));
+      if (q && !res.children.length) res.textContent = "Nenhum tópico encontrado.";
+    });
+  }
+
   // ---------- lançadores: ícones do desktop, menu Iniciar, data-open ----------
   // API mínima pros apps carregados sob demanda (mirc.js, mines.js).
   window.__snr = { makeWin, restore, ICONS, BASE, setLoading };
@@ -499,8 +612,11 @@
   }
   function launch(el) {
     const open = el.dataset.open;
-    if (el.href) { location.href = el.href; return; }
-    if (open === "browser") restore(browser);
+    if (el.href && !open) { location.href = el.href; return; }
+    if (open === "run") openRun();
+    else if (open === "logoff") logoff();
+    else if (open === "help") openHelp();
+    else if (open === "browser") restore(browser);
     else if (open === "dos") openDos();
     else if (open === "notepad") openNotepad();
     else if (open === "shutdown") doc.getElementById("shutdown").hidden = false;
@@ -545,7 +661,7 @@
   // data-open fora do desktop/menu (barra de menus, taskpane, status bar)
   doc.addEventListener("click", e => {
     const el = e.target.closest("[data-open]");
-    if (el && !el.closest(".dicons, .startmenu")) launch(el);
+    if (el && !el.closest(".dicons, .startmenu")) { if (el.href) e.preventDefault(); launch(el); }
     if (!e.target.closest(".win-menu, .startmenu, #start-btn")) closeMenus();
   });
   doc.addEventListener("keydown", e => { if (e.key === "Escape") closeMenus(); });

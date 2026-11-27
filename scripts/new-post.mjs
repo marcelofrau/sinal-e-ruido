@@ -2,7 +2,7 @@
 // Cria um post novo com frontmatter preenchido e data atual.
 // Uso:
 //   node scripts/new-post.mjs <secao> ["titulo do post"]
-// Seções: abas-abertas, entre-margens, o-que-fica, fora-de-escopo, fragmentos, ruido-branco
+// Seções: abas-abertas, entre-margens, o-que-fica, fora-de-escopo, linha-de-comando, fragmentos, ruido-branco
 // Em "fragmentos" e "ruido-branco" o título é opcional (slug automático).
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
@@ -12,6 +12,7 @@ const SECTIONS = [
   "entre-margens",
   "o-que-fica",
   "fora-de-escopo",
+  "linha-de-comando",
   "fragmentos",
   "ruido-branco",
 ];

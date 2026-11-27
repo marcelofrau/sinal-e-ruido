@@ -28,7 +28,7 @@
 </div>
 
 <div class="taskbar">
-  <button class="start" type="button" id="start-btn" aria-haspopup="menu" aria-expanded="false"><svg class="start-flag" width="16" height="16" aria-hidden="true"><use href="#i-start"/></svg>Iniciar</button>
+  <button class="start" type="button" id="start-btn" aria-haspopup="menu" aria-expanded="false"><img class="start-flag" src="{{ '/assets/icons/windows-0.png' | relative_url }}" alt="" width="16" height="16">Iniciar</button>
   <div class="tasks" id="tasks"></div>
   <div class="tray"><img src="{{ '/assets/icons/channels-3.png' | relative_url }}" alt="" width="16" height="16"><time id="clock"></time></div>
 </div>
@@ -62,9 +62,25 @@
   <p>Este documento foi transferido por uma conexão segura (HTTPS).</p>
   <p>Nenhum cookie, nenhum rastreador. Só um contador de visitas, como manda a tradição: um número anônimo no abacus.jasoncameron.dev, contado uma vez por sessão.</p>
 </template>
+<template id="tpl-dlg-update" data-title="Windows Update" data-icon="windows_update_large-4">
+  <p><b>Procurando atualizações...</b></p>
+  <p>Nenhuma atualização crítica encontrada. O site já está na última versão: a de hoje, publicada sem pressa.</p>
+</template>
+<template id="tpl-dlg-control" data-title="Painel de controle" data-icon="directory_control_panel-4">
+  <p>Aqui você ajustaria vídeo, som, mouse e fuso horário.</p>
+  <p>Mas está tudo no lugar: 800x600, 256 cores, e um fuso horário que só deixa o relógio da bandeja marcar o tempo de quem lê.</p>
+</template>
+<template id="tpl-dlg-printers" data-title="Impressoras" data-icon="printer-2">
+  <p>Nenhuma impressora instalada.</p>
+  <p>Para imprimir um texto, use o botão <b>Imprimir</b> do Netscape. Para guardar, o melhor formato continua sendo o papel de pão.</p>
+</template>
+<template id="tpl-dlg-notfound" data-title="Executar" data-icon="msg_warning-1">
+  <p class="nf-msg"></p>
+</template>
 <div class="shutdown" id="shutdown" hidden><p>Agora você pode desligar<br>o computador com segurança.</p><small>(clique para religar)</small></div>
 
 <script src="{{ '/assets/js/desktop.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/random.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/post-extras.js' | relative_url }}" defer></script>
 </body>
 </html>
