@@ -21,12 +21,13 @@ Blog pessoal estático. Jekyll 4.3 + GitHub Pages (deploy via Actions, não Page
 - Links para posts em listagens levam `data-popup` (abrem em janela popup via `assets/js/desktop.js`, que extrai o `.post` da página do post). Sem JS, viram link normal.
 - Índice estático `/index.json` (gerado de `_pages/index.json`) alimenta o botão Aleatório. Sempre via Liquid, nunca editar à mão o output.
 - Criar posts com `node scripts/new-post.mjs <secao> [titulo]` — não inventar front matter na mão.
-- Para postar: skill `postar` em `.claude/skills/postar/` (Claude Code e opencode).
+- Skills (`postar`, `digerir`, `distribuir`) ficam em `.claude/skills/`; o opencode lê esse caminho também, então não há cópia separada. Para postar: skill `postar`.
+- Subagentes `analyst` (raciocínio), `scout` (leitura barata) e `worker` (execução): `.claude/agents/` (Claude Code) e `.opencode/agents/` (opencode). Os do opencode não fixam `model` (há uma linha comentada pra preencher com o provider da máquina).
 - Comentários nos posts via giscus: IDs vêm das Actions Variables `GISCUS_REPO_ID`/`GISCUS_CATEGORY_ID` no CI (`scripts/prepare-giscus.mjs` gera o gitignored `_data/giscus.yml`). Sem as variáveis, build sai sem comentários. O loader fica em `assets/js/desktop.js` (`activateGiscus`), pois o popup extrai o `.post` sem executar scripts.
 
 ## Rascunhos e material bruto
 
-- `drafts/` é a bancada do dono: `ideas.md` (backlog de assuntos, por seção) e stubs por assunto em `drafts/<chave>/<slug>.md`. Local, gitignored e **excluído do build** (`exclude` no `_config.yml`) — como `inbox/`, nunca deve virar conteúdo do site: o repo é público.
+- `drafts/` é a bancada do dono: `ideas.md` (backlog de assuntos, por seção) e stubs por assunto em `drafts/<chave>/<slug>.md`. Versionado (pra levar entre máquinas) mas **excluído do build** (`exclude` no `_config.yml`) — como `inbox/`, nunca vira conteúdo do site. Atenção: o repo é público, então o que entra em `drafts/`, `_drafts/` e `inbox/` fica visível no GitHub; nada sensível ali.
 - `inbox/` é o material bruto capturado (uma mensagem do Telegram = um item `.md`: link + comentário cru). Sincronização: `node scripts/inbox-telegram.mjs` (bot próprio criado no @BotFather, token em `TELEGRAM_BOT_TOKEN`). Chat com bot não é e2e: nada sensível por ali.
 - `_drafts/` são rascunhos de posts: `node scripts/new-post.mjs --draft <secao> ["titulo"]` — front matter **sem** `date` (só entra na promoção). Preview: `jekyll serve --drafts`; o build de produção ignora a pasta.
 - Ideas.md → stubs por seção: skill `distribuir` (limpa do ideas.md o que virou stub). Inbox → rascunho: skill `digerir`. Publicação: sempre a skill `postar`.
